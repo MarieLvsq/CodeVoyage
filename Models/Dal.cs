@@ -69,21 +69,22 @@ namespace CodeVoyage.Models
         public int CreerEvenement(string Nom, DateTime Date, string Localisation, TypeEvenement TypeEvent)
         {
 
-            Evenement evenement = new Evenement() { Nom= Nom, Date= Date,Localisation= Localisation,TypeEvenement= TypeEvent};
+            Evenement evenement = new Evenement() { Nom= Nom, DateDeb= Date, DateFin = Date,Localisation = Localisation,TypeEvenement= TypeEvent};
 
             _bddContext.Evenements.Add(evenement);
             _bddContext.SaveChanges();
             return evenement.Id;
         }
 
-        public void ModifierEvenement(int id, string Nom, DateTime Date, string Localisation, TypeEvenement TypeEvent)
+        public void ModifierEvenement(int id, string Nom, DateTime DateDeb , DateTime DateFin  ,string Localisation, TypeEvenement TypeEvent)
         {
            Evenement evenement = _bddContext.Evenements.Find(id);
 
             if (evenement != null)
             {
                 evenement.Nom = Nom;
-                evenement.Date = Date;
+                evenement.DateDeb = DateDeb;
+                evenement.DateFin = DateFin;
                 evenement.Localisation = Localisation;
                 evenement.TypeEvenement = TypeEvent;
           
@@ -91,7 +92,13 @@ namespace CodeVoyage.Models
             }
       
         }
+        public void ModifierEvenement(Evenement evenement)
+        {
 
+
+            _bddContext.Evenements.Update(evenement);
+            _bddContext.SaveChanges();
+        }
         public void SupprimerEvenement(int id) // A tester
          {
              Evenement evenement = _bddContext.Evenements.Find(id);

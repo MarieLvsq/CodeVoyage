@@ -12,6 +12,8 @@ namespace CodeVoyage.Controllers
     public class EvenementController : Controller
     {
         // GET: /<controller>/
+        // methode creer événements
+
         public IActionResult CreerEvenement()
         {
 
@@ -32,8 +34,46 @@ namespace CodeVoyage.Controllers
             
             
         }
+        // methode modifier 
+        public IActionResult ModifierEvenement(int id)
+        {
+            if (id != 0)
+            {
+                using (Dal dal = new Dal())
+                {
+                    Evenement evenement = dal.ObtientTousLesEvenements().Where(e => e.Id == id).FirstOrDefault();
+                    if (evenement == null)
+                    {
+                        return View("Error");
+                    }
+                    return View(evenement);
+                }
+            }
+            return View("Error");
 
-        
+        }
+
+        [HttpPost]
+        public IActionResult ModifierEvenement (Evenement evenement)
+        {
+
+            if (!ModelState.IsValid)
+                return View(evenement);
+
+            if (evenement.Id != 0)
+            {
+                using (Dal dal = new Dal())
+                {
+                    dal.ModifierEvenement(evenement);
+                    return RedirectToAction("ModifierService", new { @id = evenement.Id });
+                }
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
         public IActionResult SupprimerEvenement(int id)
 
         {
@@ -44,6 +84,18 @@ namespace CodeVoyage.Controllers
 
             }
         }
-    
+        public ActionResult AfficherTousLesEvenements()
+
+        {
+            List<Evenement> evenements;
+            using (Dal dal = new Dal())
+            {
+                evenements = dal.ObtientTousLesEvenements();
+            }
+
+            return View(evenements);
+
+        }
+
     }
 }
