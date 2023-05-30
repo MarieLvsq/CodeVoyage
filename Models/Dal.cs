@@ -106,6 +106,7 @@ namespace CodeVoyage.Models
              }
          }
 
+
         // Méthodes Service
 
 
@@ -133,7 +134,10 @@ namespace CodeVoyage.Models
                 service.Id = Id;
                 service.nomService = nomService;
                 service.TypeService = TypeService;
-                service.Capacite = Capacite;                service.DateDeb = DateDeb;                service.DateFin = DateFin;                service.Prix = Prix;
+                service.Capacite = Capacite;
+                service.DateDeb = DateDeb;
+                service.DateFin = DateFin;
+                service.Prix = Prix;
 
                 _bddContext.SaveChanges();
             }
@@ -161,11 +165,73 @@ namespace CodeVoyage.Models
             }
         }
 
+
+        // Méthodes Itineraire
+
+
+        public List<Itineraire> ObtientTousLesItineraires()
+        {
+            return _bddContext.Itineraires.ToList();
+        }
+
+        public int CreerItineraire(string LieuDepart, String Destination, double Prix, MoyenDeTransport Transport, int NombreVoyageur, DateTime DateDepart, DateTime DateArrivee)
+        {
+
+            Itineraire itineraire = new Itineraire() { LieuDepart = LieuDepart, Destination = Destination, Prix = Prix, Transport = Transport, NombreVoyageur = NombreVoyageur, DateDepart = DateDepart, DateArrivee = DateArrivee };
+
+            _bddContext.Itineraires.Add(itineraire);
+            _bddContext.SaveChanges();
+            return itineraire.Id;
+        }
+
+        public void ModifierItineraire(int Id, string LieuDepart, String Destination, double Prix, MoyenDeTransport Transport, int NombreVoyageur, DateTime DateDepart, DateTime DateArrivee)
+        {
+            Itineraire itineraire = _bddContext.Itineraires.Find(Id);
+
+            if (itineraire != null)
+            {
+                itineraire.LieuDepart = LieuDepart;
+                itineraire.Destination = Destination;
+                itineraire.Prix = Prix;
+                itineraire.Transport = Transport;
+                itineraire.NombreVoyageur = NombreVoyageur;
+                itineraire.DateDepart = DateDepart;
+                itineraire.DateArrivee = DateArrivee;
+                _bddContext.SaveChanges();
+            }
+
+        }
+        public void ModifierItineraire(Itineraire itineraire)
+        {
+
+
+            _bddContext.Itineraires.Update(itineraire);
+            _bddContext.SaveChanges();
+        }
+        public void SupprimerItineraire(int id) // A tester
+        {
+            Itineraire itineraire = _bddContext.Itineraires.Find(id);
+
+
+            if (itineraire != null)
+            {
+
+                _bddContext.Itineraires.Remove(itineraire);
+
+                _bddContext.SaveChanges();
+            }
+        }
+
+
+
+
+
         public void Dispose()
         {
             _bddContext.Dispose();
         }
-        
+
+       
     }
 }
 

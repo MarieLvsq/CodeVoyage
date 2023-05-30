@@ -18,7 +18,7 @@ namespace CodeVoyage.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
             }
 
         public void InitializeDb()
@@ -63,40 +63,53 @@ namespace CodeVoyage.Models
                 }
 
                 );
-                this.Itineraires.AddRange(
-                new Itineraire
-                {
-                    Id = 1,
-                    DateDepart = new DateTime(2024, 02, 07),
-                    DateArrivee = new DateTime(2024, 02, 21),
-                    LieuDepart = "Paris",
-                    Destination = "Rio De Janeiro",
-                    NombreVoyageur = 40,
-                    Transport = ((MoyenDeTransport)0),
-                    Prix = 560
-                },
-                new Itineraire
-                {
-                    Id = 2,
-                    DateDepart = new DateTime(2023, 06, 30),
-                    DateArrivee = new DateTime(2023, 07, 14),
-                    LieuDepart = "Paris",
-                    Destination = "Toronto",
-                    NombreVoyageur = 50,
-                    Transport = ((MoyenDeTransport)0),
-                    Prix = 575
-                },
-                new Itineraire
-                {
-                    Id = 3,
-                    DateDepart = new DateTime(2023, 10, 15),
-                    DateArrivee = new DateTime(2023, 11, 01),
-                    LieuDepart = "Paris",
-                    Destination = "San Francisco",
-                    NombreVoyageur = 30,
-                    Transport = ((MoyenDeTransport)0),
-                    Prix = 560
-                });
+            this.Itineraires.AddRange(
+            new Itineraire
+            {
+                Id = 1,
+                DateDepart = new DateTime(2024, 02, 07),
+                DateArrivee = new DateTime(2024, 02, 21),
+                LieuDepart = "Paris",
+                Destination = "Rio De Janeiro",
+                NombreVoyageur = 40,
+                Transport = ((MoyenDeTransport)0),
+                Prix = 560
+            },
+            new Itineraire
+            {
+                Id = 2,
+                DateDepart = new DateTime(2023, 06, 30),
+                DateArrivee = new DateTime(2023, 07, 14),
+                LieuDepart = "Paris",
+                Destination = "Toronto",
+                NombreVoyageur = 50,
+                Transport = ((MoyenDeTransport)0),
+                Prix = 575
+            },
+            new Itineraire
+            {
+                Id = 3,
+                DateDepart = new DateTime(2023, 10, 15),
+                DateArrivee = new DateTime(2023, 11, 01),
+                LieuDepart = "Paris",
+                Destination = "San Francisco",
+                NombreVoyageur = 30,
+                Transport = ((MoyenDeTransport)0),
+                Prix = 560
+
+            },
+            new Itineraire
+            {
+                Id = 4,
+                DateDepart = new DateTime(2023, 09, 15),
+                DateArrivee = new DateTime(2023, 11, 25),
+                LieuDepart = "Test",
+                Destination = "Toronto",
+                NombreVoyageur = 50,
+                Transport = ((MoyenDeTransport)0),
+                Prix = 575
+
+            });
 
             this.Services.AddRange(
                 new Service
