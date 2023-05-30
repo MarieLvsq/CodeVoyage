@@ -1,0 +1,67 @@
+﻿@model CodeVoyage.Models.Itineraire
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SupprimerItineraire</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Supprimer un itinéraire: </legend>
+
+            @Html.LabelFor(m => Model.Id)
+            @Html.TextBoxFor(m => Model.Id)
+            @*@Html.ValidationMessageFor(m => Model.Id)*@
+            <br />
+
+            @Html.LabelFor(m => Model.LieuDepart)
+            @Html.TextBoxFor(m => Model.LieuDepart)
+            @*@Html.ValidationMessageFor(m => Model.LieuDepart)*@
+            <br />
+            @Html.LabelFor(m => Model.Destination)
+            @Html.TextBoxFor(m => Model.Destination)
+            @*Html.ValidationMessageFor(m => Model.Destination)*@
+            <br />
+            @Html.LabelFor(m => Model.Prix)
+            @Html.TextBoxFor(m => Model.Prix)
+            @*Html.ValidationMessageFor(m => Model.Prix)*@
+            <br />
+            @Html.LabelFor(m => Model.Transport)
+            @Html.DropDownListFor(m => m.Transport, Html.GetEnumSelectList<CodeVoyage.Models.MoyenDeTransport>(), "Selectionner un transport")
+
+            @*Html.ValidationMessageFor(m => Model.Transport)*@
+            <br />
+            @Html.LabelFor(m => Model.NombreVoyageur)
+            @Html.TextBoxFor(m => Model.NombreVoyageur)
+            @*Html.ValidationMessageFor(m => Model.NombreVoyageur)*@
+            <br />
+            @Html.LabelFor(m => Model.DateDepart )
+            @Html.TextBoxFor(m => Model.DateDepart, new { type="date"})
+            @*Html.ValidationMessageFor(m => Model.DateDepart)*@
+            <br />
+            @Html.LabelFor(m => Model.DateArrivee)
+            @Html.TextBoxFor(m => Model.DateArrivee , new { type="date"})
+            @*Html.ValidationMessageFor(m => Model.DateArrivee)*@
+            <br />
+
+            <input type="submit" value="Supprimer" />
+        </fieldset>
+    }
+</body>
+@section Menu{
+    <ul>
+        <li>@Html.ActionLink("Accueil", "Index","Home")</li>
+        <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement","Evenement")</li>
+        <li>@Html.ActionLink("Ajout d'Itineraire", "CreerItineraire","Itineraire")</li>
+        <li>@Html.ActionLink("Modifier Itineraire", "ModifierItineraire","Itineraire")</li>
+        <li>@Html.ActionLink("Suppression d'Itineraire", "SupprimerItineraire","Itineraire")</li>
+
+    </ul>
+}
+</html>
