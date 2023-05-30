@@ -97,12 +97,12 @@ namespace CodeVoyage.Controllers
             }
 
 
-
-        }
-           
             return View(services);
 
-    }
+            }
+
+
+        }
 
 
 }
