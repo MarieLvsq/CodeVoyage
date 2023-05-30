@@ -27,6 +27,18 @@ namespace CodeVoyage.Models
             int CreerService(string nomService, TypeService TypeService, int Capacite, DateTime Date, double Prix);
             void ModifierService(int Id, string nomService, TypeService TypeService, int Capacite, DateTime Date, double Prix);
             void SupprimerService(int id);
+
+
+
+            //Methodes Itineraire
+            List<Itineraire> ObtientTousLesItineraires();
+
+            int CreerItineraire(string LieuDepart, String Destination, double Prix, MoyenDeTransport Transport, int NombreVoyageur, DateTime DateDepart, DateTime DateArrivee);
+            void ModifierItineraire(int Id, string LieuDepart, String Destination, double Prix, MoyenDeTransport Transport, int NombreVoyageur, DateTime DateDepart, DateTime DateArrivee);
+            void SupprimerItineraire(int Id);
+
+
+
         }
     }
    

@@ -95,12 +95,14 @@ namespace CodeVoyage.Controllers
             {
                 services = dal.ObtientTousLesServices();
             }
-           
+
+
             return View(services);
 
-       }
+            }
 
-    }
+
+        }
 
 
 }
