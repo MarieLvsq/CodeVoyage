@@ -1,0 +1,89 @@
+﻿
+
+@model List<CodeVoyage.Models.Service>
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Liste de services</title>
+</head>
+<body>
+    <table border="1">
+
+        <tr>
+
+
+
+            <th>
+
+                Nom du Service
+
+            </th>
+
+            <th>
+
+                Type de Service
+
+            </th>
+
+            <th>
+
+                Capacité
+
+            </th>
+
+            <th>
+
+                Date de début
+
+            </th>
+            <th>
+
+                Date de fin
+
+            </th>
+
+            <th>
+
+                Prix
+
+            </th>
+            <th></th>
+
+        </tr>
+
+        @foreach (var service in Model)
+            {
+            <tr>
+                <td>@service.nomService</td>
+                <td>@service.TypeService</td>
+                <td>@service.Capacite</td>
+                <td>@service.DateDeb</td>
+                <td>@service.DateFin</td>
+                <td>@service.Prix</td>
+                <td>
+                        <form method= "get" action="@("/Service/ModifierService/"+service.Id)">
+
+                            <input type="submit" value="Modifier" />
+                        </form>
+                    </td>
+                <td>
+                    <form method="get" action="@("/Service/SupprimerService/"+service.Id)">
+
+                        <input type="submit" value="Supprimer" />
+                    </form>
+                </td>
+            </tr>
+        }
+
+
+    </table>
+
+</body>
+
+</html>

@@ -18,7 +18,9 @@ namespace CodeVoyage.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
+
             optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
+
             }
 
         public void InitializeDb()

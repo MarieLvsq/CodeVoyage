@@ -23,11 +23,12 @@
 
 @section Menu{
     <ul>
-        <li class="selectionne">@Html.ActionLink("Accueil", "Index")</li>
-        <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement","Evenement")</li>
+        <li class="selectionne">@Html.ActionLink("Accueil", "Index", "Home")</li>
+        <li>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
+        <li >@Html.ActionLink("Affichage de service", "AfficherTousLesServices", "Service")</li>
+        <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement", "Evenement")</li>
         <li>@Html.ActionLink("Ajout d'Itineraire", "CreerItineraire","Itineraire")</li>
         <li>@Html.ActionLink("Affichage d'Itineraire", "AfficherTousLesItineraires", "Itineraire")</li>
-       
     </ul>
 }
-<p class="contenu">Ici c'est la page d'accueil avec les news du site, etc.</p>
+    <p class="contenu">Ici c'est la page d'accueil avec les news du site, etc.</p>

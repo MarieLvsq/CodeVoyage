@@ -2,32 +2,21 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CodeVoyage.Controllers
 {
     public class ServiceController : Controller
     {
-       public IActionResult CreerService()
+
+        // Méthodes Créer
+
+        public IActionResult CreerService()
         {
             return View();
         }
 
-        //public IActionResult ModifierService(int id)
-        //{
-        //    if (id != 0)
-        //    {
-        //        using (Dal dal = new Dal())
-        //        {
-        //            Service service = dal.ObtientTousLesServices().Where(s => s.Id == id).FirstOrDefault();
-        //            if (service == null)
-        //            {
-        //                return View("Error");
-        //            }
-        //            return View(service);
-        //        }
-        //    }
-        //    return View("Error");
-        //}
         [HttpPost]
         public IActionResult CreerService(string nomService, TypeService TypeService, int Capacite, DateTime DateDeb, DateTime DateFin, double Prix)
         {
@@ -35,21 +24,44 @@ namespace CodeVoyage.Controllers
 
             using (Dal dal = new Dal())
             {
-                dal.CreerService(nomService, TypeService, Capacite,  DateDeb, DateFin, Prix);
+                dal.CreerService(nomService, TypeService, Capacite, DateDeb, DateFin, Prix);
                 return RedirectToAction("CreerService");
             }
 
 
         }
-        //public ActionResult Index()
+        //Méthodes Supprimer
 
-        //{
+        public IActionResult SupprimerService(int id)
 
-        //    
+        {
+            using (Dal dal = new Dal())
+            {
+                dal.SupprimerService(id);
+                
+                return RedirectToAction("AfficherTousLesServices");
 
-        //    return View(entites.Services.ToList());
+            }
+        }
+        //Méthodes Modifier
 
-        //}
+        public IActionResult ModifierService(int id)
+        {
+            if (id != 0)
+            {
+                using (Dal dal = new Dal())
+                {
+                    Service service = dal.ObtientTousLesServices().Where(s => s.Id == id).FirstOrDefault();
+                    if (service == null)
+                    {
+                        return View("Error");
+                    }
+                    return View(service);
+                }
+            }
+            return View("Error");
+
+        }
 
         [HttpPost]
         public IActionResult ModifierService(Service service)
@@ -72,19 +84,24 @@ namespace CodeVoyage.Controllers
             }
         }
 
+        //Méthodes affichage 
 
-        public IActionResult SupprimerService(int id)
+
+        public ActionResult AfficherTousLesServices()
 
         {
+            List<Service> services;
             using (Dal dal = new Dal())
             {
-                dal.SupprimerService(id);
-                return RedirectToAction("SupprimerService");
-
+                services = dal.ObtientTousLesServices();
             }
 
 
+
         }
+           
+            return View(services);
+
     }
 
 
