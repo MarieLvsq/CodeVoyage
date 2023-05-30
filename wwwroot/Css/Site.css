@@ -1,0 +1,66 @@
+﻿#entete, #menu, #contenu, #footer {
+    padding: 1px 0;
+    font-family: 'Avenir', sans-serif;
+}
+
+#entete {
+    background-color: gold;
+    text-align: center;
+    background: #FF9900 url("/Content/Images/supertuto.png") 5px center no-repeat;
+    background-size: 100px;
+}
+
+#main {
+    margin: auto;
+}
+
+#menu {
+    float: right;
+    width: 240px;
+    background-color: lightsalmon;
+}
+
+#contenu {
+    
+    background-color: sandybrown;
+}
+
+#footer {
+    background-color: rosybrown;
+    text-align: center;
+    clear: both;
+}
+
+.titre {
+    text-align: center;
+}
+
+.selectionne {
+    color: red;
+}
+nav ul {
+    list-style-type: none;
+}
+
+    nav ul li {
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+.search-bar input[type="text"] {
+    padding: 5px;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}

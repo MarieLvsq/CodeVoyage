@@ -1,0 +1,32 @@
+﻿@model CodeVoyage.Models.Evenement
+@{
+    ViewBag.Title = "Accueil";
+    Layout = "_LayoutDuSite";
+}
+
+<header>
+    <h3 class="titre">Accueil du site CodeVoyage</h3>
+    <nav>
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Destinations</a></li>
+            <li><a href="#">Événements</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="search-bar">
+        <input type="text" placeholder="Rechercher un événement">
+        <button type="submit">Rechercher</button>
+    </div>
+</header>
+
+@section Menu{
+    <ul>
+        <li class="selectionne">@Html.ActionLink("Accueil", "Index")</li>
+        <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement","Evenement")</li>
+
+
+    </ul>
+}
+<p class="contenu">Ici c'est la page d'accueil avec les news du site, etc.</p>

@@ -1,0 +1,53 @@
+﻿@model CodeVoyage.Models.Service
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CréerService</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Proposer un service: </legend>
+            @Html.LabelFor(m => Model.nomService)
+            @Html.TextBoxFor(m => Model.nomService)
+            @*@Html.ValidationMessageFor(m => Model.Nom)*@
+            <br />
+            @Html.LabelFor(m => Model.TypeService)
+            @Html.TextBoxFor(m => Model.TypeService)
+            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+            <br />
+            @Html.LabelFor(m => Model.Capacite)
+            @Html.TextBoxFor(m => Model.Capacite)
+            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+            <br />
+            @Html.LabelFor(m => Model.DateDeb)
+            @Html.TextBoxFor(m => Model.DateDeb, new { type = "date" })
+            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+            <br />
+            @Html.LabelFor(m => Model.DateFin)
+            @Html.TextBoxFor(m => Model.DateFin, new { type = "date" })
+            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+            <br />
+            @Html.LabelFor(m => Model.Prix)
+            @Html.TextBoxFor(m => Model.Prix)
+            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+            <input type="submit" value="Ajouter" />
+        </fieldset>
+    }
+</body>
+@section Menu{
+    <ul>
+        <li>@Html.ActionLink("Accueil", "Index","Home")</li>
+        <li class="selectionne>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
+        <li">@Html.ActionLink("Ajout d'Evenement", "CreerEvenement", "Evenement")</li>
+
+
+    </ul>
+}
+</html>

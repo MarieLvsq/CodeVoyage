@@ -1,0 +1,44 @@
+﻿@model CodeVoyage.Models.Evenement
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CréerEvenement</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Créer un évènement: </legend>
+            @Html.LabelFor(m => Model.Nom)
+            @Html.TextBoxFor(m => Model.Nom)
+            @*@Html.ValidationMessageFor(m => Model.Nom)*@
+            <br />
+            @Html.LabelFor(m => Model.Localisation)
+            @Html.TextBoxFor(m => Model.Localisation)
+            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+            <br />
+            @Html.LabelFor(m => Model.Date)
+            @Html.TextBoxFor(m => Model.Date, new { type = "date" })
+            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+            <br />
+            @Html.LabelFor(m => Model.TypeEvenement)
+            @Html.TextBoxFor(m => Model.TypeEvenement)
+            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+            <input type="submit" value="Ajouter" />
+        </fieldset>
+    }
+</body>
+@section Menu{
+    <ul>
+        <li >@Html.ActionLink("Accueil", "Index","Home")</li>
+        <li class="selectionne">@Html.ActionLink("Ajout d'Evenement", "CreerEvenement", "Evenement")</li>
+
+
+    </ul>
+}
+</html>
