@@ -1,0 +1,80 @@
+﻿@model List<CodeVoyage.Models.Evenement>
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Liste des Evènements</title>
+</head>
+<body>
+    <table border="1">
+
+        <tr>
+
+
+
+            <th>
+
+                Nom de l'Evènement
+
+            </th>
+
+            <th>
+
+                Date de Début
+
+            </th>
+            <th>
+
+                Date de Fin
+
+            </th>
+            <th>
+            
+                Localisation
+
+            </th>
+
+
+            <th>
+
+                Type d'Evènement
+
+            </th>
+            <th></th>
+
+        </tr>
+
+        @foreach (var evenement in Model)
+        {
+            <tr>
+                <td>@evenement.Nom</td>
+                <td>@evenement.DateDeb</td>
+                <td>@evenement.DateFin</td>
+                <td>@evenement.Localisation</td>
+                <td>@evenement.TypeEvenement</td>
+                
+                <td>
+                    <form method="get" action="@("/Evenement/ModifierEvenement/"+evenement.Id)">
+
+                        <input type="submit" value="Modifier" />
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="@("/Evenement/SupprimerEvenement/"+evenement.Id)">
+
+                        <input type="submit" value="Supprimer" />
+                    </form>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</body>
+
+</html>

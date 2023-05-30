@@ -16,19 +16,23 @@
             <legend>Créer un évènement: </legend>
             @Html.LabelFor(m => Model.Nom)
             @Html.TextBoxFor(m => Model.Nom)
-            @*@Html.ValidationMessageFor(m => Model.Nom)*@
+            
             <br />
             @Html.LabelFor(m => Model.Localisation)
             @Html.TextBoxFor(m => Model.Localisation)
-            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+           
             <br />
-            @Html.LabelFor(m => Model.Date)
-            @Html.TextBoxFor(m => Model.Date, new { type = "date" })
-            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+            @Html.LabelFor(m => Model.DateDeb)
+            @Html.TextBoxFor(m => Model.DateDeb, new { type = "date" })
+            
             <br />
+            @Html.LabelFor(m => Model.DateFin)
+            @Html.TextBoxFor(m => Model.DateFin, new { type = "date" })
+            <br />
+
             @Html.LabelFor(m => Model.TypeEvenement)
             @Html.TextBoxFor(m => Model.TypeEvenement)
-            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+            
             <input type="submit" value="Ajouter" />
         </fieldset>
     }

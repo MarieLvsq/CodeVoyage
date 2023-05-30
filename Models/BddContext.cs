@@ -20,7 +20,6 @@ namespace CodeVoyage.Models
             {
 
             optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
-
             }
 
         public void InitializeDb()
@@ -32,7 +31,8 @@ namespace CodeVoyage.Models
                 {
                     Id = 1,
                     Nom = "Carnaval de Rio",
-                    Date = new DateTime(2024, 02, 09),
+                    DateDeb = new DateTime(2024, 02, 09),
+                    DateFin = new DateTime(2024, 02, 17),
                     Localisation = "Rio",
                     TypeEvenement = ((TypeEvenement)3)
                 },
@@ -40,7 +40,8 @@ namespace CodeVoyage.Models
                 {
                     Id = 2,
                     Nom = "Caribana festival",
-                    Date = new DateTime(2023, 07, 01),
+                    DateDeb = new DateTime(2023, 07, 01),
+                    DateFin = new DateTime(2023, 08, 30),
                     Localisation = "Toronto",
                     TypeEvenement = ((TypeEvenement)3)
 
@@ -49,7 +50,8 @@ namespace CodeVoyage.Models
                 {
                     Id = 3,
                     Nom = "Atlanta Arts",
-                    Date = new DateTime(2023, 09, 01),
+                    DateDeb = new DateTime(2023, 09, 01),
+                    DateFin = new DateTime(2023, 09, 30),
                     Localisation = "Piedmont Park",
                     TypeEvenement = ((TypeEvenement)1)
 
@@ -58,7 +60,8 @@ namespace CodeVoyage.Models
                 {
                     Id = 4,
                     Nom = "San Francisco Fall Antiques Show",
-                    Date = new DateTime(2023, 10, 01),
+                    DateDeb = new DateTime(2023, 10, 01),
+                    DateFin = new DateTime(2023, 10, 31),
                     Localisation = "San Francisco",
                     TypeEvenement = ((TypeEvenement)1)
 

@@ -15,7 +15,6 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="wwwroot\" />
-    <Folder Include="Views\Evenement\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\Css\" />
     <Folder Include="Views\Home\" />
