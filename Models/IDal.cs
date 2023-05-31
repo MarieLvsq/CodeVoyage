@@ -37,6 +37,15 @@ namespace CodeVoyage.Models
             void ModifierItineraire(int Id, string LieuDepart, String Destination, double Prix, MoyenDeTransport Transport, int NombreVoyageur, DateTime DateDepart, DateTime DateArrivee);
             void SupprimerItineraire(int Id);
 
+            //Methodes Partenaire
+
+            public List<Partenaire> ObtientTousLesPartenaires();
+
+            int InscriptionPartenaire(string Nom, string Localisation, string email, string numSiret, TypeService typeService, Role role);
+            void ModifierPartenaire(int Id, string Nom, string Localisation, string email, string numSiret, TypeService typeService, Role role);
+            void SupprimerPartenaire(int id);
+
+
 
 
         }

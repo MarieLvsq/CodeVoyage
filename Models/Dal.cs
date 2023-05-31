@@ -229,8 +229,62 @@ namespace CodeVoyage.Models
             }
         }
 
+        // Methode partenaire
+        public List<Partenaire> ObtientTousLesPartenaires()
+        {
+            return _bddContext.Partenaires.ToList();
+        }
+
+        public int InscriptionPartenaire(string Nom, string Localisation, string email, string numSiret, TypeService typeService, Role role)
+        {
+
+            Partenaire partenaire = new Partenaire() { Nom = Nom, Localisation = Localisation, email= email, NumSiret = numSiret, TypeService = typeService, Role=role };
+
+            _bddContext.Partenaires.Add(partenaire);
+            _bddContext.SaveChanges();
+            return partenaire.Id;
+        }
+
+        public void ModifierPartenaire(int Id, string Nom, string Localisation, string email, string numSiret, TypeService typeService, Role role)
+        {
+            Partenaire partenaire = _bddContext.Partenaires.Find(Id);
+
+            if (partenaire != null)
+            {
+                partenaire.Id = Id;
+                partenaire.Nom = Nom;
+                partenaire.Localisation = Localisation;
+                partenaire.email = email;
+                partenaire.NumSiret = numSiret;
+                partenaire.TypeService = typeService; 
+                partenaire.Role = role;
+                
+
+                _bddContext.SaveChanges();
+            }
+
+        }
+        public void ModifierPartenaire(Partenaire partenaire)
+        {
 
 
+            _bddContext.Partenaires.Update(partenaire);
+            _bddContext.SaveChanges();
+        }
+
+        public void SupprimerPartenaire(int id) 
+        {
+            Partenaire partenaire = _bddContext.Partenaires.Find(id);
+
+
+            if (partenaire != null)
+            {
+
+                _bddContext.Partenaires.Remove(partenaire);
+
+                _bddContext.SaveChanges();
+            }
+        }
 
 
         public void Dispose()
