@@ -11,6 +11,7 @@ namespace CodeVoyage.Models
     public class Dal : IDal, IDisposable
     {
         private BddContext _bddContext;
+
         public Dal()
         {
             _bddContext = new BddContext();
