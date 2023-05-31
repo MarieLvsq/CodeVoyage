@@ -149,6 +149,66 @@ namespace CodeVoyage.Models
                 });;
 
 
+             this.Membres.AddRange(
+             new Membre
+            {
+                Id = 1,
+                Nom = "Garou",
+                Prenom = "Vincent",
+                Email="V.garou@gmail.com",
+                Statut = Statut.Bronze,
+                Localisation = "Torento",
+                Age = 43,
+                User = Role.Association
+            },
+              new Membre
+              {
+                  Id = 2,
+                  Nom = "DION",
+                  Prenom = "Jean",
+                  Email = "jean.dion@gmail.com",
+                  Statut = Statut.Argent,
+                  Localisation = "Paris",
+                  Age = 32,
+                  User =Role.Particulier
+              },
+
+                new Membre
+                {
+                    Id = 3,
+                    Nom = "DILAN",
+                    Prenom = "Robert",
+                    Email = "robertDilan@gmail.com",
+                    Statut = Statut.Diamant,
+                    Localisation = "Bruxelles",
+                    Age = 23,
+                    User = Role.Entreprise
+
+                },
+                 new Membre
+                  {
+                      Id = 4,
+                      Nom = "GASPARD",
+                      Prenom = "Lea",
+                      Email = "l.gaspard@gmail.com",
+                      Statut = Statut.Platine,
+                      Localisation = "Orléans",
+                      Age = 25,
+                      User = Role.Entreprise
+                  },
+
+                 new Membre
+                 {
+                     Id = 5,
+                     Nom = "Mirales",
+                     Prenom = "Octave",
+                     Email = "omirales@gmail.com",
+                     Statut = Statut.Or,
+                     Localisation = "Geneve",
+                     Age = 71,
+                     User = Role.Admin
+                 }); ;
+
             this.SaveChanges();
         }
 

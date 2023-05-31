@@ -93,7 +93,7 @@ namespace CodeVoyage.Controllers
                 dal.SupprimerItineraire(Id);
 
 
-                return RedirectToAction("SupprimerItineraire");
+                return RedirectToAction("AfficherTousLesItineraires");
             }
         }
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net.Cache;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -229,6 +231,66 @@ namespace CodeVoyage.Models
             }
         }
 
+
+        // methodes Membres
+
+        
+
+
+        public List<Membre> ObtientTousLesMembres()
+        {
+            return _bddContext.Membres.ToList();
+        }
+
+        public int InscriptionMembre(string Nom, string Prenon, string Email, Statut Statut, string Localisation, int Age, Role user)
+        { 
+            Membre membre = new Membre() { Nom=Nom ,Prenom=Prenon ,Email=Email ,Statut=Statut ,Localisation=Localisation  ,Age=Age , User = user };
+
+        
+      
+        _bddContext.Membres.Add(membre);
+            _bddContext.SaveChanges();
+            return membre.Id;
+        }
+
+        public void ModifierMembre(int Id, string Nom, string Prenon, string Email, Statut Statut, string Localisation, int Age, Role user)
+        {
+            Membre membre = _bddContext.Membres.Find(Id);
+
+            if (membre != null)
+            {
+                membre.Nom = Nom;
+                membre.Prenom = Prenon;
+                membre.Email = Email;
+                membre.Statut = Statut;
+                membre.Localisation = Localisation;
+                membre.Age = Age;
+                membre.User = user; 
+                
+                _bddContext.SaveChanges();
+            }
+
+        }
+        public void ModifierMembre(Membre membre)
+        {
+
+
+            _bddContext.Membres.Update(membre);
+            _bddContext.SaveChanges();
+        }
+        public void SupprimerMembre(int id) // A tester
+        {
+            Membre membre = _bddContext.Membres.Find(id);
+
+
+            if (membre != null)
+            {
+
+                _bddContext.Membres.Remove(membre);
+
+                _bddContext.SaveChanges();
+            }
+        }
 
 
 
