@@ -11,6 +11,8 @@ namespace CodeVoyage.Models
         public int NombreVoyageur { get; set; }
         public DateTime DateDepart { get; set; }
         public DateTime DateArrivee { get; set; }
+
+        
     }
 }
 

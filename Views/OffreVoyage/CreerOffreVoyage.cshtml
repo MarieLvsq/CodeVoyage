@@ -1,0 +1,59 @@
+﻿@model CodeVoyage.Models.OffreVoyage
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CréerOffreVoyage</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Proposer une offreVoyage: </legend>
+            @Html.LabelFor(m => Model.Itineraire)
+            @Html.DropDownListFor(m => m.Itineraire, new SelectList(Model.Itineraire), "Sélectionner un élément")
+            @*@Html.TextBoxFor(m => Model.Itineraire)*@
+           
+            <br />
+            @Html.LabelFor(m => Model.Event)
+            @Html.TextBoxFor(m => Model.Event)
+           
+            <br />
+            @Html.LabelFor(m => Model.Service)
+            @Html.TextBoxFor(m => Model.Service)
+           
+            <br />
+            @Html.LabelFor(m => Model.ServiceEx)
+            @Html.TextBoxFor(m => Model.ServiceEx)
+            
+            <br />
+            @Html.LabelFor(m => Model.Remise)
+            @Html.TextBoxFor(m => Model.Remise)
+           
+            <br />
+            @Html.LabelFor(m => Model.prixAffiche)
+            @Html.TextBoxFor(m => Model.prixAffiche)
+
+            <br />
+            @Html.LabelFor(m => Model.prixTotal)
+            @Html.TextBoxFor(m => Model.prixTotal)
+            
+            <input type="submit" value="Ajouter" />
+        </fieldset>
+    }
+</body>
+@section Menu{
+    <ul>
+        <li>@Html.ActionLink("Accueil", "Index","Home")</li>
+        <li>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
+        <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement", "Evenement")</li>
+        <li class ="selectionne">@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
+
+        
+    </ul>
+}
+</html>

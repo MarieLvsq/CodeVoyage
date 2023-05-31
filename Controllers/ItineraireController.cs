@@ -41,6 +41,8 @@ namespace CodeVoyage.Controllers
                 itineraire = dal.ObtientTousLesItineraires();
             }
 
+
+
             return View(itineraire);
 
         }
@@ -93,7 +95,7 @@ namespace CodeVoyage.Controllers
                 dal.SupprimerItineraire(Id);
 
 
-                return RedirectToAction("SupprimerItineraire");
+                return RedirectToAction("AfficherLesItinerairesItineraires");
             }
         }
 
