@@ -5,7 +5,7 @@ namespace CodeVoyage.Models
 	{
         public int Id { get; set; }
         public int MembreId  { get; set; }
-        public OffreVoyage OffrePayee { get; set; }
+        public virtual OffreVoyage OffrePayee { get; set; }
     }
 }
 

@@ -9,7 +9,6 @@ namespace CodeVoyage.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Le nom doit être rempli.")]
         public string Nom { get; set; }
-        
         public string Localisation { get; set; }
         public string email { get; set; }
 
