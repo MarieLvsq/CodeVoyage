@@ -38,6 +38,20 @@ namespace CodeVoyage.Models
             void SupprimerItineraire(int Id);
 
 
+            //Methodes Partenaire
+
+            public List<Partenaire> ObtientTousLesPartenaires();
+
+            int InscriptionPartenaire(string Nom, string Localisation, string email, string numSiret, TypeService typeService, Role role);
+            void ModifierPartenaire(int Id, string Nom, string Localisation, string email, string numSiret, TypeService typeService, Role role);
+            void SupprimerPartenaire(int id);
+
+            //Methodes Membres
+
+            List<Service> ObtientTousLesMembres();
+            int InscriptionMembre(string Nom, string Prenon, string Email, Statut Statut, string Localisation, int Age, Role user);
+            void ModifierMembre(int Id, string Nom, string Prenon, string Email, Statut Statut, string Localisation, int Age, Role user);
+            void SupprimerMembre(int id);
 
         }
     }

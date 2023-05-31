@@ -1,4 +1,4 @@
-﻿@model CodeVoyage.Models.Evenement
+@model CodeVoyage.Models.Evenement
 @{
     ViewBag.Title = "Accueil";
     Layout = "_LayoutDuSite";
@@ -30,6 +30,10 @@
         <li>@Html.ActionLink("Affichage des Evènements", "AfficherTousLesEvenements", "Evenement")</li>
         <li>@Html.ActionLink("Ajout d'Itineraire", "CreerItineraire","Itineraire")</li>
         <li>@Html.ActionLink("Affichage d'Itineraire", "AfficherTousLesItineraires", "Itineraire")</li>
+        <li>@Html.ActionLink("Inscription Membre", "InscriptionMembre","Membre")</li>
+        <li>@Html.ActionLink("Affichage des Membres", "AfficherTousLesMembres", "Membre")</li>
+        <li>@Html.ActionLink("Incription d'un partenaire", "InscriptionPartenaire", "Partenaire")</li>
+        <li>@Html.ActionLink("Liste des partenaires", "AfficherTousLesPartenaires", "Partenaire")</li>
         <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
         <li>@Html.ActionLink("Affichage des Offres de voyages", "AfficherToutesLesOffresVoyages", "OffreVoyage")</li>
     </ul>

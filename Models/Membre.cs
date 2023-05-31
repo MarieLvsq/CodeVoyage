@@ -1,9 +1,9 @@
 ﻿using System;
 namespace CodeVoyage.Models
 {
-	public class Membre
-	{
-		public int Id { get; set; }
+    public class Membre
+    {
+        public int Id { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Email { get; set; }
@@ -12,7 +12,6 @@ namespace CodeVoyage.Models
         public int Age { get; set; }
         public Role User { get; set; }
 
-        
-	}
+    }
 }
 

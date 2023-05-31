@@ -7,7 +7,7 @@ namespace CodeVoyage.Models
 		Entreprise,
 		Association,
 		Admin
-
-	}
+        
+    }
 }
 
