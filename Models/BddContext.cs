@@ -19,7 +19,7 @@ namespace CodeVoyage.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
             }
 
         public void InitializeDb()
@@ -147,7 +147,37 @@ namespace CodeVoyage.Models
                     TypeService = ((TypeService)1),
                     Prix = 200
                 });;
-
+            this.Partenaires.AddRange(
+            new Partenaire
+            {
+                Id = 1,
+                Nom = "Holiday Inn",
+                Localisation = "Paris",
+                email = "service-reservation@holidayinn.com",
+                NumSiret = "10120125630",
+                TypeService = ((TypeService)2),
+                Role = Role.Entreprise,
+            },
+            new Partenaire
+            {
+                Id = 2,
+                Nom = "Air France",
+                Localisation = "Paris",
+                email = "flights-booking@air-france.fr",
+                NumSiret = "87895000000000",
+                TypeService = TypeService.Transport,
+                Role = Role.Entreprise
+            },
+            new Partenaire
+            {
+                Id = 3,
+                Nom = "Cozinha Tradicional",
+                Localisation = "Rio de Janeiro",
+                email = "cozinha@gmail.com",
+                NumSiret = "1882378500",
+                TypeService = TypeService.Restauration,
+                Role = Role.Entreprise
+            });
 
             this.SaveChanges();
         }
