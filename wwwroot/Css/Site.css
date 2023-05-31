@@ -1,10 +1,11 @@
 ﻿#entete, #menu, #contenu, #footer {
     padding: 1px 0;
     font-family: 'Avenir', sans-serif;
+    
 }
 
 #entete {
-    background-color: gold;
+    background-color: black;
     text-align: center;
     background: #FF9900 url("/Content/Images/supertuto.png") 5px center no-repeat;
     background-size: 100px;

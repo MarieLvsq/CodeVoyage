@@ -41,6 +41,8 @@ namespace CodeVoyage.Controllers
                 itineraire = dal.ObtientTousLesItineraires();
             }
 
+
+
             return View(itineraire);
 
         }
@@ -94,6 +96,7 @@ namespace CodeVoyage.Controllers
 
 
                 return RedirectToAction("AfficherTousLesItineraires");
+
             }
         }
 

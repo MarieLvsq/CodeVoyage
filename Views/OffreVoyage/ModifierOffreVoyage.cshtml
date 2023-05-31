@@ -1,0 +1,61 @@
+﻿@model CodeVoyage.Models.OffreVoyage
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ModifierOffreVoyage</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Modifier une offre de Voyage: </legend>
+            @Html.LabelFor(m => Model.Itineraire)
+            @Html.TextBoxFor(m => Model.Itineraire)
+            @Html.ValidationMessageFor(m => Model.Itineraire)
+            <br />
+            @Html.LabelFor(m => Model.Event)
+            @Html.TextBoxFor(m => Model.Event)
+            @Html.ValidationMessageFor(m => Model.Event)
+            <br />
+            @Html.LabelFor(m => Model.Service)
+            @Html.TextBoxFor(m => Model.Service)
+            @Html.ValidationMessageFor(m => Model.Service)
+            <br />
+            @Html.LabelFor(m => Model.ServiceEx)
+            @Html.TextBoxFor(m => Model.ServiceEx)
+            @Html.ValidationMessageFor(m => Model.ServiceEx)
+            <br />
+            @Html.LabelFor(m => Model.prixAffiche)
+            @Html.TextBoxFor(m => Model.prixAffiche)
+            @Html.ValidationMessageFor(m => Model.prixAffiche)
+            <br />
+            @Html.LabelFor(m => Model.prixTotal)
+            @Html.TextBoxFor(m => Model.prixTotal)
+            @Html.ValidationMessageFor(m => Model.prixTotal)
+            <input type="submit" value="Modifier" />
+        </fieldset>
+
+
+    }
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+@section Menu{
+    <ul>
+        <li>@Html.ActionLink("Accueil", "Index","Home")</li>
+        <li>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
+        <li >@Html.ActionLink("Modification de service", "ModifierService", "Service")</li>
+        <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement", "Evenement")</li>
+        <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
+        <li class="selectionne">@Html.ActionLink("Modification d'offre de voyage", "ModifierOffreVoyage", "OffreVoyage")</li>
+
+    </ul>
+}
+</html>
+
