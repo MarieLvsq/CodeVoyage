@@ -3,11 +3,19 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CodeVoyage.Controllers
 {
 	public class OffreVoyageController : Controller
 	{
+		private BddContext _bddContext;
+
+		public OffreVoyageController()
+		{
+			_bddContext = new BddContext();
+		}
+
 		public IActionResult Index()
 		{
 			return View();
@@ -16,10 +24,34 @@ namespace CodeVoyage.Controllers
 
 		public IActionResult CreerOffreVoyage()
 		{
-			return View();
+            var itineraires = _bddContext.Itineraires.ToList();
+			var evenements = _bddContext.Evenements.ToList();
+            var services = _bddContext.Services.ToList();
+            ViewBag.ItineraireList = itineraires;
+            ViewBag.EvenementList = evenements;
+            ViewBag.ServiceList = services;
+            return View();
 		}
 
-		[HttpPost]
+
+       /* public IActionResult CreerOffre()
+        {
+
+            var itineraires = _bddContext.Itineraires.ToList();
+			//var evenements = _bddContext.Evenements.ToList();
+			//var service= _bddContext.Services.ToList();
+            ViewBag.ItineraireList = itineraires.Select(i => new SelectListItem
+			{
+
+				Value = i.Id.ToString(),
+				Text = $"{i.Destination}"
+			}).ToList();
+
+
+			return RedirectToAction("CreerOffreVoyage");
+        }
+	   */
+        [HttpPost]
 		public IActionResult CreerOffreVoyage(Itineraire itineraire , Evenement Event, Service service, Service serviceextra, int remise, double prixAffiche, double prixTotal)
 		{
 

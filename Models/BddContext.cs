@@ -19,7 +19,7 @@ namespace CodeVoyage.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=Kuroikage@25;database=CodeVoyageBDD");
             }
 
         public void InitializeDb()
@@ -117,9 +117,19 @@ namespace CodeVoyage.Models
             });
 
             this.Services.AddRange(
+                 new Service
+                 {
+                     Id = 1,
+                     nomService = "Pas de service",
+                     Capacite = 0,
+                     DateDeb = new DateTime(2023, 07, 01),
+                     DateFin = new DateTime(2023, 09, 03),
+                     TypeService = ((TypeService)0),
+                     Prix = 0
+                 },
                 new Service
                 {
-                    Id = 1,
+                    Id = 2,
                     nomService= "Visite du Corcovado",
                     Capacite= 20,
                     DateDeb= new DateTime(2023, 10, 21),
@@ -129,7 +139,7 @@ namespace CodeVoyage.Models
                 },
                 new Service
                 {
-                    Id = 2,
+                    Id = 3,
                     nomService = "Mini golf",
                     Capacite = 9,
                     DateDeb = new DateTime(2023, 07, 01),
@@ -139,14 +149,17 @@ namespace CodeVoyage.Models
                 },
                 new Service
                 {
-                    Id = 3,
+                    Id = 4,
                     nomService = "Location de limousine à l'heure",
                     Capacite = 2,
                     DateDeb = new DateTime(2023, 06, 01),
                     DateFin = new DateTime(2024, 06, 01),
                     TypeService = ((TypeService)1),
                     Prix = 200
-                });;
+                });
+            
+
+            ;
 
 
             this.SaveChanges();
