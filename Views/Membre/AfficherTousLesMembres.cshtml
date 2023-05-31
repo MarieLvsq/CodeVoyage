@@ -1,0 +1,96 @@
+﻿@model List<CodeVoyage.Models.Membre>
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Liste de membres</title>
+</head>
+<body>
+    <table border="1">
+
+        <tr>
+
+
+
+            <th>
+
+                Nom 
+
+            </th>
+
+            <th>
+
+                Prenom
+
+            </th>
+
+            <th>
+
+                Email
+
+            </th>
+
+            <th>
+
+                Statut
+
+            </th>
+            <th>
+
+                Localisation
+
+            </th>
+
+            <th>
+
+                Age
+
+            </th>
+            <th>
+
+                User
+
+            </th>
+
+
+
+            <th></th>
+
+        </tr>
+
+        @foreach (var membre in Model)
+        {
+            <tr>
+                <td>@membre.Nom</td>
+                <td>@membre.Prenom</td>
+                <td>@membre.Email</td>
+                <td>@membre.Statut</td>
+                <td>@membre.Localisation</td>
+                <td>@membre.Age</td>
+                <td>@membre.User</td>
+                <td>
+                    <form method="get" action="@("/Membre/ModifierMembre/"+membre.Id)">
+
+                        <input type="submit" value="Modifier" />
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="@("/Membre/SupprimerMembre/"+membre.Id)">
+
+                        <input type="submit" value="Supprimer" />
+                    </form>
+                </td>
+            </tr>
+        }
+
+
+    </table>
+
+</body>
+
+</html>
