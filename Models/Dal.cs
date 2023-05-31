@@ -22,22 +22,22 @@ namespace CodeVoyage.Models
 
         // Méthodes OffresVoyage
 
-        public List<OffreVoyage> ObtientToutesLesOffres()
+        public List<OffreVoyage> ObtientToutesLesOffresVoyages()
         {
             return _bddContext.OffreVoyages.ToList();
         }
 
-        public int CreerOffresVoyage(Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double PrixTotal, double prixAffiche)
+        public int CreerOffreVoyage(Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double prixAffiche, double PrixTotal)
         {
 
-            OffreVoyage offre = new OffreVoyage() { Itineraire = Itineraire, Event = Event, Service = Service, ServiceEx = ServiceEx, Remise = Remise, prixTotal = PrixTotal, prixAffiche = prixAffiche };
+            OffreVoyage offre = new OffreVoyage() { Itineraire = Itineraire, Event = Event, Service = Service, ServiceEx = ServiceEx, Remise = Remise, prixAffiche = prixAffiche, prixTotal = PrixTotal };
 
             _bddContext.OffreVoyages.Add(offre);
             _bddContext.SaveChanges();
             return offre.Id;
         }
 
-        public void ModifierOffreVoyage(int id, Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double PrixTotal, double prixAffiche)
+        public void ModifierOffreVoyage(int id, Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double prixAffiche, double PrixTotal)
         {
             OffreVoyage offre = _bddContext.OffreVoyages.Find(id);
 
@@ -48,20 +48,41 @@ namespace CodeVoyage.Models
                 offre.Service = Service;
                 offre.ServiceEx = ServiceEx;
                 offre.Remise = Remise;
-                offre.prixTotal = PrixTotal;
                 offre.prixAffiche = prixAffiche;
-                _bddContext.SaveChanges();
+				offre.prixTotal = PrixTotal;
+				_bddContext.SaveChanges();
             }
 
         }
-
-        // Fin méthodes Offre de voyage
-
-
-        // Méthodes Evenements
+		public void ModifierOffreVoyage(OffreVoyage offreVoyage)
+		{
 
 
-        public List<Evenement> ObtientTousLesEvenements()
+			_bddContext.OffreVoyages.Update(offreVoyage);
+			_bddContext.SaveChanges();
+		}
+
+
+		public void SupprimerOffreVoyage(int id) // A tester
+		{
+			OffreVoyage offreVoyage = _bddContext.OffreVoyages.Find(id);
+
+
+			if (offreVoyage != null)
+			{
+
+				_bddContext.OffreVoyages.Remove(offreVoyage);
+
+				_bddContext.SaveChanges();
+			}
+		}
+		// Fin méthodes Offre de voyage
+
+
+		// Méthodes Evenements
+
+
+		public List<Evenement> ObtientTousLesEvenements()
         {
             return _bddContext.Evenements.ToList();
         }

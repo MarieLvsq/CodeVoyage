@@ -6,8 +6,8 @@ namespace CodeVoyage.Models
         public int Id { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
-        public Service ServiceDeBase { get; set; }
-        public Service ServiceExtra { get; set; }
+        public virtual Service ServiceDeBase { get; set; }
+        public virtual Service ServiceExtra { get; set; }
         public string Localisation { get; set; }
         public string email { get; set; }
         public string NumSiret{ get; set; }
