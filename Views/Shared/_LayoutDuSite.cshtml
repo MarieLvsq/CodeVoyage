@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 
@@ -13,13 +13,23 @@
 </head>
 <body>
     <div id="entete">
-        <h1>Bienvenue sur CodeVoyage</h1>
+        <h1>
+
+        </h1>
+      
+        <nav>
+            <ul>
+                <li class="menuLogo"><a href="https://localhost:44324/"><img src="~/Css/LogoBlanc2.png" width="25%" height="25%"/></a></li>
+                <li><a href="#">Laissez-vous inspirer</a></li>
+                <li><a href="#">Prenez le contrôle</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Connexion</a></li>
+            </ul>
+        </nav>
     </div>
 
     <div id="main">
-        <div id="menu">
-            @RenderSection("Menu", required: false)
-        </div>
+       
 
         <div id="contenu">
             @RenderBody()
@@ -27,7 +37,11 @@
     </div>
 
     <div id="footer">
-        &copy; @DateTime.Now.Year - Contactez nous! )
+        <div id="menu">
+            @RenderSection("Menu", required: false)
+        </div>
+        &copy; @DateTime.Now.Year - Contactez nous !
+
     </div>
     @RenderSection("ExtraScripts", required: false)
 </body>
