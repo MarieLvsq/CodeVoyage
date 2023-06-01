@@ -284,18 +284,20 @@ namespace CodeVoyage.Models
         }
 
         public void ModifierMembre(int Id, string Nom, string Prenon, string Email, Statut Statut, string Localisation, int Age, Role user)
-        {
+            {
             Membre membre = _bddContext.Membres.Find(Id);
 
             if (membre != null)
-            {
+                {
                 membre.Nom = Nom;
                 membre.Prenom = Prenon;
                 membre.Email = Email;
                 membre.Statut = Statut;
                 membre.Localisation = Localisation;
                 membre.Age = Age;
-                membre.User = user; 
+                membre.User = user;
+                }
+            }
 
         // Methode partenaire
         public List<Partenaire> ObtientTousLesPartenaires()
@@ -339,14 +341,18 @@ namespace CodeVoyage.Models
             _bddContext.SaveChanges();
         }
         public void SupprimerMembre(int id) // A tester
-        {
+            {
             Membre membre = _bddContext.Membres.Find(id);
 
 
             if (membre != null)
-            {
+                {
 
                 _bddContext.Membres.Remove(membre);
+                }
+
+            }
+
 
         public void ModifierPartenaire(Partenaire partenaire)
         {

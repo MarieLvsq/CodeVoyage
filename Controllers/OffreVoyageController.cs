@@ -66,7 +66,7 @@ namespace CodeVoyage.Controllers
 
 		}
 
-        public ActionResult AjouterOffres(Itineraire itineraire, Evenement Event, Service service, Service serviceextra, int remise, double prixAffiche, double prixTotal)
+        public ActionResult AjouterOffres(int itineraire, int Event, int service, int serviceextra, int remise, double prixAffiche, double prixTotal)
             {
             using (Dal dal = new Dal ())
             {
