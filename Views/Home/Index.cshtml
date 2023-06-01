@@ -1,20 +1,11 @@
-﻿@model CodeVoyage.Models.Evenement
+@model CodeVoyage.Models.Evenement
 @{
     ViewBag.Title = "Accueil";
     Layout = "_LayoutDuSite";
 }
 
 <header>
-    <h3 class="titre">Accueil du site CodeVoyage</h3>
-    <nav>
-        <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Destinations</a></li>
-            <li><a href="#">Événements</a></li>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+    
     <div class="search-bar">
         <input type="text" placeholder="Rechercher un événement">
         <button type="submit">Rechercher</button>
@@ -30,6 +21,10 @@
         <li>@Html.ActionLink("Affichage des Evènements", "AfficherTousLesEvenements", "Evenement")</li>
         <li>@Html.ActionLink("Ajout d'Itineraire", "CreerItineraire","Itineraire")</li>
         <li>@Html.ActionLink("Affichage d'Itineraire", "AfficherTousLesItineraires", "Itineraire")</li>
+        <li>@Html.ActionLink("Inscription Membre", "InscriptionMembre","Membre")</li>
+        <li>@Html.ActionLink("Affichage des Membres", "AfficherTousLesMembres", "Membre")</li>
+        <li>@Html.ActionLink("Incription d'un partenaire", "InscriptionPartenaire", "Partenaire")</li>
+        <li>@Html.ActionLink("Liste des partenaires", "AfficherTousLesPartenaires", "Partenaire")</li>
         <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
         <li>@Html.ActionLink("Affichage des Offres de voyages", "AfficherToutesLesOffresVoyages", "OffreVoyage")</li>
     </ul>

@@ -19,8 +19,8 @@
             @*@Html.ValidationMessageFor(m => Model.Nom)*@
             <br />
             @Html.LabelFor(m => Model.TypeService)
-            @Html.TextBoxFor(m => Model.TypeService)
-            @*Html.ValidationMessageFor(m => Model.Telephone)*@
+            @Html.DropDownListFor(m => m.TypeService, Html.GetEnumSelectList<CodeVoyage.Models.TypeService>(), "Selectionner le type de service")
+            @Html.ValidationMessageFor(m => Model.TypeService)
             <br />
             @Html.LabelFor(m => Model.Capacite)
             @Html.TextBoxFor(m => Model.Capacite)

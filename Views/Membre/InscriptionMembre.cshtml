@@ -1,0 +1,58 @@
+﻿@model CodeVoyage.Models.Membre
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inscription Membre</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Inscription d'un Membre: </legend>
+            @Html.LabelFor(m => Model.Nom)
+            @Html.TextBoxFor(m => Model.Nom)
+            @*@Html.ValidationMessageFor(m => Model.Nom)*@
+            <br />
+            @Html.LabelFor(m => Model.Prenom)
+            @Html.TextBoxFor(m => Model.Prenom)
+            @*Html.ValidationMessageFor(m => Model.Prenom)*@
+            <br />
+            @Html.LabelFor(m => Model.Email)
+            @Html.TextBoxFor(m => Model.Email)
+            @*Html.ValidationMessageFor(m => Model.Email)*@
+            <br />
+            @Html.LabelFor(m => Model.Localisation)
+            @Html.TextBoxFor(m => Model.Localisation)
+            @*Html.ValidationMessageFor(m => Model.Localisation)*@
+            <br />
+            @Html.LabelFor(m => Model.Age)
+            @Html.TextBoxFor(m => Model.Age)
+            @*Html.ValidationMessageFor(m => Model.Age)*@
+            <br />
+            @Html.LabelFor(m => Model.User )
+            @Html.DropDownListFor(m => m.User, Html.GetEnumSelectList<CodeVoyage.Models.Role>(), "Vous êtes")
+            @*Html.ValidationMessageFor(m => Model.User)*@
+            <br />
+
+            <input type="submit" value="Ajouter" />
+        </fieldset>
+    }
+</body>
+@section Menu{
+    <ul>
+        <li>@Html.ActionLink("Accueil", "Index","Home")</li>
+        <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement","Evenement")</li>
+        <li>@Html.ActionLink("Ajout d'Itineraire", "CreerItineraire","Itineraire")</li>
+        <li>@Html.ActionLink("Modifier Itineraire", "ModifierItineraire","Itineraire")</li>
+        <li>@Html.ActionLink("Suppression d'Itineraire", "SupprimerItineraire","Itineraire")</li>
+        <li class="selectionne">@Html.ActionLink("Inscription de membre", "InscriptionMembre","Membre")</li>
+        <li>@Html.ActionLink("Affichage des Membres", "AfficherTousLesMembres", "Membre")</li>
+
+    </ul>
+}
+</html>

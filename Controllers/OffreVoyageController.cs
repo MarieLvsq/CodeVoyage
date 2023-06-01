@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Logging;
+
 
 namespace CodeVoyage.Controllers
 {
@@ -62,11 +64,19 @@ namespace CodeVoyage.Controllers
 				return RedirectToAction("CreerOffreVoyage");
 			}
 
-
 		}
-		//Méthodes Supprimer
 
-		public IActionResult SupprimerOffreVoyage(int id)
+        public ActionResult AjouterOffres(Itineraire itineraire, Evenement Event, Service service, Service serviceextra, int remise, double prixAffiche, double prixTotal)
+            {
+            using (Dal dal = new Dal ())
+            {
+				dal.CreerOffreVoyage(itineraire, Event, service, serviceextra, remise, prixAffiche, prixTotal);
+                return RedirectToAction("CreerOffreVoyage");
+                }
+            }
+        //Méthodes Supprimer
+
+        public IActionResult SupprimerOffreVoyage(int id)
 
 		{
 			using (Dal dal = new Dal())

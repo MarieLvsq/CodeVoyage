@@ -1,4 +1,4 @@
-﻿@model CodeVoyage.Models.OffreVoyage
+﻿@model CodeVoyage.ViewModels.OffreViewModel
 @{
     ViewBag.Title = "Formulaire";
     Layout = "_LayoutDuSite";
@@ -14,6 +14,7 @@
     {
         <fieldset>
             <legend>Proposer une offreVoyage: </legend>
+
             @Html.LabelFor(m => Model.Itineraire)
             @Html.DropDownListFor(m => m.ItineraireId, new SelectList(ViewBag.ItineraireList, "Id", "ItineraireDescription"))
             @*@Html.TextBoxFor(m => Model.Itineraire)*@
