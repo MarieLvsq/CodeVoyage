@@ -1,4 +1,4 @@
-﻿@model CodeVoyage.Models.OffreVoyage
+﻿@model CodeVoyage.ViewModels.OffreViewModel
 @{
     ViewBag.Title = "Formulaire";
     Layout = "_LayoutDuSite";
@@ -14,22 +14,22 @@
     {
         <fieldset>
             <legend>Proposer une offreVoyage: </legend>
-            @Html.LabelFor(m => Model.Itineraire)
-            @Html.DropDownListFor(m => m.Itineraire, new SelectList(Model.Itineraire), "Sélectionner un élément")
-            @*@Html.TextBoxFor(m => Model.Itineraire)*@
+            @Html.LabelFor(m => Model.Itineraires)
+            @Html.DropDownListFor(m => Model.Itineraires, new SelectList(Model.Itineraires, "Départ", "Destination"), "Selectionner un itinéraire")            
            
             <br />
-            @Html.LabelFor(m => Model.Event)
-            @Html.TextBoxFor(m => Model.Event)
-           
+            @Html.LabelFor(m => Model.Evenements)
+            @Html.DropDownListFor(m => Model.Evenements, new SelectList(Model.Evenements, "Nom", "Localisation"), "Selectionner un événement")
+
             <br />
-            @Html.LabelFor(m => Model.Service)
-            @Html.TextBoxFor(m => Model.Service)
-           
-            <br />
-            @Html.LabelFor(m => Model.ServiceEx)
-            @Html.TextBoxFor(m => Model.ServiceEx)
-            
+            @Html.LabelFor(m => Model.ServicesdeBase)
+            @Html.DropDownListFor(m => Model.ServicesdeBase, new SelectList(Model.ServicesdeBase, "Nom", "Localisation"), "Sélectionnez un service de base")
+
+
+           @* <br />
+            @Html.LabelFor(m => Model.ServicesExtra)
+            @Html.TextBoxFor(m => Model.ServicesExtra, new SelectList(Model.ServicesExtra, "Nom", "Localisation"), "Sélectionnez un service extra")
+            *@
             <br />
             @Html.LabelFor(m => Model.Remise)
             @Html.TextBoxFor(m => Model.Remise)

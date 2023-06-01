@@ -1,14 +1,18 @@
 ﻿#entete, #menu, #contenu, #footer {
     padding: 1px 0;
-    font-family: 'Avenir', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 #entete {
-    background-color: gold;
-    text-align: center;
-    background: #FF9900 url("/Content/Images/supertuto.png") 5px center no-repeat;
-    background-size: 100px;
+    background: ghostwhite 
+
 }
+
+#menuLogo {
+    background: ghostwhite;
+    margin-left: 10px;
+}
+
 
 #main {
     margin: auto;
@@ -17,16 +21,17 @@
 #menu {
     float: right;
     width: 240px;
-    background-color: lightsalmon;
+    background-color: ghostwhite;
 }
 
 #contenu {
     
-    background-color: sandybrown;
+    background-color: ghostwhite;
 }
 
 #footer {
-    background-color: rosybrown;
+    background-color: #873403;
+    color : lightgrey;
     text-align: center;
     clear: both;
 }
@@ -40,25 +45,28 @@
 }
 nav ul {
     list-style-type: none;
+    margin-left: 20px;
+    margin-right: 80px;
 }
 
     nav ul li {
         display: inline-block;
-        margin-left: 20px;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 
         nav ul li a {
-            text-decoration: none;
             color: #333;
         }
 
 .search-bar input[type="text"] {
-    padding: 5px;
-    width: 200px;
+    align-content : center;
+    padding: 10px;
+    width: 500px;
 }
 
 .search-bar button {
-    padding: 5px 10px;
+    padding: 10px 10px;
     background-color: #333;
     color: #fff;
     border: none;
