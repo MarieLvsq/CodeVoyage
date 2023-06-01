@@ -1,11 +1,10 @@
-﻿#entete, #menu, #contenu, #footer {
+#entete, #menu, #contenu, #footer {
     padding: 1px 0;
     font-family: 'Roboto', sans-serif;
 }
 
 #entete {
     background: ghostwhite 
-
 }
 
 #menuLogo {

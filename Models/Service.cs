@@ -23,6 +23,13 @@ namespace CodeVoyage.Models
         [Display(Name = "Prix en euros")]
         public double Prix { get; set; }
 
+        public string ServiceDescription
+        {
+            get
+            {
+                return string.Format("{0} {1}", nomService + ":", Prix+"€");
+            }
+        }
     }
 }
 

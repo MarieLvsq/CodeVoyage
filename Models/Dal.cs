@@ -1,6 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net.Cache;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +11,7 @@ namespace CodeVoyage.Models
     public class Dal : IDal, IDisposable
     {
         private BddContext _bddContext;
+
         public Dal()
         {
             _bddContext = new BddContext();
@@ -26,7 +29,6 @@ namespace CodeVoyage.Models
         {
             return _bddContext.OffreVoyages.ToList();
         }
-
         public int CreerOffreVoyage(Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double prixAffiche, double PrixTotal)
         {
 
@@ -38,6 +40,7 @@ namespace CodeVoyage.Models
         }
 
         public void ModifierOffreVoyage(int id, Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double prixAffiche, double PrixTotal)
+
         {
             OffreVoyage offre = _bddContext.OffreVoyages.Find(id);
 
@@ -49,11 +52,17 @@ namespace CodeVoyage.Models
                 offre.ServiceEx = ServiceEx;
                 offre.Remise = Remise;
                 offre.prixAffiche = prixAffiche;
-				offre.prixTotal = PrixTotal;
-				_bddContext.SaveChanges();
+				        offre.prixTotal = PrixTotal;
+				      _bddContext.SaveChanges();
             }
 
         }
+        // Fin méthodes Offre de voyage
+
+
+        // Méthodes Evenements
+
+
 		public void ModifierOffreVoyage(OffreVoyage offreVoyage)
 		{
 
@@ -119,6 +128,7 @@ namespace CodeVoyage.Models
 
             _bddContext.Evenements.Update(evenement);
             _bddContext.SaveChanges();
+
         }
         public void SupprimerEvenement(int id) // A tester
          {
@@ -250,9 +260,114 @@ namespace CodeVoyage.Models
             }
         }
 
+        // methodes Membres
+
+        
 
 
+        public List<Membre> ObtientTousLesMembres()
+        {
+            return _bddContext.Membres.ToList();
+        }
 
+        public int InscriptionMembre(string Nom, string Prenon, string Email, Statut Statut, string Localisation, int Age, Role user)
+        { 
+            Membre membre = new Membre() { Nom=Nom ,Prenom=Prenon ,Email=Email ,Statut=Statut ,Localisation=Localisation  ,Age=Age , User = user };
+
+        
+      
+        _bddContext.Membres.Add(membre);
+            _bddContext.SaveChanges();
+            return membre.Id;
+        }
+
+        public void ModifierMembre(int Id, string Nom, string Prenon, string Email, Statut Statut, string Localisation, int Age, Role user)
+        {
+            Membre membre = _bddContext.Membres.Find(Id);
+
+            if (membre != null)
+            {
+                membre.Nom = Nom;
+                membre.Prenom = Prenon;
+                membre.Email = Email;
+                membre.Statut = Statut;
+                membre.Localisation = Localisation;
+                membre.Age = Age;
+                membre.User = user; 
+
+        // Methode partenaire
+        public List<Partenaire> ObtientTousLesPartenaires()
+        {
+            return _bddContext.Partenaires.ToList();
+        }
+
+        public int InscriptionPartenaire(string Nom, string Localisation, string email, string numSiret, TypeService typeService, Role role)
+        {
+
+            Partenaire partenaire = new Partenaire() { Nom = Nom, Localisation = Localisation, email= email, NumSiret = numSiret, TypeService = typeService, Role=role };
+
+            _bddContext.Partenaires.Add(partenaire);
+            _bddContext.SaveChanges();
+            return partenaire.Id;
+        }
+
+        public void ModifierPartenaire(int Id, string Nom, string Localisation, string email, string numSiret, TypeService typeService, Role role)
+        {
+            Partenaire partenaire = _bddContext.Partenaires.Find(Id);
+
+            if (partenaire != null)
+            {
+                partenaire.Id = Id;
+                partenaire.Nom = Nom;
+                partenaire.Localisation = Localisation;
+                partenaire.email = email;
+                partenaire.NumSiret = numSiret;
+                partenaire.TypeService = typeService; 
+                partenaire.Role = role;
+                _bddContext.SaveChanges();
+            }
+
+        }
+
+        public void ModifierMembre(Membre membre)
+        {
+
+
+            _bddContext.Membres.Update(membre);
+            _bddContext.SaveChanges();
+        }
+        public void SupprimerMembre(int id) // A tester
+        {
+            Membre membre = _bddContext.Membres.Find(id);
+
+
+            if (membre != null)
+            {
+
+                _bddContext.Membres.Remove(membre);
+
+        public void ModifierPartenaire(Partenaire partenaire)
+        {
+
+
+            _bddContext.Partenaires.Update(partenaire);
+            _bddContext.SaveChanges();
+        }
+
+        public void SupprimerPartenaire(int id) 
+        {
+            Partenaire partenaire = _bddContext.Partenaires.Find(id);
+
+
+            if (partenaire != null)
+            {
+
+                _bddContext.Partenaires.Remove(partenaire);
+
+
+                _bddContext.SaveChanges();
+            }
+        }
 
         public void Dispose()
         {
@@ -262,5 +377,4 @@ namespace CodeVoyage.Models
        
     }
 }
-
 

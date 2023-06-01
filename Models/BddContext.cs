@@ -18,8 +18,7 @@ namespace CodeVoyage.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
-
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
             }
 
         public void InitializeDb()
@@ -117,9 +116,19 @@ namespace CodeVoyage.Models
             });
 
             this.Services.AddRange(
+                 new Service
+                 {
+                     Id = 1,
+                     nomService = "Pas de service",
+                     Capacite = 0,
+                     DateDeb = new DateTime(2023, 07, 01),
+                     DateFin = new DateTime(2023, 09, 03),
+                     TypeService = ((TypeService)0),
+                     Prix = 0
+                 },
                 new Service
                 {
-                    Id = 1,
+                    Id = 2,
                     nomService= "Visite du Corcovado",
                     Capacite= 20,
                     DateDeb= new DateTime(2023, 10, 21),
@@ -129,7 +138,7 @@ namespace CodeVoyage.Models
                 },
                 new Service
                 {
-                    Id = 2,
+                    Id = 3,
                     nomService = "Mini golf",
                     Capacite = 9,
                     DateDeb = new DateTime(2023, 07, 01),
@@ -139,15 +148,105 @@ namespace CodeVoyage.Models
                 },
                 new Service
                 {
-                    Id = 3,
+                    Id = 4,
                     nomService = "Location de limousine à l'heure",
                     Capacite = 2,
                     DateDeb = new DateTime(2023, 06, 01),
                     DateFin = new DateTime(2024, 06, 01),
                     TypeService = ((TypeService)1),
                     Prix = 200
-                });;
+                });
+            this.Partenaires.AddRange(
+            new Partenaire
+            {
+                Id = 1,
+                Nom = "Holiday Inn",
+                Localisation = "Paris",
+                email = "service-reservation@holidayinn.com",
+                NumSiret = "10120125630",
+                TypeService = ((TypeService)2),
+                Role = Role.Entreprise,
+            },
+            new Partenaire
+            {
+                Id = 2,
+                Nom = "Air France",
+                Localisation = "Paris",
+                email = "flights-booking@air-france.fr",
+                NumSiret = "87895000000000",
+                TypeService = TypeService.Transport,
+                Role = Role.Entreprise
+            },
+            new Partenaire
+            {
+                Id = 3,
+                Nom = "Cozinha Tradicional",
+                Localisation = "Rio de Janeiro",
+                email = "cozinha@gmail.com",
+                NumSiret = "1882378500",
+                TypeService = TypeService.Restauration,
+                Role = Role.Entreprise
+            });
 
+             this.Membres.AddRange(
+             new Membre
+            {
+                Id = 1,
+                Nom = "Garou",
+                Prenom = "Vincent",
+                Email="V.garou@gmail.com",
+                Statut = Statut.Bronze,
+                Localisation = "Torento",
+                Age = 43,
+                User = Role.Association
+            },
+              new Membre
+              {
+                  Id = 2,
+                  Nom = "DION",
+                  Prenom = "Jean",
+                  Email = "jean.dion@gmail.com",
+                  Statut = Statut.Argent,
+                  Localisation = "Paris",
+                  Age = 32,
+                  User =Role.Particulier
+              },
+
+                new Membre
+                {
+                    Id = 3,
+                    Nom = "DILAN",
+                    Prenom = "Robert",
+                    Email = "robertDilan@gmail.com",
+                    Statut = Statut.Diamant,
+                    Localisation = "Bruxelles",
+                    Age = 23,
+                    User = Role.Entreprise
+
+                },
+                 new Membre
+                  {
+                      Id = 4,
+                      Nom = "GASPARD",
+                      Prenom = "Lea",
+                      Email = "l.gaspard@gmail.com",
+                      Statut = Statut.Platine,
+                      Localisation = "Orléans",
+                      Age = 25,
+                      User = Role.Entreprise
+                  },
+
+                 new Membre
+                 {
+                     Id = 5,
+                     Nom = "Mirales",
+                     Prenom = "Octave",
+                     Email = "omirales@gmail.com",
+                     Statut = Statut.Or,
+                     Localisation = "Geneve",
+                     Age = 71,
+                     User = Role.Admin
+                 }); ;
 
             this.SaveChanges();
         }

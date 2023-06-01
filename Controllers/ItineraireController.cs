@@ -1,5 +1,6 @@
 ﻿using CodeVoyage.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,13 @@ namespace CodeVoyage.Controllers
     public class ItineraireController : Controller
     {
         public IActionResult CreerItineraire()
-
+       
         {
             return View();
         }
 
-       
-        
+     
+
         [HttpPost]
         public IActionResult CreerItineraire(string LieuDepart, String Destination, double Prix, MoyenDeTransport Transport, int NombreVoyageur, DateTime DateDepart, DateTime DateArrivee)
         {
@@ -95,7 +96,8 @@ namespace CodeVoyage.Controllers
                 dal.SupprimerItineraire(Id);
 
 
-                return RedirectToAction("AfficherLesItinerairesItineraires");
+                return RedirectToAction("AfficherTousLesItineraires");
+
             }
         }
 

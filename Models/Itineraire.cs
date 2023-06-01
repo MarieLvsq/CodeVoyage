@@ -12,7 +12,14 @@ namespace CodeVoyage.Models
         public DateTime DateDepart { get; set; }
         public DateTime DateArrivee { get; set; }
 
-        
+        public string ItineraireDescription
+        {
+            get
+            {
+                return string.Format("{0} {1}", LieuDepart+"-", Destination);
+            }
+        }
+
     }
 }
 
