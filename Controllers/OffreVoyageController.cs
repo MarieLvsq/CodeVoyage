@@ -54,13 +54,13 @@ namespace CodeVoyage.Controllers
         }
 	   */
         [HttpPost]
-		public IActionResult CreerOffreVoyage(Itineraire itineraire , Evenement Event, Service service, Service serviceextra, int remise, double prixAffiche, double prixTotal)
+		public IActionResult CreerOffreVoyage(OffreVoyage offreVoyage )
 		{
 
 
 			using (Dal dal = new Dal())
 			{
-				dal.CreerOffreVoyage(itineraire, Event, service, serviceextra, remise, prixAffiche, prixTotal);
+				int id = dal.CreerOffreVoyage(offreVoyage.ItineraireId,offreVoyage.EventId,offreVoyage.ServiceId,offreVoyage.ServiceExId,offreVoyage.Remise, offreVoyage.prixAffiche, offreVoyage.prixTotal);
 				return RedirectToAction("CreerOffreVoyage");
 			}
 
