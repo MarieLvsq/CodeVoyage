@@ -11,6 +11,7 @@
     <None Remove="Views\Evenement\" />
     <None Remove="Views\Shared\" />
     <None Remove="Views\Home\" />
+    <None Remove="Views\RechercheMulti\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -18,6 +19,7 @@
     <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\Css\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="Views\RechercheMulti\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

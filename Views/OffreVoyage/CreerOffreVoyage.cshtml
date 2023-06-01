@@ -15,20 +15,20 @@
         <fieldset>
             <legend>Proposer une offreVoyage: </legend>
             @Html.LabelFor(m => Model.Itineraire)
-            @Html.DropDownListFor(m => m.Itineraire, new SelectList(ViewBag.ItineraireList, "Id", "ItineraireDescription"))
+            @Html.DropDownListFor(m => m.ItineraireId, new SelectList(ViewBag.ItineraireList, "Id", "ItineraireDescription"))
             @*@Html.TextBoxFor(m => Model.Itineraire)*@
 
             <br />
             @Html.LabelFor(m => Model.Event)
-            @Html.DropDownListFor(m => m.Event, new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
+            @Html.DropDownListFor(m => m.EventId, new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
 
             <br />
             @Html.LabelFor(m => Model.Service)
-            @Html.DropDownListFor(m => m.Service, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
+            @Html.DropDownListFor(m => m.ServiceId, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
 
             <br />
             @Html.LabelFor(m => Model.ServiceEx)
-            @Html.DropDownListFor(m => m.ServiceEx, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
+            @Html.DropDownListFor(m => m.ServiceExId, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
 
             <br />
             @Html.LabelFor(m => Model.Remise)

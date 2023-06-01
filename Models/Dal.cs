@@ -28,10 +28,10 @@ namespace CodeVoyage.Models
             return _bddContext.OffreVoyages.ToList();
         }
 
-        public int CreerOffreVoyage(Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double prixAffiche, double PrixTotal)
+        public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise, double prixAffiche, double PrixTotal)
         {
 
-            OffreVoyage offre = new OffreVoyage() { Itineraire = Itineraire, Event = Event, Service = Service, ServiceEx = ServiceEx, Remise = Remise, prixAffiche = prixAffiche, prixTotal = PrixTotal };
+            OffreVoyage offre = new OffreVoyage() { ItineraireId = itineraireId, EventId= eventId, ServiceId = serviceId, ServiceExId = serviceExId, Remise = Remise, prixAffiche = prixAffiche, prixTotal = PrixTotal };
 
             _bddContext.OffreVoyages.Add(offre);
             _bddContext.SaveChanges();
@@ -183,6 +183,7 @@ namespace CodeVoyage.Models
         public void SupprimerService(int id) // A tester
         {
             Service service = _bddContext.Services.Find(id);
+
 
 
             if (service != null)
