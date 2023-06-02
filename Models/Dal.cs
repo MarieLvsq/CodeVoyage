@@ -4,7 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net.Cache;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.VisualBasic;
 
 namespace CodeVoyage.Models
 {
@@ -27,8 +31,8 @@ namespace CodeVoyage.Models
 
         public List<OffreVoyage> ObtientToutesLesOffresVoyages()
         {
+
             return _bddContext.OffreVoyages.Include(o=>o.Itineraire).Include(o=>o.Event).Include(o => o.Service).Include(o => o.ServiceEx).ToList();
-        }
 
         public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId,int Remise, double prixAffiche, double PrixTotal)
 
@@ -84,6 +88,36 @@ namespace CodeVoyage.Models
 				_bddContext.SaveChanges();
 			}
 		}
+
+        public List<OffreVoyage> RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise,double prixMin, double prixMax)
+        {
+
+            List<OffreVoyage> listeOffreVoyage = _bddContext.OffreVoyages.ToList();
+
+            List<OffreVoyage> listeOffreVoyageMulti = new List<OffreVoyage>();
+
+            foreach (OffreVoyage offre in listeOffreVoyage)
+            {
+                if ((itineraireId == 0 || offre.ItineraireId==itineraireId)
+                && (eventId == 0 || offre.EventId==eventId)
+                       && (serviceId == 0 || offre.ServiceId == serviceId)
+                       && (serviceExId == 0 || offre.ServiceExId==serviceExId)
+                       && (prixMin == 0 || offre.prixTotal >= prixMin && offre.prixTotal <= prixMax))
+                {
+
+                    listeOffreVoyageMulti.Add(offre);
+
+                    
+                }
+                
+            }
+            return listeOffreVoyageMulti;
+
+
+
+        }
+
+       
 		// Fin méthodes Offre de voyage
 
 
@@ -380,7 +414,10 @@ namespace CodeVoyage.Models
             _bddContext.Dispose();
         }
 
-       
+        List<OffreVoyage> IDal.RechercheMultiCritere(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise, double prixMin, double prixMax)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
