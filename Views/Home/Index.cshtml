@@ -1,4 +1,4 @@
-@model CodeVoyage.Models.Evenement
+@model CodeVoyage.Models.OffreVoyage
 @{
     ViewBag.Title = "Accueil";
     Layout = "_LayoutDuSite";
@@ -7,6 +7,7 @@
 <header>
     
     <div class="search-bar">
+
         <input type="text" placeholder="Rechercher un événement">
         <button type="submit">Rechercher</button>
     </div>
@@ -27,7 +28,7 @@
         <li>@Html.ActionLink("Liste des partenaires", "AfficherTousLesPartenaires", "Partenaire")</li>
         <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
         <li>@Html.ActionLink("Affichage des Offres de voyages", "AfficherToutesLesOffresVoyages", "OffreVoyage")</li>
-
+        <li>@Html.ActionLink("Recherche des offres de voyage", "RechercheOffreV", "OffreVoyage")</li>
     </ul>
 }
     <p class="contenu">Ici c'est la page d'accueil avec les news du site, etc.</p>

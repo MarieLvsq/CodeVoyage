@@ -17,11 +17,11 @@ namespace CodeVoyage.Models
             public DbSet<Service> Services { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            {
+        {
 
             optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
 
-
+        }
         public void InitializeDb()
         {
            this.Database.EnsureDeleted();

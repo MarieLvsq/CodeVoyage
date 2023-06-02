@@ -1,0 +1,53 @@
+﻿@model CodeVoyage.Models.OffreVoyage
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CréerOffreVoyage</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Recherche avancée: </legend>
+
+            @Html.LabelFor(m => Model.Itineraire)
+            @Html.DropDownListFor(m => m.ItineraireId, new SelectList(ViewBag.ItineraireList, "Id", "ItineraireDescription"))
+            @*@Html.TextBoxFor(m => Model.Itineraire)*@
+
+            <br />
+            @Html.LabelFor(m => Model.Event)
+            @Html.DropDownListFor(m => m.EventId, new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
+
+            <br />
+            @Html.LabelFor(m => Model.Service)
+            @Html.DropDownListFor(m => m.ServiceId, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
+
+            <br />
+            @Html.LabelFor(m => Model.ServiceEx)
+            @Html.DropDownListFor(m => m.ServiceExId, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
+            
+          
+            <br />
+            @Html.LabelFor(m => Model.prixTotal)
+            @Html.DropDownListFor(m => m.prixTotal, Html.GetEnumSelectList<CodeVoyage.Models.prixMax>(), "Selectionner un prix")
+            <input type="submit" value="Rechercher" />
+        </fieldset>    }
+</body>
+@section Menu{
+    <ul>
+        <li>@Html.ActionLink("Accueil", "Index","Home")</li>
+        <li>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
+        <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement", "Evenement")</li>
+        <li class="selectionne">@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
+        
+
+
+
+    </ul>
+}
+</html>

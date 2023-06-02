@@ -32,7 +32,8 @@ namespace CodeVoyage.Models
         public List<OffreVoyage> ObtientToutesLesOffresVoyages()
         {
 
-            return _bddContext.OffreVoyages.Include(o=>o.Itineraire).Include(o=>o.Event).Include(o => o.Service).Include(o => o.ServiceEx).ToList();
+            return _bddContext.OffreVoyages.Include(o => o.Itineraire).Include(o => o.Event).Include(o => o.Service).Include(o => o.ServiceEx).Include(o => o.prixTotal).ToList();
+        }
 
         public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId,int Remise, double prixAffiche, double PrixTotal)
 
@@ -89,7 +90,7 @@ namespace CodeVoyage.Models
 			}
 		}
 
-        public List<OffreVoyage> RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise,double prixMin, double prixMax)
+        public List<OffreVoyage> RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, double prixMax)
         {
 
             List<OffreVoyage> listeOffreVoyage = _bddContext.OffreVoyages.ToList();
@@ -102,7 +103,7 @@ namespace CodeVoyage.Models
                 && (eventId == 0 || offre.EventId==eventId)
                        && (serviceId == 0 || offre.ServiceId == serviceId)
                        && (serviceExId == 0 || offre.ServiceExId==serviceExId)
-                       && (prixMin == 0 || offre.prixTotal >= prixMin && offre.prixTotal <= prixMax))
+                       && (prixMax == 0 || offre.prixTotal <= prixMax))
                 {
 
                     listeOffreVoyageMulti.Add(offre);
