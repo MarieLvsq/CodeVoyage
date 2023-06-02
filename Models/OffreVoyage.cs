@@ -15,7 +15,16 @@ namespace CodeVoyage.Models
         public int Remise { get; set; }
         public double prixAffiche { get; set; }
         public double prixTotal { get; set; }
-        
+
+
+        public string OffreVoyageDescription
+        {
+            get
+            {
+                return string.Format("{0} {1} {2} {3}", Itineraire.LieuDepart+ "-", Itineraire.Destination+ "-",Event.Nom+ "-",prixTotal);
+            }
+        }
+
     }
 
 }
