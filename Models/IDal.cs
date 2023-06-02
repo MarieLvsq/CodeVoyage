@@ -53,6 +53,14 @@ namespace CodeVoyage.Models
             void ModifierMembre(int Id, string Nom, string Prenon, string Email, Statut Statut, string Localisation, int Age, Role user);
             void SupprimerMembre(int id);
 
+
+            //Methodes Reservations
+
+            List<Service> ObtientToutesLesReservations();
+            int CreerReservation(Membre membre, OffreVoyage offrePayee);
+            void ModifierReservation(int Id, Membre membre, OffreVoyage offrePayee);
+            void SupprimerReservation(int id);
+
         }
     }
    

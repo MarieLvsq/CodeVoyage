@@ -298,6 +298,25 @@ namespace CodeVoyage.Models
                 membre.User = user;
                 }
             }
+        public void ModifierMembre(Membre membre)
+        {
+
+
+            _bddContext.Membres.Update(membre);
+            _bddContext.SaveChanges();
+        }
+        public void SupprimerMembre(int id) // A tester
+        {
+            Membre membre = _bddContext.Membres.Find(id);
+
+
+            if (membre != null)
+            {
+
+                _bddContext.Membres.Remove(membre);
+            }
+
+        }
 
         // Methode partenaire
         public List<Partenaire> ObtientTousLesPartenaires()
@@ -333,25 +352,7 @@ namespace CodeVoyage.Models
 
         }
 
-        public void ModifierMembre(Membre membre)
-        {
-
-
-            _bddContext.Membres.Update(membre);
-            _bddContext.SaveChanges();
-        }
-        public void SupprimerMembre(int id) // A tester
-            {
-            Membre membre = _bddContext.Membres.Find(id);
-
-
-            if (membre != null)
-                {
-
-                _bddContext.Membres.Remove(membre);
-                }
-
-            }
+       
 
 
         public void ModifierPartenaire(Partenaire partenaire)
@@ -376,6 +377,63 @@ namespace CodeVoyage.Models
                 _bddContext.SaveChanges();
             }
         }
+
+        public List<Reservation> ObtientToutesLesReservations()
+        {
+            return _bddContext.Reservations.ToList();
+        }
+
+        public int CreerReservation(Membre membre,OffreVoyage offrePayee)
+        {
+
+           Reservation reservation = new Reservation() { Membre = membre, OffrePayee = offrePayee };
+
+            _bddContext.Reservations.Add(reservation);
+            _bddContext.SaveChanges();
+            return reservation.Id;
+        }
+
+        public void ModifierReservation(int Id, Membre membre, OffreVoyage offrePayee)
+        {
+            Reservation reservation = _bddContext.Reservations.Find(Id);
+
+            if (reservation!= null)
+            {
+                reservation.Id = Id;
+                reservation.Membre = membre;
+                reservation.OffrePayee = offrePayee;
+                _bddContext.SaveChanges();
+            }
+
+        }
+
+
+
+
+        public void Modifier(Reservation reservation)
+        {
+
+
+            _bddContext.Reservations.Update(reservation);
+            _bddContext.SaveChanges();
+        }
+
+        public void SupprimerReservation(int id)
+        {
+           Reservation reservation = _bddContext.Reservations.Find(id);
+
+
+            if (reservation != null)
+            {
+
+                _bddContext.Reservations.Remove(reservation);
+
+
+                _bddContext.SaveChanges();
+            }
+        }
+
+
 
         public void Dispose()
         {

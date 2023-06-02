@@ -12,6 +12,15 @@ namespace CodeVoyage.Models
         public int Age { get; set; }
         public Role User { get; set; }
 
+        public string MembreDescription
+        {
+            get
+            {
+                return string.Format("{0} {1}", Nom+ "-", Prenom);
+            }
+        }
     }
+
+
 }
 

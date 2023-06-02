@@ -248,6 +248,12 @@ namespace CodeVoyage.Models
                      User = Role.Admin
                  }); ;
 
+
+
+
+
+
+
             this.SaveChanges();
         }
 
