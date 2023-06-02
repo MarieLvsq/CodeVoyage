@@ -12,8 +12,9 @@
         <button type="submit">Rechercher</button>
     </div>
 </header>
+<body>
 
-@section Menu{
+
     <ul>
         <li class="selectionne">@Html.ActionLink("Accueil", "Index", "Home")</li>
         <li>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
@@ -29,6 +30,28 @@
         <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
         <li>@Html.ActionLink("Affichage des Offres de voyages", "AfficherToutesLesOffresVoyages", "OffreVoyage")</li>
         <li>@Html.ActionLink("Recherche des offres de voyage", "RechercheOffreV", "OffreVoyage")</li>
+        <li>@Html.ActionLink(" Reserver Maintenant ", "CreerReservation", "Reservation")</li>
+        </ul>
+    @*@section colonne{
+    <ul>   
+      <li>Thématique</li>
+        <li>Continent</li>
     </ul>
-}
-    <p class="contenu">Ici c'est la page d'accueil avec les news du site, etc.</p>
+
+    }*@
+
+
+    <div class="scroll-container">
+        <div class="container">
+            <a href="https://localhost:5001/OffreVoyage/AfficherToutesLesOffresVoyages" />
+            <img src="~/Images/paris-olympics-2024.jpg" alt="Paris 2024"/>
+            
+            <div class="centered">Paris 2024</div>
+            
+                   </div>
+        <img src="~/Images/carnaval rio.jpg" alt="Carnaval de Rio">
+        <img src="~/Images/holi festival 1.jpg" alt="Holi festival">
+        <a href="https://localhost:5001/OffreVoyage/ModifierOffreVoyage" />
+        <img src="~/Images/Sport-Portugal-Rugby.jpg" alt="Portugal Rugby">
+    </div>
+</body>
