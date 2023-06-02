@@ -14,9 +14,9 @@
     <None Remove="Views\RechercheMulti\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="wwwroot\Images\" />
     <Folder Include="Views\RechercheMulti\" />
   </ItemGroup>
   <ItemGroup>

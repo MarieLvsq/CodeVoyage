@@ -36,23 +36,6 @@ namespace CodeVoyage.Controllers
 		}
 
 
-       /* public IActionResult CreerOffre()
-        {
-
-            var itineraires = _bddContext.Itineraires.ToList();
-			//var evenements = _bddContext.Evenements.ToList();
-			//var service= _bddContext.Services.ToList();
-            ViewBag.ItineraireList = itineraires.Select(i => new SelectListItem
-			{
-
-				Value = i.Id.ToString(),
-				Text = $"{i.Destination}"
-			}).ToList();
-
-
-			return RedirectToAction("CreerOffreVoyage");
-        }
-	   */
         [HttpPost]
 		public IActionResult CreerOffreVoyage(OffreVoyage offreVoyage )
 		{
@@ -154,16 +137,34 @@ namespace CodeVoyage.Controllers
 		}
 
 
-        public ActionResult RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise, double prixMin, double prixMax)
+        public IActionResult RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, double prixMax)
 		{
-            List<OffreVoyage> offreVoyages;
+            var itineraires = _bddContext.Itineraires.ToList();
+            var evenements = _bddContext.Evenements.ToList();
+            var services = _bddContext.Services.ToList();
+       
+            ViewBag.ItineraireList = itineraires;
+            ViewBag.EvenementList = evenements;
+            ViewBag.ServiceList = services;
+			
+
+			
+           
+            return View();
+        }
+        
+        public IActionResult RechercheOffreV(int itineraireId, int eventId, int serviceId, int serviceExId, double prixMax)
+        {
+
+
             using (Dal dal = new Dal())
             {
-                offreVoyages = dal.RechercheOffre(itineraireId, eventId,serviceId,serviceExId,Remise,prixMin,prixMax);
+                dal.RechercheOffre(itineraireId, eventId, serviceId, serviceExId,prixMax);
+                return RedirectToAction("ListeMulti");
             }
 
-            return View(offreVoyages);
         }
+        
 
 
     }
