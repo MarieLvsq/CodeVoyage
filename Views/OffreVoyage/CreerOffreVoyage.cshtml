@@ -30,15 +30,6 @@
             <br />
             @Html.LabelFor(m => Model.ServiceEx)
             @Html.DropDownListFor(m => m.ServiceExId, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
-
-            <br />
-            @Html.LabelFor(m => Model.Remise)
-            @Html.TextBoxFor(m => Model.Remise)
-
-            <br />
-            @Html.LabelFor(m => Model.prixAffiche)
-            @Html.TextBoxFor(m => Model.prixAffiche)
-
             <br />
             @Html.LabelFor(m => Model.prixTotal)
             @Html.TextBoxFor(m => Model.prixTotal)

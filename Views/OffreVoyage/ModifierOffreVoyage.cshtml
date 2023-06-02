@@ -15,24 +15,20 @@
         <fieldset>
             <legend>Modifier une offre de Voyage: </legend>
             @Html.LabelFor(m => Model.Itineraire)
-            @Html.TextBoxFor(m => Model.Itineraire)
+            @Html.DropDownListFor(m => m.ItineraireId, new SelectList(ViewBag.ItineraireList, "Id", "ItineraireDescription"))
             @Html.ValidationMessageFor(m => Model.Itineraire)
             <br />
             @Html.LabelFor(m => Model.Event)
-            @Html.TextBoxFor(m => Model.Event)
+            @Html.DropDownListFor(m => m.EventId, new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
             @Html.ValidationMessageFor(m => Model.Event)
             <br />
             @Html.LabelFor(m => Model.Service)
-            @Html.TextBoxFor(m => Model.Service)
+            @Html.DropDownListFor(m => m.ServiceId, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
             @Html.ValidationMessageFor(m => Model.Service)
             <br />
             @Html.LabelFor(m => Model.ServiceEx)
-            @Html.TextBoxFor(m => Model.ServiceEx)
+            @Html.DropDownListFor(m => m.ServiceExId, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
             @Html.ValidationMessageFor(m => Model.ServiceEx)
-            <br />
-            @Html.LabelFor(m => Model.prixAffiche)
-            @Html.TextBoxFor(m => Model.prixAffiche)
-            @Html.ValidationMessageFor(m => Model.prixAffiche)
             <br />
             @Html.LabelFor(m => Model.prixTotal)
             @Html.TextBoxFor(m => Model.prixTotal)
