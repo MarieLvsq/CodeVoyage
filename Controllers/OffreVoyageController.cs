@@ -146,7 +146,19 @@ namespace CodeVoyage.Controllers
 		}
 
 
-	}
+        public ActionResult RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise, double prixMin, double prixMax)
+		{
+            List<OffreVoyage> offreVoyages;
+            using (Dal dal = new Dal())
+            {
+                offreVoyages = dal.RechercheOffre(itineraireId, eventId,serviceId,serviceExId,Remise,prixMin,prixMax);
+            }
+
+            return View(offreVoyages);
+        }
+
+
+    }
 
 
 }
