@@ -91,7 +91,14 @@ namespace CodeVoyage.Controllers
 
 		public IActionResult ModifierOffreVoyage(int id)
 		{
-			if (id != 0)
+            var itineraires = _bddContext.Itineraires.ToList();
+            var evenements = _bddContext.Evenements.ToList();
+            var services = _bddContext.Services.ToList();
+            ViewBag.ItineraireList = itineraires;
+            ViewBag.EvenementList = evenements;
+            ViewBag.ServiceList = services;
+           
+            if (id != 0)
 			{
 				using (Dal dal = new Dal())
 				{
@@ -138,6 +145,7 @@ namespace CodeVoyage.Controllers
 			using (Dal dal = new Dal())
 			{
 				offreVoyages = dal.ObtientToutesLesOffresVoyages();
+	
 			}
 
 
@@ -146,7 +154,19 @@ namespace CodeVoyage.Controllers
 		}
 
 
-	}
+        public ActionResult RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise, double prixMin, double prixMax)
+		{
+            List<OffreVoyage> offreVoyages;
+            using (Dal dal = new Dal())
+            {
+                offreVoyages = dal.RechercheOffre(itineraireId, eventId,serviceId,serviceExId,Remise,prixMin,prixMax);
+            }
+
+            return View(offreVoyages);
+        }
+
+
+    }
 
 
 }
