@@ -17,7 +17,7 @@
     margin: auto;
 }
 
-#menu {
+#menuTest {
     float: right;
     width: 240px;
     background-color: ghostwhite;
@@ -29,10 +29,17 @@
 }
 
 #footer {
-    background-color: #873403;
-    color : lightgrey;
-    text-align: center;
+    background-color: darkgray;
+    color: black;
     clear: both;
+    align-items : center;
+}
+
+
+table{
+   
+  
+   
 }
 
 .titre {
@@ -70,4 +77,27 @@ nav ul {
     color: #fff;
     border: none;
     cursor: pointer;
+}
+
+#colonne {
+    float: left;
+    border: 1px;
+    background-color: ghostwhite;
+   border-color : coral;
+}
+
+
+div.scroll-container {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+   
+}
+
+div.scroll-container img {
+    padding: 10px;
+    resize : both;
+    height : 50%;
+    width : auto;
 }
