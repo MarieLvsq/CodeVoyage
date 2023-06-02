@@ -18,8 +18,9 @@ namespace CodeVoyage.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
-            }
+
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
+
 
         public void InitializeDb()
         {
@@ -246,7 +247,27 @@ namespace CodeVoyage.Models
                      Localisation = "Geneve",
                      Age = 71,
                      User = Role.Admin
-                 }); ;
+                 });
+            this.OffreVoyages.AddRange(
+           new OffreVoyage
+           {
+               Id = 1,
+               ItineraireId = 1,
+               EventId = 1,
+               ServiceId = 4,
+               ServiceExId = 1,
+               Remise = 0,
+               prixAffiche=760,
+               prixTotal =760,
+
+           }
+           
+
+           
+
+           );
+
+           ;
 
 
 

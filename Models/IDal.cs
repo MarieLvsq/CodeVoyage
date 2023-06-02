@@ -5,6 +5,8 @@ namespace CodeVoyage.Models
 {
 	public interface IDal
 	{
+        List<OffreVoyage> RechercheMultiCritere(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise, double prixMin, double prixMax);
+
         public interface IDal
         {
             void DeleteCreateDatabase();
@@ -13,6 +15,8 @@ namespace CodeVoyage.Models
             List<OffreVoyage> ObtientToutesLesOffresDeVoyage();
             int CreerOffresVoyage(Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double PrixTotal, double prixAffiche);
             void ModifierOffreVoyage(int id, Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double PrixTotal, double prixAffiche);
+            List<OffreVoyage> RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise,
+            double prixMin, double prixMax);
 
             //Methodes Evenements
             List<Evenement> ObtientTousLesEvenements();
