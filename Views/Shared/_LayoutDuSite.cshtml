@@ -19,7 +19,7 @@
       
         <nav>
             <ul>
-                <li class="menuLogo"><a href="https://localhost:44324/"><img src="~/Css/LogoBlanc2.png" width="25%" height="25%"/></a></li>
+                <li class="menuLogo"><a href="https://localhost:5001/"><img src="~/Images/LogoBlanc2.png" width="25%" height="25%"/></a></li>
                 <li><a href="#">Laissez-vous inspirer</a></li>
                 <li><a href="#">Prenez le contrôle</a></li>
                 <li><a href="#">À propos</a></li>
@@ -30,18 +30,44 @@
 
     <div id="main">
        
-
+        
         <div id="contenu">
             @RenderBody()
+            @RenderSection("colonne", required : false)
+           </div>
+        <div>
+            
         </div>
+
     </div>
 
     <div id="footer">
-        <div id="menu">
-            @RenderSection("Menu", required: false)
-        </div>
-        &copy; @DateTime.Now.Year - Contactez nous !
-
+        <table id= "table">
+          
+            <tr><td>15 rue Felix Faure, 75015 Paris</td></tr>
+            <tr><td>&copy; @DateTime.Now.Year - Contactez nous !</td></tr>
+                       
+            <ul>
+        <li><a href="https://localhost:5001/"><img src="~/Images/LogoCV1.png" width="25%" height="25%" /></a></li>
+        <li>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
+        <li>@Html.ActionLink("Affichage de service", "AfficherTousLesServices", "Service")</li>
+        <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement", "Evenement")</li>
+        <li>@Html.ActionLink("Affichage des Evènements", "AfficherTousLesEvenements", "Evenement")</li>
+        <li>@Html.ActionLink("Ajout d'Itineraire", "CreerItineraire","Itineraire")</li>
+        <li>@Html.ActionLink("Affichage d'Itineraire", "AfficherTousLesItineraires", "Itineraire")</li>
+        <li>@Html.ActionLink("Inscription Membre", "InscriptionMembre","Membre")</li>
+        <li>@Html.ActionLink("Affichage des Membres", "AfficherTousLesMembres", "Membre")</li>
+        <li>@Html.ActionLink("Incription d'un partenaire", "InscriptionPartenaire", "Partenaire")</li>
+        <li>@Html.ActionLink("Liste des partenaires", "AfficherTousLesPartenaires", "Partenaire")</li>
+        <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
+        <li>@Html.ActionLink("Affichage des Offres de voyages", "AfficherToutesLesOffresVoyages", "OffreVoyage")</li>
+    </ul>
+            
+           
+                        
+        </table>
+        
+        
     </div>
     @RenderSection("ExtraScripts", required: false)
 </body>

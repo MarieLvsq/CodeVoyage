@@ -89,7 +89,7 @@ namespace CodeVoyage.Controllers
 		}
 		//Méthodes Modifier
 
-		public IActionResult ModifieOffreVoyage(int id)
+		public IActionResult ModifierOffreVoyage(int id)
 		{
 			if (id != 0)
 			{

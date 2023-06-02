@@ -11,22 +11,21 @@
         <button type="submit">Rechercher</button>
     </div>
 </header>
+<body>
+@*@section colonne{
 
-@section Menu{
     <ul>
-        <li class="selectionne">@Html.ActionLink("Accueil", "Index", "Home")</li>
-        <li>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
-        <li >@Html.ActionLink("Affichage de service", "AfficherTousLesServices", "Service")</li>
-        <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement", "Evenement")</li>
-        <li>@Html.ActionLink("Affichage des Evènements", "AfficherTousLesEvenements", "Evenement")</li>
-        <li>@Html.ActionLink("Ajout d'Itineraire", "CreerItineraire","Itineraire")</li>
-        <li>@Html.ActionLink("Affichage d'Itineraire", "AfficherTousLesItineraires", "Itineraire")</li>
-        <li>@Html.ActionLink("Inscription Membre", "InscriptionMembre","Membre")</li>
-        <li>@Html.ActionLink("Affichage des Membres", "AfficherTousLesMembres", "Membre")</li>
-        <li>@Html.ActionLink("Incription d'un partenaire", "InscriptionPartenaire", "Partenaire")</li>
-        <li>@Html.ActionLink("Liste des partenaires", "AfficherTousLesPartenaires", "Partenaire")</li>
-        <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
-        <li>@Html.ActionLink("Affichage des Offres de voyages", "AfficherToutesLesOffresVoyages", "OffreVoyage")</li>
+        <li>Thématique</li>
+        <li>Continent</li>
+
     </ul>
-}
-    <p class="contenu">Ici c'est la page d'accueil avec les news du site, etc.</p>
+
+    }*@
+
+    <div class="scroll-container">
+        <img src="~/Images/paris-olympics-2024.jpg" alt="Paris 2024">
+        <img src="~/Images/carnaval rio.jpg" alt="Carnaval de Rio">
+        <img src="~/Images/holi festival 1.jpg" alt="Holi festival">
+        <img src="~/Images/Sport-Portugal-Rugby.jpg" alt="Portugal Rugby">
+
+</body>
