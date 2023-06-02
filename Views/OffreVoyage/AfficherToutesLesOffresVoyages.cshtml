@@ -48,12 +48,6 @@
 
             <th>
 
-                Prix Affiché
-
-            </th>
-
-            <th>
-
                 Prix Total
 
             </th>
@@ -65,12 +59,11 @@
         @foreach (var offreVoyage in Model)
         {
             <tr>
-                <td>@offreVoyage.Itineraire</td>
-                <td>@offreVoyage.Event</td>
-                <td>@offreVoyage.Service</td>
-                <td>@offreVoyage.ServiceEx</td>
+                <td>@offreVoyage.Itineraire.ItineraireDescription</td>
+                <td>@offreVoyage.Event.EvenementDescription</td>
+                <td>@offreVoyage.Service.ServiceDescription</td>
+                <td>@offreVoyage.ServiceEx.ServiceDescription</td>
                 <td>@offreVoyage.Remise</td>
-                <td>@offreVoyage.prixAffiche</td>
                 <td>@offreVoyage.prixTotal</td>
                 <td>
                     <form method="get" action="@("/OffreVoyage/ModifierOffreVoyage/"+offreVoyage.Id)">
