@@ -4,23 +4,12 @@
 }
 
 #entete {
-    background: ghostwhite 
-}
-
-#menuLogo {
     background: ghostwhite;
-    margin-left: 10px;
 }
 
 
 #main {
     margin: auto;
-}
-
-#menuTest {
-    float: right;
-    width: 240px;
-    background-color: ghostwhite;
 }
 
 #contenu {
@@ -29,18 +18,13 @@
 }
 
 #footer {
-    background-color: darkgray;
+    border-top: 1px solid #D0D1D2;
+    background-color: ghostwhite;
     color: black;
-    clear: both;
-    align-items : center;
+    position: absolute;
+    padding-top: 40px;
 }
 
-
-table{
-   
-  
-   
-}
 
 .titre {
     text-align: center;
@@ -48,6 +32,9 @@ table{
 
 .selectionne {
     color: red;
+}
+.footerUl {
+    list-style-type: none;
 }
 nav ul {
     list-style-type: none;
@@ -79,30 +66,21 @@ nav ul {
     cursor: pointer;
 }
 
-#colonne {
-    float: left;
-    border: 1px;
-    background-color: ghostwhite;
-   border-color : coral;
-}
-
 
 div.scroll-container {
-    background-color: #333;
+    background-color: ghostwhite;
+    color : ghostwhite;
     overflow: auto;
     white-space: nowrap;
-    padding: 10px;
-   
+    padding: 100px;
 }
 
-div.scroll-container img {
-    padding: 10px;
-    resize : both;
-    height : 50%;
-    width : auto;
-}
-
-/* Centered text */
+    div.scroll-container img {
+        padding: 5px;
+        resize: both;
+        height: 50%;
+        width: auto;
+    }
 
 .container {
     position: relative;
@@ -115,4 +93,5 @@ div.scroll-container img {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 

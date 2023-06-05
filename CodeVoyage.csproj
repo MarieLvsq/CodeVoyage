@@ -23,6 +23,7 @@
     <Content Remove="wwwroot\Css\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="bootstrap" Version="5.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.15">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
