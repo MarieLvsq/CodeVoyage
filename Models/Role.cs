@@ -6,7 +6,7 @@ namespace CodeVoyage.Models
 		Particulier,
 		Entreprise,
 		Association,
-		Admin
+		
         
     }
 }

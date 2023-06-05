@@ -12,11 +12,13 @@
     <None Remove="Views\Shared\" />
     <None Remove="Views\Home\" />
     <None Remove="Views\RechercheMulti\" />
+    <None Remove="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Shared\" />
     <Folder Include="Views\Home\" />
     <Folder Include="wwwroot\Images\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

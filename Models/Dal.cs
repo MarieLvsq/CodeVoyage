@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net.Cache;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualBasic;
+using System.Security.Cryptography;
 
 namespace CodeVoyage.Models
 {
@@ -32,7 +34,7 @@ namespace CodeVoyage.Models
         public List<OffreVoyage> ObtientToutesLesOffresVoyages()
         {
 
-            return _bddContext.OffreVoyages.Include(o => o.Itineraire).Include(o => o.Event).Include(o => o.Service).Include(o => o.ServiceEx).Include(o => o.prixTotal).ToList();
+            return _bddContext.OffreVoyages.Include(o => o.Itineraire).Include(o => o.Event).Include(o => o.Service).Include(o => o.ServiceEx).ToList();
         }
 
         public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId,int Remise, double prixAffiche, double PrixTotal)
@@ -93,31 +95,32 @@ namespace CodeVoyage.Models
         public List<OffreVoyage> RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, double prixMax)
         {
 
-            List<OffreVoyage> listeOffreVoyage = _bddContext.OffreVoyages.ToList();
+            using var dbContext = new Models.BddContext();
 
-            List<OffreVoyage> listeOffreVoyageMulti = new List<OffreVoyage>();
-
-            foreach (OffreVoyage offre in listeOffreVoyage)
-            {
-                if ((itineraireId == 0 || offre.ItineraireId==itineraireId)
-                && (eventId == 0 || offre.EventId==eventId)
-                       && (serviceId == 0 || offre.ServiceId == serviceId)
-                       && (serviceExId == 0 || offre.ServiceExId==serviceExId)
-                       && (prixMax == 0 || offre.prixTotal <= prixMax))
-                {
-
-                    listeOffreVoyageMulti.Add(offre);
-
-                    
-                }
-                
-            }
-            return listeOffreVoyageMulti;
-
-
-
+            var query = dbContext.OffreVoyages.Include(o => o.ItineraireId).Include(o => o.EventId).Include(o => o.ServiceId).Include(o => o.ServiceExId).Include(o => o.prixTotal).AsQueryable();
+            return query.ToList();
         }
+            //foreach (OffreVoyage offre in listeOffreVoyage){
+            
+                /*  if ((itineraireId == 0 || offre.ItineraireId==itineraireId)
+                  && (eventId == 0 || offre.EventId==eventId)
+                         && (serviceId == 0 || offre.ServiceId == serviceId)
+                         && (serviceExId == 0 || offre.ServiceExId==serviceExId)
+                         && (prixMax == 0 || offre.prixTotal <= prixMax))
+                  {
 
+                      listeOffreVoyageMulti.Add(offre);
+
+
+                  }
+
+              }
+              return listeOffreVoyageMulti;*/
+
+
+
+            
+        
        
 		// Fin méthodes Offre de voyage
 
@@ -297,38 +300,46 @@ namespace CodeVoyage.Models
 
         // methodes Membres
 
-        
-
-
         public List<Membre> ObtientTousLesMembres()
         {
-            return _bddContext.Membres.ToList();
+            return this._bddContext.Membres.ToList();
         }
 
-        public int InscriptionMembre(string Nom, string Prenon, string Email, Statut Statut, string Localisation, int Age, Role user)
-        { 
-            Membre membre = new Membre() { Nom=Nom ,Prenom=Prenon ,Email=Email ,Statut=Statut ,Localisation=Localisation  ,Age=Age , User = user };
+        public Membre ObtenirMembre(int id)
+        {
+            return this._bddContext.Membres.Find(id);
+        }
 
-        
-      
+        public Membre ObtenirMembre(string idStr)
+        {
+            int id;
+            if (int.TryParse(idStr, out id))
+            {
+                return this.ObtenirMembre(id);
+            }
+            return null;
+        }
+
+        public int InscriptionMembre(string Nom, string Prenom, string Email,string motDePasse, string Localisation, int Age,Role role)
+        { 
+            Membre membre = new Membre() { Nom=Nom ,Prenom=Prenom ,Email=Email, MotDePasse=motDePasse,Localisation=Localisation,Age=Age ,User=role };
         _bddContext.Membres.Add(membre);
             _bddContext.SaveChanges();
             return membre.Id;
         }
 
-        public void ModifierMembre(int Id, string Nom, string Prenon, string Email, Statut Statut, string Localisation, int Age, Role user)
+        public void ModifierMembre(int Id, string Nom, string Prenom, string Email, string Localisation, int Age,Role role)
             {
             Membre membre = _bddContext.Membres.Find(Id);
 
             if (membre != null)
                 {
                 membre.Nom = Nom;
-                membre.Prenom = Prenon;
+                membre.Prenom = Prenom;
                 membre.Email = Email;
-                membre.Statut = Statut;
                 membre.Localisation = Localisation;
                 membre.Age = Age;
-                membre.User = user;
+                membre.User = role;
                 }
             }
         public void ModifierMembre(Membre membre)
@@ -357,17 +368,32 @@ namespace CodeVoyage.Models
             return _bddContext.Partenaires.ToList();
         }
 
-        public int InscriptionPartenaire(string Nom, string Localisation, string email, string numSiret, TypeService typeService, Role role)
+        public Partenaire ObtenirPartenaire(int id)
+        {
+            return this._bddContext.Partenaires.Find(id);
+        }
+
+        public Partenaire ObtenirPartenaire(string idStr)
+        {
+            int id;
+            if (int.TryParse(idStr, out id))
+            {
+                return this.ObtenirPartenaire(id);
+            }
+            return null;
+        }
+
+        public int InscriptionPartenaire(string Nom, string Localisation, string email,string motDePasse, string numSiret, TypeService typeService,Role role)
         {
 
-            Partenaire partenaire = new Partenaire() { Nom = Nom, Localisation = Localisation, email= email, NumSiret = numSiret, TypeService = typeService, Role=role };
+            Partenaire partenaire = new Partenaire() { Nom = Nom, Localisation = Localisation, email = email, MotDePasse = motDePasse, NumSiret = numSiret, TypeService = typeService, Role = role };
 
             _bddContext.Partenaires.Add(partenaire);
             _bddContext.SaveChanges();
             return partenaire.Id;
         }
 
-        public void ModifierPartenaire(int Id, string Nom, string Localisation, string email, string numSiret, TypeService typeService, Role role)
+        public void ModifierPartenaire(int Id, string Nom, string motDePasse,string Localisation, string email, string numSiret, TypeService typeService, Role role)
         {
             Partenaire partenaire = _bddContext.Partenaires.Find(Id);
 
@@ -375,6 +401,7 @@ namespace CodeVoyage.Models
             {
                 partenaire.Id = Id;
                 partenaire.Nom = Nom;
+                partenaire.MotDePasse = motDePasse;
                 partenaire.Localisation = Localisation;
                 partenaire.email = email;
                 partenaire.NumSiret = numSiret;
@@ -384,9 +411,6 @@ namespace CodeVoyage.Models
             }
 
         }
-
-       
-
 
         public void ModifierPartenaire(Partenaire partenaire)
         {
@@ -440,9 +464,6 @@ namespace CodeVoyage.Models
 
         }
 
-
-
-
         public void Modifier(Reservation reservation)
         {
 
@@ -465,8 +486,57 @@ namespace CodeVoyage.Models
                 _bddContext.SaveChanges();
             }
         }
+        //Methodes Admin
+
+        public List<Admin> ObtientTousLesAdmins()
+        {
+            return _bddContext.Admins.ToList();
+        }
+
+        public Admin ObtenirAdmin(int id)
+        {
+            return this._bddContext.Admins.Find(id);
+        }
+
+        public Admin ObtenirAdmin(string idStr)
+        {
+            int id;
+            if (int.TryParse(idStr, out id))
+            {
+                return this.ObtenirAdmin(id);
+            }
+            return null;
+        }
 
 
+        // Méthodes d'authentification 
+
+        public Membre AuthentifierM(string email, string password)
+        {
+            string motDePasse = EncodeMD5(password);
+            Membre user = this._bddContext.Membres.FirstOrDefault(u => u.Email == email && u.MotDePasse == motDePasse);
+            return user;
+        }
+
+        public Partenaire AuthentifierP(string email, string password)
+        {
+            string motDePasse = EncodeMD5(password);
+            Partenaire user = this._bddContext.Partenaires.FirstOrDefault(u => u.email == email && u.MotDePasse == motDePasse);
+            return user;
+        }
+
+        public Admin AuthentifierA(string email, string password)
+        {
+            string motDePasse = EncodeMD5(password);
+            Admin user = this._bddContext.Admins.FirstOrDefault(u=> u.Email == email && u.MotDePasse == motDePasse);
+            return user;
+        }
+
+        public static string EncodeMD5(string motDePasse)
+        {
+            string motDePasseSel = "ChoixResto" + motDePasse + "ASP.NET MVC";
+            return BitConverter.ToString(new MD5CryptoServiceProvider().ComputeHash(ASCIIEncoding.Default.GetBytes(motDePasseSel)));
+        }
 
         public void Dispose()
         {

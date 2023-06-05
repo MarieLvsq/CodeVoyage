@@ -15,11 +15,12 @@ namespace CodeVoyage.Models
             public DbSet<Partenaire> Partenaires { get; set; }
             public DbSet<Reservation> Reservations { get; set; }
             public DbSet<Service> Services { get; set; }
+            public DbSet<Admin> Admins { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=Kuroikage@25;database=CodeVoyageBDD");
 
         }
         public void InitializeDb()
@@ -196,7 +197,8 @@ namespace CodeVoyage.Models
                 Nom = "Garou",
                 Prenom = "Vincent",
                 Email="V.garou@gmail.com",
-                Statut = Statut.Bronze,
+                MotDePasse="AAAAA",
+                
                 Localisation = "Torento",
                 Age = 43,
                 User = Role.Association
@@ -207,7 +209,8 @@ namespace CodeVoyage.Models
                   Nom = "DION",
                   Prenom = "Jean",
                   Email = "jean.dion@gmail.com",
-                  Statut = Statut.Argent,
+                  MotDePasse = "AAAAA",
+                  
                   Localisation = "Paris",
                   Age = 32,
                   User =Role.Particulier
@@ -219,7 +222,8 @@ namespace CodeVoyage.Models
                     Nom = "DILAN",
                     Prenom = "Robert",
                     Email = "robertDilan@gmail.com",
-                    Statut = Statut.Diamant,
+                    MotDePasse = "AAAAA",
+                   
                     Localisation = "Bruxelles",
                     Age = 23,
                     User = Role.Entreprise
@@ -231,7 +235,8 @@ namespace CodeVoyage.Models
                       Nom = "GASPARD",
                       Prenom = "Lea",
                       Email = "l.gaspard@gmail.com",
-                      Statut = Statut.Platine,
+                     MotDePasse = "AAAAA",
+                     
                       Localisation = "Orléans",
                       Age = 25,
                       User = Role.Entreprise
@@ -243,10 +248,11 @@ namespace CodeVoyage.Models
                      Nom = "Mirales",
                      Prenom = "Octave",
                      Email = "omirales@gmail.com",
-                     Statut = Statut.Or,
+                     MotDePasse = "AAAAA",
+                    
                      Localisation = "Geneve",
                      Age = 71,
-                     User = Role.Admin
+                     User = Role.Particulier
                  });
             this.OffreVoyages.AddRange(
            new OffreVoyage
@@ -266,6 +272,16 @@ namespace CodeVoyage.Models
            
 
            );
+            this.Admins.AddRange(
+           new Admin
+           {
+               Id = 1,
+              Nom="David",
+              Prenom="AITCHEOU",
+              Email="Dav@gmail.com",
+              MotDePasse="OnePiece"
+            
+           })
 
            ;
 
