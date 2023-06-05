@@ -32,21 +32,30 @@ namespace CodeVoyage.Models
         public List<OffreVoyage> ObtientToutesLesOffresVoyages()
         {
 
-            return _bddContext.OffreVoyages.Include(o => o.Itineraire).Include(o => o.Event).Include(o => o.Service).Include(o => o.ServiceEx).Include(o => o.prixTotal).ToList();
+            return _bddContext.OffreVoyages.Include(o => o.Itineraire).Include(o => o.Event).Include(o => o.Service).Include(o => o.ServiceEx).ToList();
         }
 
-        public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId,int Remise, double prixAffiche, double PrixTotal)
+        public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId,int Remise, double PrixTotal)
 
         {
+
+            Itineraire itineraire = _bddContext.Itineraires.Find(itineraireId);
+            Service service = _bddContext.Services.Find(serviceId);
+            Service serviceEx = _bddContext.Services.Find(serviceExId);
+
+
             
-            OffreVoyage offre = new OffreVoyage() { ItineraireId = itineraireId, EventId= eventId, ServiceId = serviceId, ServiceExId = serviceExId, prixTotal = PrixTotal };
+            OffreVoyage offre = new OffreVoyage() { ItineraireId = itineraireId, EventId= eventId, ServiceId = serviceId, ServiceExId = serviceExId};
+            offre.prixTotal = itineraire.Prix + service.Prix + serviceEx.Prix;
+
 
             _bddContext.OffreVoyages.Add(offre);
             _bddContext.SaveChanges();
+
             return offre.Id;
         }
 
-        public void ModifierOffreVoyage(int id, int ItineraireId, int EventId, int ServiceId, int ServiceExId, int Remise, double prixAffiche, double PrixTotal)
+        public void ModifierOffreVoyage(int id, int ItineraireId, int EventId, int ServiceId, int ServiceExId, int Remise, double PrixTotal)
 
         {
             OffreVoyage offre = _bddContext.OffreVoyages.Find(id);
@@ -58,7 +67,7 @@ namespace CodeVoyage.Models
                 offre.ServiceId = ServiceId;
                 offre.ServiceExId = ServiceExId;
                 offre.Remise = Remise;
-                offre.prixAffiche = prixAffiche;
+           
 				offre.prixTotal = PrixTotal;
 				 _bddContext.SaveChanges();
             }
