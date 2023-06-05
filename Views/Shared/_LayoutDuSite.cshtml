@@ -75,6 +75,9 @@
                         <li>@Html.ActionLink("Liste des partenaires", "AfficherTousLesPartenaires", "Partenaire")</li>
                         <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
                         <li>@Html.ActionLink("Affichage des Offres de voyages", "AfficherToutesLesOffresVoyages", "OffreVoyage")</li>
+                        <li>@Html.ActionLink("Recherche offre de voyages", "RechercheOffre", "OffreVoyage")</li>
+                        <li>@Html.ActionLink("Je réserve", "CreerReservation", "Reservation")</li>
+
                         </ul>
                 </div>
                 <div class="col-sm-1">
@@ -82,6 +85,7 @@
             </div>
         </div>
         </div>
+
     @RenderSection("ExtraScripts", required: false)
 </body>
 </html>

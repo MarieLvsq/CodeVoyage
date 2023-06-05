@@ -31,8 +31,7 @@
             @Html.LabelFor(m => Model.ServiceEx)
             @Html.DropDownListFor(m => m.ServiceExId, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
             <br />
-            @Html.LabelFor(m => Model.prixTotal)
-            @Html.TextBoxFor(m => Model.prixTotal)
+            
 
             <input type="submit" value="Ajouter" />
         </fieldset>

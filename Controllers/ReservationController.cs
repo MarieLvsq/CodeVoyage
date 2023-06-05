@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 
 namespace CodeVoyage.Controllers
 {
@@ -18,7 +19,7 @@ namespace CodeVoyage.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreerReservation(Membre Membre, OffreVoyage OffrePayee)
+        public IActionResult ReserverOffre(Membre Membre, OffreVoyage OffrePayee)
         {
 
 
@@ -100,8 +101,7 @@ namespace CodeVoyage.Controllers
             return View(reservations);
 
         }
-
-
+        
     }
 
 

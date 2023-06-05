@@ -1,4 +1,4 @@
-﻿@model CodeVoyage.Models.OffreVoyage
+﻿@model List<CodeVoyage.Models.OffreVoyage>
 @{
     ViewBag.Title = "Formulaire";
     Layout = "_LayoutDuSite";
@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>CréerOffreVoyage</title>
+    <title>Rechercher une offre sur mesure</title>
 </head>
 <body>
     @using (Html.BeginForm())
@@ -15,27 +15,58 @@
         <fieldset>
             <legend>Recherche avancée: </legend>
 
-            @Html.LabelFor(m => Model.Itineraire)
-            @Html.DropDownListFor(m => m.ItineraireId, new SelectList(ViewBag.ItineraireList, "Id", "ItineraireDescription"))
+            @Html.Label("Itineraire")
+            @Html.DropDownList("ItineraireId", new SelectList(ViewBag.ItineraireList, "Id", "ItineraireDescription"))
             @*@Html.TextBoxFor(m => Model.Itineraire)*@
 
             <br />
-            @Html.LabelFor(m => Model.Event)
-            @Html.DropDownListFor(m => m.EventId, new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
+            @Html.Label("Evénement")
+            @Html.DropDownList("EventId",new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
 
             <br />
-            @Html.LabelFor(m => Model.Service)
-            @Html.DropDownListFor(m => m.ServiceId, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
+            @Html.Label("service")
+            @Html.DropDownList("ServiceId", new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
 
             <br />
-            @Html.LabelFor(m => Model.ServiceEx)
-            @Html.DropDownListFor(m => m.ServiceExId, new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
+            @Html.Label("Service")
+            @Html.DropDownList("ServiceExId", new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
             
           
             <br />
-            @Html.LabelFor(m => Model.prixTotal)
-            @Html.DropDownListFor(m => m.prixTotal, Html.GetEnumSelectList<CodeVoyage.Models.prixMax>(), "Selectionner un prix")
+            @Html.Label("Prix Max")
+            @Html.DropDownList("prixMax", new SelectList(ViewBag.prixList, "Value", "Value"), "Selectionner un prix")
             <input type="submit" value="Rechercher" />
         </fieldset>    }
+
+
+    @if (Model.Count == 0)
+    {
+   
+        
+            <p> Aucune offre ne correspond à votre recherche </p>
+        
+    }
+    else
+    {
+        @foreach (var item in Model)
+        {
+
+
+            <fieldset>
+                <legend>Résultat de votre recherche: </legend>
+                <div>@item.Itineraire.ItineraireDescription, @item.Event.EvenementDescription, @item.prixTotal € </div>
+                @Html.ActionLink("Je réserve", "ReserverOffre", "Reservation")
+
+
+            </fieldset>
+
+
+
+        }
+    }
+
+   
+
+    
 </body>
 </html>
