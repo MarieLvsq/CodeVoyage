@@ -36,9 +36,9 @@
             @Html.LabelFor(m => Model.Membre.Age)
             @Html.TextBoxFor(m => Model.Membre.Age)
             <br />
-            @*@Html.LabelFor(m => Model.Membre.User)
+            @Html.LabelFor(m => Model.Membre.User)
             @Html.DropDownListFor(m => m.Membre.User, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Role>(), " Vous êtes : ")
-            @Html.ValidationMessageFor(m => Model.Membre.User)*@
+            @Html.ValidationMessageFor(m => Model.Membre.User)
             <br />
             <input type="submit" value="Ajouter" />
         </fieldset>
