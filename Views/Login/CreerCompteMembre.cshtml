@@ -1,0 +1,47 @@
+﻿@model CodeVoyage.Models.Membre
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<p>
+    Veuillez Remplir les champs pour créer voter compte :
+</p>
+        
+        
+        
+@using (Html.BeginForm("CreerCompteM", "Login", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Inscription d'un Membre: </legend>
+        @Html.LabelFor(m => Model.Nom)
+        @Html.TextBoxFor(m => Model.Nom)
+        @*@Html.ValidationMessageFor(m => Model.Nom)*@
+        <br />
+        @Html.LabelFor(m => Model.Prenom)
+        @Html.TextBoxFor(m => Model.Prenom)
+        @*Html.ValidationMessageFor(m => Model.Prenom)*@
+        <br />
+        @Html.LabelFor(m => Model.Email)
+        @Html.TextBoxFor(m => Model.Email)
+        @*Html.ValidationMessageFor(m => Model.Email)*@
+        <br />
+        @Html.LabelFor(m => Model.MotDePasse)
+        @Html.PasswordFor(m => m.MotDePasse)
+        @*Html.ValidationMessageFor(m => Model.Localisation)*@
+        <br />
+        @Html.LabelFor(m => Model.Localisation)
+        @Html.TextBoxFor(m => Model.Localisation)
+        @*Html.ValidationMessageFor(m => Model.Localisation)*@
+        <br />
+        @Html.LabelFor(m => Model.Age)
+        @Html.TextBoxFor(m => Model.Age)
+        @*Html.ValidationMessageFor(m => Model.Age)*@
+        <br />
+        @Html.LabelFor(m => Model.User)
+        @Html.DropDownListFor(m => m.User, Html.GetEnumSelectList<CodeVoyage.Models.Role>(), "Vous êtes")
+        @*Html.ValidationMessageFor(m => Model.User)*@
+        <br />
+
+        <input type="submit" value="Créer" />
+    </fieldset>
+}

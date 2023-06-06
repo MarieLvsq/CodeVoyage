@@ -1,0 +1,39 @@
+﻿@model CodeVoyage.ViewModels.PartenaireViewModel
+
+
+
+
+@if (Model.AuthentifierP)
+{
+    <h3>
+        Vous êtes déjà authentifié avec le login :
+        @Model.Partenaire.Nom
+    </h3>
+    @Html.ActionLink("Voulez-vous vous déconnecter ?", "Deconnexion")
+}
+else
+{
+    <p>
+        Veuillez vous authentifier :
+    </p>
+    using (Html.BeginForm())
+    {
+        //if (User.IsInRole("Admin"))
+        //{
+
+        //}
+        <div>
+            @Html.LabelFor(m => m.Partenaire.email)
+            @Html.TextBoxFor(m => m.Partenaire.email)
+            @Html.ValidationMessageFor(m => m.Partenaire.email)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Partenaire.MotDePasse)
+            @Html.PasswordFor(m => m.Partenaire.MotDePasse)
+            @Html.ValidationMessageFor(m => m.Partenaire.MotDePasse)
+        </div>
+        <input type="submit" value="Se connecter" />
+        <br />
+        @Html.ActionLink("Créer un compte", "CreerComptePartenaire", "Login")
+    }
+}

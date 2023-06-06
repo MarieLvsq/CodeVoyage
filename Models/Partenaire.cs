@@ -11,6 +11,7 @@ namespace CodeVoyage.Models
         public string Nom { get; set; }
         public string Localisation { get; set; }
         public string email { get; set; }
+        public string MotDePasse { get; set; }
 
         public Role Role { get; set; }
         [Display(Name = "Numéro de siret")]

@@ -1,0 +1,48 @@
+﻿@model CodeVoyage.Models.Partenaire
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<p>
+    Veuillez Remplir les champs pour créer votre compte :
+</p>
+
+
+
+@using (Html.BeginForm("CreerCompteP", "Login", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Inscription d'un Membre: </legend>
+        @Html.LabelFor(m => Model.Nom)
+        @Html.TextBoxFor(m => Model.Nom)
+        @*@Html.ValidationMessageFor(m => Model.Nom)*@
+        <br />
+        @Html.LabelFor(m => Model.NumSiret)
+        @Html.TextBoxFor(m => Model.NumSiret)
+        @*Html.ValidationMessageFor(m => Model.Prenom)*@
+        <br />
+        @Html.LabelFor(m => Model.email)
+        @Html.TextBoxFor(m => Model.email)
+        @*Html.ValidationMessageFor(m => Model.Email)*@
+        <br />
+        @Html.LabelFor(m => Model.MotDePasse)
+        @Html.PasswordFor(m => m.MotDePasse)
+        @*Html.ValidationMessageFor(m => Model.Localisation)*@
+        <br />
+        @Html.LabelFor(m => Model.Localisation)
+        @Html.TextBoxFor(m => Model.Localisation)
+        @*Html.ValidationMessageFor(m => Model.Localisation)*@
+        <br />
+        @Html.LabelFor(m => Model.TypeService)
+        @Html.DropDownListFor(m => m.TypeService, Html.GetEnumSelectList<CodeVoyage.Models.TypeService>(), "Selectionner le type de service")
+        @*Html.ValidationMessageFor(m => Model.Age)*@
+        <br />
+        @Html.LabelFor(m => Model.Role)
+        @Html.DropDownListFor(m => m.Role, Html.GetEnumSelectList<CodeVoyage.Models.Role>(), "Vous êtes?")
+        @*Html.ValidationMessageFor(m => Model.User)*@
+        <br />
+
+        <input type="submit" value="Créer" />
+    </fieldset>
+}
+

@@ -29,7 +29,7 @@ namespace CodeVoyage.Controllers
                 dal.CreerItineraire(LieuDepart, Destination, Prix, Transport, NombreVoyageur, DateDepart, DateArrivee);
 
 
-                return RedirectToAction("CreerItineraire");
+                return RedirectToAction("AfficherTousLesItineraires");
             }
         }
 

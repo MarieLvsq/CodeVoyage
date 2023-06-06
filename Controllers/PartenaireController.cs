@@ -16,13 +16,13 @@ namespace CodeVoyage.Controllers
         }
 
         [HttpPost]
-        public IActionResult InscriptionPartenaire(string Nom, string Localisation , string email, string numSiret, TypeService typeService, Role role)
+        public IActionResult InscriptionPartenaire(string Nom, string Localisation , string email,string motDePasse, string numSiret, TypeService typeService, Role role)
         {
 
 
             using (Dal dal = new Dal())
             {
-                dal.InscriptionPartenaire(Nom, Localisation, email, numSiret, typeService,role);
+                dal.InscriptionPartenaire(Nom, Localisation, email,motDePasse, numSiret, typeService,role);
                 return RedirectToAction("InscriptionPartenaire");
             }
 

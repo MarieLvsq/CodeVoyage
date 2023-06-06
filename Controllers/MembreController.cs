@@ -12,24 +12,26 @@ namespace CodeVoyage.Controllers
 
         // Méthodes Ajouter
 
-        public IActionResult InscriptionMembre()
+        /*public IActionResult InscriptionMembre()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult InscriptionMembre(string Nom, string Prenon, string Email, Statut Statut , string Localisation, int Age, Role user)
+        public IActionResult InscriptionMembre(string Nom, string Prenon, string Email , string Localisation, int Age)
         {
 
 
             using (Dal dal = new Dal())
             {
-                dal.InscriptionMembre(Nom,Prenon,Email,Statut,Localisation,Age,user);
-                return RedirectToAction("AjouterMembre");
+                dal.InscriptionMembre(Nom,Prenon,Email,Localisation,Age);
+                return RedirectToAction("AfficherTousLesMembres");
             }
 
 
         }
+        */
+
         //Méthodes Supprimer
 
         public IActionResult SupprimerMembre(int id)
