@@ -38,6 +38,11 @@
             @*@Html.DropDownListFor(m => m.Membre.User, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Role>(), " Vous êtes : ")*@
             @Html.ValidationMessageFor(m => Model.Membre.User)
             <br />
+          
+        </fieldset>
+         <fieldset>
+            <legend> détails de votre réservation: </legend>
+            <div>ItineraireId.ItineraireDescription, EventId.EvenementDescription, prixTotal € </div>
             <input type="submit" value="Ajouter" />
         </fieldset>
     }

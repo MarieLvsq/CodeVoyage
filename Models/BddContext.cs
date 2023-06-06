@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.Xml;
 using Microsoft.EntityFrameworkCore;
 
 namespace CodeVoyage.Models
@@ -20,7 +21,7 @@ namespace CodeVoyage.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
 
         }
         public void InitializeDb()
@@ -41,8 +42,8 @@ namespace CodeVoyage.Models
                 {
                     Id = 2,
                     Nom = "Caribana festival",
-                    DateDeb = new DateTime(2023, 07, 01),
-                    DateFin = new DateTime(2023, 08, 30),
+                    DateDeb = new DateTime(2023, 08, 03),
+                    DateFin = new DateTime(2023, 08, 07),
                     Localisation = "Toronto",
                     TypeEvenement = ((TypeEvenement)3)
 
@@ -51,8 +52,8 @@ namespace CodeVoyage.Models
                 {
                     Id = 3,
                     Nom = "Atlanta Arts",
-                    DateDeb = new DateTime(2023, 09, 01),
-                    DateFin = new DateTime(2023, 09, 30),
+                    DateDeb = new DateTime(2023, 09, 19),
+                    DateFin = new DateTime(2023, 09, 20),
                     Localisation = "Piedmont Park",
                     TypeEvenement = ((TypeEvenement)1)
 
@@ -66,7 +67,89 @@ namespace CodeVoyage.Models
                     Localisation = "San Francisco",
                     TypeEvenement = ((TypeEvenement)1)
 
-                }
+                },
+                 new Evenement
+                 {
+                     Id = 5,
+                     Nom = "Carnaval de Venise",
+                     DateDeb = new DateTime(2023, 02, 03),
+                     DateFin = new DateTime(2023, 02, 13),
+                     Localisation = "Venise",
+                     TypeEvenement = ((TypeEvenement)3)
+
+                 },
+                  new Evenement
+                  {
+                      Id = 6,
+                      Nom = "Coupe d'Afrique des nations (CAN)",
+                      DateDeb = new DateTime(2023, 01, 13),
+                      DateFin = new DateTime(2023, 02, 11),
+                      Localisation = "Abidjan",
+                      TypeEvenement = ((TypeEvenement)2)
+
+                  },
+
+                  new Evenement
+                  {
+                      Id = 7,
+                      Nom = "Rock in Rio ",
+                      DateDeb = new DateTime(2023, 09, 01),
+                      DateFin = new DateTime(2023, 09, 30),
+                      Localisation = "Rio de Janeiro",
+                      TypeEvenement = ((TypeEvenement)1)
+
+                  },
+                   new Evenement
+                   {
+                       Id = 8,
+                       Nom = "Oktoberfest ",
+                       DateDeb = new DateTime(2023, 09, 16),
+                       DateFin = new DateTime(2023, 10, 03),
+                       Localisation = "Munich",
+                       TypeEvenement = ((TypeEvenement)0)
+
+                   },
+                    new Evenement
+                    {
+                        Id = 9,
+                        Nom = "Qatar Grand Prix (Formule 1)",
+                        DateDeb = new DateTime(2023, 10, 06),
+                        DateFin = new DateTime(2023, 10, 08),
+                        Localisation = "Doha",
+                        TypeEvenement = ((TypeEvenement)2)
+
+                    },
+                    new Evenement
+                    {
+                        Id = 10,
+                        Nom = "Dubaï Shopping Festival",
+                        DateDeb = new DateTime(2024, 12, 01),
+                        DateFin = new DateTime(2024, 12, 31),
+                        Localisation = "Doha",
+                        TypeEvenement = ((TypeEvenement)1)
+
+                    },
+                     new Evenement
+                     {
+                         Id = 11,
+                         Nom = "Euro 2024, Paris",
+                         DateDeb = new DateTime(2024, 06, 14),
+                         DateFin = new DateTime(2024, 07, 14),
+                         Localisation = "Paris",
+                         TypeEvenement = ((TypeEvenement)2)
+
+                     },
+                      new Evenement
+                      {
+                          Id = 12,
+                          Nom = "Coupe du Monde Rugby",
+                          DateDeb = new DateTime(2023, 09, 08),
+                          DateFin = new DateTime(2023, 10, 28),
+                          Localisation = "Paris",
+                          TypeEvenement = ((TypeEvenement)2)
+
+                      }
+
 
                 );
             this.Itineraires.AddRange(
@@ -104,21 +187,184 @@ namespace CodeVoyage.Models
                 Prix = 560
 
             },
+
             new Itineraire
             {
                 Id = 4,
-                DateDepart = new DateTime(2023, 09, 15),
-                DateArrivee = new DateTime(2023, 11, 25),
-                LieuDepart = "Test",
+                DateDepart = new DateTime(2023, 08, 02),
+                DateArrivee = new DateTime(2023, 08, 08),
+                LieuDepart = "Paris",
                 Destination = "Toronto",
                 NombreVoyageur = 50,
                 Transport = ((MoyenDeTransport)0),
                 Prix = 575
 
-            });
 
-            this.Services.AddRange(
-                 new Service
+            },
+            new Itineraire
+            {
+                Id = 5,
+                DateDepart = new DateTime(2023, 10, 01),
+                DateArrivee = new DateTime(2023, 10, 15),
+                LieuDepart = "Paris",
+                Destination = "Venise",
+                NombreVoyageur = 20,
+                Transport = ((MoyenDeTransport)2),
+                Prix = 80
+
+            },
+            new Itineraire
+            {
+                Id = 6,
+                DateDepart = new DateTime(2023, 10, 02),
+                DateArrivee = new DateTime(2023, 10, 14),
+                LieuDepart = "Paris",
+                Destination = "Venise",
+                NombreVoyageur = 20,
+                Transport = ((MoyenDeTransport)0),
+                Prix = 160
+
+            },
+            new Itineraire
+
+            {
+                Id = 7,
+                DateDepart = new DateTime(2023, 01, 11),
+                DateArrivee = new DateTime(2023, 01, 25),
+                LieuDepart = "Paris",
+                Destination = "Abidjan",
+                NombreVoyageur = 20,
+                Transport = ((MoyenDeTransport)0),
+                Prix = 403
+
+            },
+            new Itineraire
+
+            {
+                Id = 8,
+                DateDepart = new DateTime(2023, 02, 01),
+                DateArrivee = new DateTime(2023, 02, 13),
+                LieuDepart = "Paris",
+                Destination = "Abidjan",
+                NombreVoyageur = 20,
+                Transport = ((MoyenDeTransport)0),
+                Prix = 403
+
+            },
+            new Itineraire
+
+            {
+                Id = 9,
+                DateDepart = new DateTime(2023, 02, 06),
+                DateArrivee = new DateTime(2023, 02, 10),
+                LieuDepart = "Paris",
+                Destination = "Doha",
+                NombreVoyageur = 20,
+                Transport = ((MoyenDeTransport)0),
+                Prix = 359
+
+            },
+            new Itineraire
+            {
+                Id = 10,
+                DateDepart = new DateTime(2023, 09, 15),
+                DateArrivee = new DateTime(2023, 10, 04),
+                LieuDepart = "Paris",
+                Destination = "Munich",
+                NombreVoyageur = 20,
+                Transport = ((MoyenDeTransport)0),
+                Prix = 232
+
+            },
+             new Itineraire
+             {
+                 Id = 11,
+                 DateDepart = new DateTime(2023, 09, 15),
+                 DateArrivee = new DateTime(2023, 10, 04),
+                 LieuDepart = "Paris",
+                 Destination = "Munich",
+                 NombreVoyageur = 20,
+                 Transport = ((MoyenDeTransport)2),
+                 Prix = 196
+
+             },
+              new Itineraire
+              {
+                  Id = 13,
+                  DateDepart = new DateTime(2023, 07, 25),
+                  DateArrivee = new DateTime(2023, 08, 11),
+                  LieuDepart = "Lyon",
+                  Destination = "Paris",
+                  NombreVoyageur = 15,
+                  Transport = ((MoyenDeTransport)2),
+                  Prix = 150
+
+              },
+              new Itineraire
+              {
+                  Id = 14,
+                  DateDepart = new DateTime(2023, 07, 25),
+                  DateArrivee = new DateTime(2023, 08, 11),
+                  LieuDepart = "Toulouse",
+                  Destination = "Paris",
+                  NombreVoyageur = 15,
+                  Transport = ((MoyenDeTransport)2),
+                  Prix = 180
+
+              },
+               new Itineraire
+               {
+                   Id = 15,
+                   DateDepart = new DateTime(2023, 07, 25),
+                   DateArrivee = new DateTime(2023, 08, 11),
+                   LieuDepart = "Toulouse",
+                   Destination = "Paris",
+                   NombreVoyageur = 15,
+                   Transport = ((MoyenDeTransport)2),
+                   Prix = 180
+
+               },
+               new Itineraire
+               {
+                   Id = 16,
+                   DateDepart = new DateTime(2023, 06, 13),
+                   DateArrivee = new DateTime(2023, 07, 15),
+                   LieuDepart = "Toulouse",
+                   Destination = "Paris",
+                   NombreVoyageur = 15,
+                   Transport = ((MoyenDeTransport)2),
+                   Prix = 180
+
+               },
+                new Itineraire
+                {
+                    Id = 17,
+                    DateDepart = new DateTime(2023, 06, 13),
+                    DateArrivee = new DateTime(2023, 07, 15),
+                    LieuDepart = "Toulouse",
+                    Destination = "Paris",
+                    NombreVoyageur = 08,
+                    Transport = ((MoyenDeTransport)2),
+                    Prix = 300
+
+                },
+                 new Itineraire
+                 {
+                     Id = 18,
+                     DateDepart = new DateTime(2023, 08, 18),
+                     DateArrivee = new DateTime(2023, 08, 21),
+                     LieuDepart = "Paris",
+                     Destination = "Atlanta",
+                     NombreVoyageur = 08,
+                     Transport = ((MoyenDeTransport)0),
+                     Prix = 315
+
+                 }
+
+             );
+         
+             this.Services.AddRange(
+            new Service
                  {
                      Id = 1,
                      nomService = "Pas de service",
@@ -127,15 +373,15 @@ namespace CodeVoyage.Models
                      DateFin = new DateTime(2023, 09, 03),
                      TypeService = ((TypeService)0),
                      Prix = 0
-                 },
+                },
                 new Service
                 {
                     Id = 2,
-                    nomService= "Visite du Corcovado",
-                    Capacite= 20,
-                    DateDeb= new DateTime(2023, 10, 21),
-                    DateFin= new DateTime(2024, 12, 20),
-                    TypeService=((TypeService)4),
+                    nomService = "Visite du Corcovado",
+                    Capacite = 20,
+                    DateDeb = new DateTime(2023, 10, 21),
+                    DateFin = new DateTime(2024, 12, 20),
+                    TypeService = ((TypeService)4),
                     Prix = 10
                 },
                 new Service
@@ -155,9 +401,127 @@ namespace CodeVoyage.Models
                     Capacite = 2,
                     DateDeb = new DateTime(2023, 06, 01),
                     DateFin = new DateTime(2024, 06, 01),
-                    TypeService = ((TypeService)1),
+                    TypeService = ((TypeService)3),
                     Prix = 200
-                });
+                },
+                new Service
+                {
+                    Id = 5,
+                    nomService = "Safari dans le désert de Doha",
+                    Capacite = 6,
+                    DateDeb = new DateTime(2023, 02, 07),
+                    DateFin = new DateTime(2024, 02, 07),
+                    TypeService = ((TypeService)2),
+                    Prix = 90
+                },
+                 new Service
+                 {
+                     Id = 6,
+                     nomService = " Restauration locale Abidjan",
+                     Capacite = 10,
+                     DateDeb = new DateTime(2023, 01, 15),
+                     DateFin = new DateTime(2024, 01, 15),
+                     TypeService = ((TypeService)0),
+                     Prix = 15
+                 },
+
+                  new Service
+                  {
+                      Id = 7,
+                      nomService = " Restauration locale Rio",
+                      Capacite = 10,
+                      DateDeb = new DateTime(2023, 02, 12),
+                      DateFin = new DateTime(2024, 02, 12),
+                      TypeService = ((TypeService)0),
+                      Prix = 10
+                  },
+                   new Service
+                   {
+                       Id = 8,
+                       nomService = " Balade privée en gondole Venise",
+                       Capacite = 5,
+                       DateDeb = new DateTime(2023, 02, 07),
+                       DateFin = new DateTime(2024, 02, 07),
+                       TypeService = ((TypeService)2),
+                       Prix = 50
+                   },
+                    new Service
+                    {
+                        Id = 9,
+                        nomService = " location voiture Sixt: Venise",
+                        Capacite = 5,
+                        DateDeb = new DateTime(2023, 02, 03),
+                        DateFin = new DateTime(2024, 02, 13),
+                        TypeService = ((TypeService)3),
+                        Prix = 300
+                    },
+                     new Service
+                     {
+                         Id = 10,
+                         nomService = " location voiture Sixt: Abidjan",
+                         Capacite = 5,
+                         DateDeb = new DateTime(2023, 01, 11),
+                         DateFin = new DateTime(2024, 01, 25),
+                         TypeService = ((TypeService)3),
+                         Prix = 300
+                     },
+                      new Service
+                      {
+                          Id = 11,
+                          nomService = " location voiture Sixt: Abidjan",
+                          Capacite = 5,
+                          DateDeb = new DateTime(2023, 02, 01),
+                          DateFin = new DateTime(2024, 02, 13),
+                          TypeService = ((TypeService)3),
+                          Prix = 300
+                      },
+                      new Service
+                      {
+                          Id = 12,
+                          nomService = " Holiday Inn: Rio",
+                          Capacite = 40,
+                          DateDeb = new DateTime(2024, 02, 01),
+                          DateFin = new DateTime(2025, 02, 28),
+                          TypeService = ((TypeService)1),
+                          Prix = 400
+
+                      },
+                      new Service
+                      {
+                          Id = 13,
+                          nomService = " Billet Tour Eiffel, Visite Musée du Louvre ",
+                          Capacite = 40,
+                          DateDeb = new DateTime(2024, 06, 20),
+                          DateFin = new DateTime(2025,06, 24),
+                          TypeService = ((TypeService)2),
+                          Prix = 97
+                      },
+                       new Service
+                       {
+                           Id = 14,
+                           nomService = " Holiday Inn: Toronto",
+                           Capacite = 40,
+                           DateDeb = new DateTime(2023, 08, 03),
+                           DateFin = new DateTime(2025, 08, 07),
+                           TypeService = ((TypeService)1),
+                           Prix = 500
+
+                       },
+                        new Service
+                        {
+                            Id = 15,
+                            nomService = " Holiday Inn: Atlanta",
+                            Capacite = 40,
+                            DateDeb = new DateTime(2023, 09, 19),
+                            DateFin = new DateTime(2025, 09, 20),
+                            TypeService = ((TypeService)1),
+                            Prix = 145
+
+                        }
+
+                      );
+
+
             this.Partenaires.AddRange(
             new Partenaire
             {
@@ -167,7 +531,7 @@ namespace CodeVoyage.Models
                 email = "service-reservation@holidayinn.com",
                 NumSiret = "10120125630",
                 TypeService = ((TypeService)2),
-                Role = Role.Entreprise,
+                Role = Role.Entreprise
             },
             new Partenaire
             {
@@ -188,7 +552,28 @@ namespace CodeVoyage.Models
                 NumSiret = "1882378500",
                 TypeService = TypeService.Restauration,
                 Role = Role.Entreprise
-            });
+            },
+             new Partenaire
+             {
+                 Id = 4,
+                 Nom = "Le Débarcadère",
+                 Localisation = "Abidjan",
+                 email = "ledebarcadere@gmail.com",
+                 NumSiret = "1882378507",
+                 TypeService = TypeService.Restauration,
+                 Role = Role.Entreprise
+             },
+                new Partenaire
+                {
+                    Id = 5,
+                    Nom = "Sixt",
+                    Localisation = "Abidjan",
+                    email = "sixt@gmail.com",
+                    NumSiret = "1882378509",
+                    TypeService = TypeService.Transport,
+                    Role = Role.Entreprise
+                }
+            );
 
              this.Membres.AddRange(
              new Membre
@@ -272,16 +657,62 @@ namespace CodeVoyage.Models
                Id = 2,
                ItineraireId = 2,
                EventId = 2,
-               ServiceId = 3,
-               ServiceExId = 1,
+               ServiceId = 1,
+               ServiceExId = 3,
                Remise = 0,
 
                prixTotal = 587,
 
+           },
+            new OffreVoyage
+            {
+                Id = 3,
+                ItineraireId = 2,
+                EventId = 2,
+                ServiceId = 14,
+                ServiceExId = 1,
+                Remise = 0,
 
+                prixTotal = 1075,
 
+            },
+            new OffreVoyage
+            {
+                Id = 4,
+                ItineraireId = 14,
+                EventId = 11,
+                ServiceId = 1,
+                ServiceExId = 13,
+                Remise = 0,
 
-           }
+                prixTotal = 277,
+
+            },
+              new OffreVoyage
+              {
+                  Id = 5,
+                  ItineraireId = 3,
+                  EventId = 4,
+                  ServiceId = 1,
+                  ServiceExId = 3,
+                  Remise = 0,
+
+                  prixTotal = 572,
+
+              },
+               new OffreVoyage
+               {
+                   Id = 6,
+                   ItineraireId = 18,
+                   EventId = 3,
+                   ServiceId = 15,
+                   ServiceExId = 1,
+                   Remise = 0,
+
+                   prixTotal = 460,
+
+               }
+
 
 
 
