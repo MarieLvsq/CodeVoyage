@@ -132,7 +132,7 @@ namespace CodeVoyage.Controllers
 			}
 
 
-			return View(offreVoyages);
+			return View();
 
 		}
 
@@ -160,7 +160,7 @@ namespace CodeVoyage.Controllers
             using (Dal dal = new Dal())
             {
                 dal.RechercheOffre(itineraireId, eventId, serviceId, serviceExId,prixMax);
-                return RedirectToAction("ListeMulti");
+                return RedirectToAction("AfficherToutesLesOffresVoyages");
             }
 
         }

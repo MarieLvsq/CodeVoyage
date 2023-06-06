@@ -27,7 +27,7 @@
             @Html.TextBoxFor(m => Model.Membre.Email)
             <br />
             @Html.LabelFor(m => Model.Membre.Statut)
-            @Html.DropDownListFor(m => m.Membre.Statut, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Statut>(), "Sélectionnez votre Statut")
+           @* @Html.DropDownListFor(m => m.Membre.Statut, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Statut>(), "Sélectionnez votre Statut")*@
             @Html.ValidationMessageFor(m => Model.Membre.Statut)
             <br />
             @Html.LabelFor(m => Model.Membre.Localisation)
@@ -37,7 +37,7 @@
             @Html.TextBoxFor(m => Model.Membre.Age)
             <br />
             @Html.LabelFor(m => Model.Membre.User)
-            @Html.DropDownListFor(m => m.Membre.User, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Role>(), " Vous êtes : ")
+            @* @Html.DropDownListFor(m => m.Membre.User, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Role>(), " Vous êtes : ")*@
             @Html.ValidationMessageFor(m => Model.Membre.User)
             <br />
             <input type="submit" value="Ajouter" />
