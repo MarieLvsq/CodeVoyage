@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using CodeVoyage.Models;
 using CodeVoyage.ViewModels;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -69,7 +71,7 @@ namespace CodeVoyage.Controllers
         {
             if (ModelState.IsValid)
             {
-                int id = dal.InscriptionMembre(membre.Nom,membre.Prenom, membre.MotDePasse,membre.Email,membre.Localisation,membre.Age,membre.User);
+                int id = dal.InscriptionMembre(membre.Nom, membre.Prenom, membre.MotDePasse, membre.Email, membre.Localisation, membre.Age, membre.User);
 
                 var userClaims = new List<Claim>()
                 {
@@ -83,7 +85,7 @@ namespace CodeVoyage.Controllers
 
                 return Redirect("/");
             }
-            return View("CreerCompteMembre",membre);
+            return View("CreerCompteMembre", membre);
         }
 
         public ActionResult DeconnexionM()
@@ -92,10 +94,10 @@ namespace CodeVoyage.Controllers
             return Redirect("/");
         }
 
-       /* public IActionResult IndexMe()
-        {
-            return View("../LoginMembre/Index");
-        }*/
+        /* public IActionResult IndexMe()
+         {
+             return View("../LoginMembre/Index");
+         }*/
 
         public IActionResult CreerCompteMembre()
         {
@@ -141,24 +143,20 @@ namespace CodeVoyage.Controllers
                     if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
                         return Redirect(returnUrl);
 
-                    return Redirect("/");
+                    return Redirect("IndexP");
                 }
                 ModelState.AddModelError("Utilisateur.Prenom", "Prénom et/ou mot de passe incorrect(s)");
             }
             return View(viewModel);
         }
 
-        public IActionResult CreerCompteP()
-        {
-            return View();
-        }
 
         [HttpPost]
         public IActionResult CreerCompteP(Partenaire partenaire)
         {
             if (ModelState.IsValid)
             {
-                int id = dal.InscriptionPartenaire(partenaire.Nom,partenaire.Localisation, partenaire.email, partenaire.MotDePasse,partenaire.NumSiret,partenaire.TypeService,partenaire.Role);
+                int id = dal.InscriptionPartenaire(partenaire.Nom, partenaire.Localisation, partenaire.email, partenaire.MotDePasse, partenaire.NumSiret, partenaire.TypeService, partenaire.Role);
 
                 var userClaims = new List<Claim>()
                 {
@@ -172,8 +170,14 @@ namespace CodeVoyage.Controllers
 
                 return Redirect("/");
             }
-            return View(partenaire);
+            return View("CreerComptePartenaire", partenaire);
         }
+
+        public IActionResult CreerComptePartenaire()
+        {
+            return View();
+        }
+
 
         public ActionResult DeconnexionP()
         {
@@ -188,41 +192,57 @@ namespace CodeVoyage.Controllers
             AdminViewModel viewModel = new AdminViewModel { AuthentifierA = HttpContext.User.Identity.IsAuthenticated };
             if (viewModel.AuthentifierA)
             {
-                viewModel.Admin = dal.ObtenirAdmin(HttpContext.User.Identity.Name);
-                return View(viewModel);
+                using (var admindal = new Dal())
+                {
+                    viewModel.Admin = dal.ObtenirAdmin(HttpContext.User.Identity.Name);
+                    return View(viewModel);
+                }
             }
             return View(viewModel);
         }
-
+        
         [HttpPost]
-        public IActionResult IndexA(PartenaireViewModel viewModel, string returnUrl)
+        public IActionResult IndexA(AdminViewModel viewModel, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                Partenaire partenaire = dal.AuthentifierP(viewModel.Partenaire.Nom, viewModel.Partenaire.MotDePasse);
-                if (partenaire != null)
+                using (var admindal = new Dal())
                 {
-                    var userClaims = new List<Claim>()
+                    Admin admin = admindal.AuthentifierA(viewModel.Admin.Nom, viewModel.Admin.MotDePasse);
+                    if (admin != null)
                     {
-                        new Claim(ClaimTypes.Name, partenaire.Id.ToString()),
+                        var userClaims = new List<Claim>()
+                    {
+                        new Claim(ClaimTypes.Name, admin.Id.ToString()),
                        //new Claim(ClaimTypes.Role, utilisateur.Role),
 
                     };
 
-                    var ClaimIdentity = new ClaimsIdentity(userClaims, "User Identity");
+                        var ClaimIdentity = new ClaimsIdentity(userClaims, "User Identity");
 
-                    var userPrincipal = new ClaimsPrincipal(new[] { ClaimIdentity });
+                        var userPrincipal = new ClaimsPrincipal(new[] { ClaimIdentity });
 
-                    HttpContext.SignInAsync(userPrincipal);
 
-                    if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
-                        return Redirect(returnUrl);
 
-                    return Redirect("/");
+                        HttpContext.SignInAsync(userPrincipal);
+
+                        if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
+
+                            return Redirect(returnUrl);
+
+                        return RedirectToAction("/");
+                    }
+                    ModelState.AddModelError("Utilisateur.Prenom", "Prénom et/ou mot de passe incorrect(s)");
                 }
-                ModelState.AddModelError("Utilisateur.Prenom", "Prénom et/ou mot de passe incorrect(s)");
+                return View(viewModel);
+
             }
-            return View(viewModel);
+            return View("IndexA");
+        }
+
+        public IActionResult VueAdmin()
+        {
+            return View();
         }
 
         public ActionResult DeconnexionA()

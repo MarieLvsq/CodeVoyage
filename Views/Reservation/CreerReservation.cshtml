@@ -1,4 +1,4 @@
-﻿@model CodeVoyage.Models.Reservation
+@model CodeVoyage.Models.Reservation
 @{
     ViewBag.Title = "Formulaire";
     Layout = "_LayoutDuSite";
@@ -34,17 +34,18 @@
             @Html.LabelFor(m => Model.Membre.Age)
             @Html.TextBoxFor(m => Model.Membre.Age)
             <br />
-            @Html.LabelFor(m => Model.Membre.User)
-            @*@Html.DropDownListFor(m => m.Membre.User, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Role>(), " Vous êtes : ")*@
+            @*@Html.LabelFor(m => Model.Membre.User)
+            @Html.DropDownListFor(m => m.Membre.User, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Role>(), " Vous êtes : ")
             @Html.ValidationMessageFor(m => Model.Membre.User)
-            <br />
-          
-        </fieldset>
+
+          <br />
+
          <fieldset>
             <legend> détails de votre réservation: </legend>
             <div>ItineraireId.ItineraireDescription, EventId.EvenementDescription, prixTotal € </div>
-            <input type="submit" value="Ajouter" />
+        <input type="submit" value="Ajouter" />
         </fieldset>
+
     }
 </body>
 </html>

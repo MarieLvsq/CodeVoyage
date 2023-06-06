@@ -23,6 +23,7 @@
                 <li><a href="#">À propos</a></li>
                 <li>@Html.ActionLink("Connexion", "IndexM", "Login")</li>
                 <li>@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
+                <li>@Html.ActionLink("Admin", "IndexA", "Login")</li>
             </ul>
         </nav>
     </div>
@@ -64,20 +65,21 @@
                 <div class="col-sm-2">
                     <h3>Plan du site</h3>
                     <ul class="footerUl">
+                        <li><a href="#">Laissez-vous inspirer</a></li>
+                        <li><a href="#">Prenez le contrôle</a></li>
+                        <li><a href="#">À propos</a></li>
                         <li>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
-                        <li>@Html.ActionLink("Affichage de service", "AfficherTousLesServices", "Service")</li>
+                        <li>@Html.ActionLink("Connexion", "IndexM", "Login")</li>
+                        <li>@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
+                        <li>@Html.ActionLink("Admin", "IndexA", "Login")</li>
                         <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement", "Evenement")</li>
-                        <li>@Html.ActionLink("Affichage des Evènements", "AfficherTousLesEvenements", "Evenement")</li>
                         <li>@Html.ActionLink("Ajout d'Itineraire", "CreerItineraire","Itineraire")</li>
-                        <li>@Html.ActionLink("Affichage d'Itineraire", "AfficherTousLesItineraires", "Itineraire")</li>
                         <li>@Html.ActionLink("Inscription Membre", "InscriptionMembre","Membre")</li>
-                        <li>@Html.ActionLink("Affichage des Membres", "AfficherTousLesMembres", "Membre")</li>
-                        <li>@Html.ActionLink("Incription d'un partenaire", "InscriptionPartenaire", "Partenaire")</li>
-                        <li>@Html.ActionLink("Liste des partenaires", "AfficherTousLesPartenaires", "Partenaire")</li>
-                        <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
-                        <li>@Html.ActionLink("Affichage des Offres de voyages", "AfficherToutesLesOffresVoyages", "OffreVoyage")</li>
-                        <li>@Html.ActionLink("Recherche offre de voyages", "RechercheOffre", "OffreVoyage")</li>
-                        <li>@Html.ActionLink("Je réserve", "CreerReservation", "Reservation")</li>
+                       <li>@Html.ActionLink("Incription d'un partenaire", "InscriptionPartenaire", "Partenaire")</li>
+                       <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
+                       <li>@Html.ActionLink("Recherche offre de voyages", "RechercheOffre", "OffreVoyage")</li>
+                       
+                        
 
                         </ul>
                 </div>

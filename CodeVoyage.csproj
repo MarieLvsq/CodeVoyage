@@ -15,9 +15,9 @@
     <None Remove="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Shared\" />
-    <Folder Include="Views\Home\" />
+    <Folder Include="Views\Admin\" />
     <Folder Include="wwwroot\Images\" />
+
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
