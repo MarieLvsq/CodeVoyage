@@ -11,6 +11,8 @@
  *
  * Date: 2018-01-20T17:24Z
  */
+
+
 ( function( global, factory ) {
 
 	"use strict";
@@ -111,6 +113,7 @@ var isWindow = function isWindow( obj ) {
 		doc.head.appendChild( script ).parentNode.removeChild( script );
 	}
 
+	
 
 function toType( obj ) {
 	if ( obj == null ) {

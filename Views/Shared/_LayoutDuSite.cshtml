@@ -8,27 +8,86 @@
     
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="~/css/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/Site.css" />
+   
     @RenderSection("ExtraCss", required: false)
 </head>
 <body>
-    <div id="entete">
+    <section class="header">
+    <a href="https://localhost:5001/" class="logo"><img src="~/Images/LogoBlanc2.png" width="25%" height="25%" /></a>
+
+            <nav class="Menu">
+                <ul>
+
+                    <li><a href="#">Laissez-vous inspirer</a></li>
+                    <li><a href="#">Prenez le contrôle</a></li>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Connexion</a></li>
+                @*<li><a href="#">Reservation</a></li>*@
+
+                </ul>
+
+            </nav>
+            <div class="fas fa-bars" id=menu-btn></div>
+</section>
+
+  @*
+  <section class="services">
+    <h1 class="heading-title">Nos Services</h1>
+    <div class="container">
+
+        <div class="menu">
+                <div>
+                    <div class="box"></div>
+                    <image src="" alt=""></image>
+                    <h3>Restauration</h3>
+                </div>
+                <div>
+                    <div class="box"></div>
+                    <image src="" alt=""></image>
+                    <h3>Hébergement</h3>
+                </div>
+                <div>
+                    <div class="box"></div>
+                    <image src="" alt=""></image>
+                    <h3>Divertisement</h3>
+
+                </div>
+                <div>
+                    <div class="box"></div>
+                    <image src="" alt=""></image>
+                    <h3>Transport</h3>
+                </div>
+                <div>
+                    <div class="box"></div>
+                    <image src="" alt=""></image>
+                    <h3>Accompagnement</h3>
+                </div>
+
+        </div>
+     
+       *@    
+        
+
+           
+
+
+            
+           
+
+           
+
+    </div >
+       
+
+</section>
         <h1>
 
         </h1>
       
-        <nav>
-            <ul>
-                <li class="menuLogo"><a href="https://localhost:5001/"><img src="~/Images/LogoBlanc2.png" width="25%" height="25%"/></a></li>
-                <li><a href="#">Laissez-vous inspirer</a></li>
-                <li><a href="#">Prenez le contrôle</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Connexion</a></li>
-               <li a class=" menu"><"display=flex" "align-items=center" "margin=0 15px" "list-style-typenone"/></a></li> 
-            </ul>
-             
-        </nav>
-    </div>
+       
+   
 
     <div id="main">
        
@@ -63,6 +122,7 @@
         <li>@Html.ActionLink("Liste des partenaires", "AfficherTousLesPartenaires", "Partenaire")</li>
         <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
         <li>@Html.ActionLink("Affichage des Offres de voyages", "AfficherToutesLesOffresVoyages", "OffreVoyage")</li>
+        <li>@Html.ActionLink(" Reserver Maintenant ", "CreerReservation", "Reservation")</li>
     </ul>
             
            

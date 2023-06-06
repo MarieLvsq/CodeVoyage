@@ -1285,4 +1285,5 @@ $.format = $.validator.format;
 			});
 		}
 	});
+	
 })(jQuery);

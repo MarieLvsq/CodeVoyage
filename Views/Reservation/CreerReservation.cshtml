@@ -14,32 +14,12 @@
     {
         <fieldset>
             <legend>Réserver votre voyage :</legend>
-            @Html.LabelFor(m => Model.Membre.Nom)
-            @Html.TextBoxFor(m => Model.Membre.Nom)
+            
 
+            @Html.LabelFor(m => Model.Membre)
+            @Html.DropDownListFor(m => m.MembreId, new SelectList(ViewBag.MembreList, "Id", "MembreDescription"))
             <br />
-            @Html.LabelFor(m => Model.Membre.Prenom)
-            @Html.TextBoxFor(m => Model.Membre.Prenom)
-
-            <br />
-
-            @Html.LabelFor(m => Model.Membre.Email)
-            @Html.TextBoxFor(m => Model.Membre.Email)
-            <br />
-            @Html.LabelFor(m => Model.Membre.Statut)
-            @Html.DropDownListFor(m => m.Membre.Statut, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Statut>(), "Sélectionnez votre Statut")
-            @Html.ValidationMessageFor(m => Model.Membre.Statut)
-            <br />
-            @Html.LabelFor(m => Model.Membre.Localisation)
-            @Html.TextBoxFor(m => Model.Membre.Localisation)
-            <br />
-            @Html.LabelFor(m => Model.Membre.Age)
-            @Html.TextBoxFor(m => Model.Membre.Age)
-            <br />
-            @Html.LabelFor(m => Model.Membre.User)
-            @Html.DropDownListFor(m => m.Membre.User, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Role>(), " Vous êtes : ")
-            @Html.ValidationMessageFor(m => Model.Membre.User)
-            <br />
+          
             <input type="submit" value="Ajouter" />
         </fieldset>
     }

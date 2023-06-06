@@ -1,9 +1,12 @@
-#entete, #menu, #contenu, #footer {
-    padding: 1px 0;
+#header, #menu, #contenu, #footer {
+    padding: 0;margin:0;
     font-family: 'Roboto', sans-serif;
+    border:none;
+    outline:none;
+    text-transform:capitalize;
 }
-
-#entete {
+ }
+#header {
     background: ghostwhite 
 }
 
@@ -11,20 +14,120 @@
     background: ghostwhite;
     margin-left: 10px;
 }
-
+ 
 
 #main {
     margin: auto;
 }
 
-#menuTest {
-    float: right;
-    width: 240px;
-    background-color: ghostwhite;
+/*#menu {
+  font-size:65%;
+  overflow-x:hidden;
+}
+ section{
+     padding:5rem 10%;
+ }
+
+
+/* mise en forme de l'entete' 
+#header{
+
+    position:sticky;
+    top:0;left:0;right:0;
+    z-index:1000!important;
+    background:white;
+    display:fex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:2rem;
+    padding-bottom:2rem;
+    box-shadow:0.5rem 1rem rgba(0,0,0,.1);
+        
+}
+.header.Menu{
+    z-index:1000;
+
 }
 
-#contenu {
+.header.Menu a{
+    font-size:2rem;
+    margin-left:2rem;
     
+}
+/*changer la couleur de l'ecritrure menu
+.header.Menu a:hover {
+    color:sandybrown;
+    
+}
+
+#menu-btn{
+    font-size:2.5rem;
+    cursor:pointer;
+    color:black;
+    display:none;
+}
+/*pour rentre responsive
+
+
+ 
+ @media (max-width:1200px) {
+    section {
+        padding: 3rem 5%;
+    }
+}
+
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+
+    section {
+        padding: 3rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-btn {
+        display: inline-block;
+    }
+}
+
+
+
+.services.box-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));
+    gap:1.5rem;
+
+}
+*/
+
+/*const menubtn = document.querySelector('#menu-btn');
+	const menu = document.querySelector('header.Memu');
+	menubtn.addEventListener('click', () =>{
+		Menu.classList.toToggle('active');
+	}
+	*/
+/*pour qu'il soit au même ligne que le logo
+.header.Menu {
+    position: absolute;
+    top: 99%;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 2rem;
+    border-top: var(--border);
+    /*pour masquer le menu */
+/*clip-path:polygon(0 0,100% 0,100% 0,0 0);*
+}
+/*pour affiché la barre entre menu et le logos
+.header.Menu a{
+    display:block;
+    text-align:center;
+    margin:2rem;
+}
+     */
+#contenu {
     background-color: ghostwhite;
 }
 
@@ -103,6 +206,11 @@ div.scroll-container img {
 }
 
 /* Centered text */
+.menu{
+    display: flex;
+    justify-content: space-between;
+    color: black;
+}
 
 .container {
     position: relative;

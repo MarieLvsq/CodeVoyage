@@ -1,0 +1,61 @@
+﻿@model List<CodeVoyage.Models.Reservation>
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Liste des reservations</title>
+</head>
+<body>
+    <table border="1">
+
+        <tr>
+
+
+
+            <th>
+
+                Membre
+
+            </th>
+
+            <th>
+
+                Offre payee
+
+            </th>
+
+          
+
+        @foreach (var reservation in Model)
+        {
+            <tr>
+                <td>@reservation.Membre.MembreDescription</td>
+               
+                
+                <td>
+                    <form method="get" action="@("/Reservation/ModifierReservation/"+reservation.Id)">
+
+                        <input type="submit" value="Modifier" />
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="@("/Reservation/SupprimerReservation/"+reservation.Id)">
+
+                        <input type="submit" value="Supprimer" />
+                    </form>
+                </td>
+            </tr>
+        }
+
+
+    </table>
+
+</body>
+
+</html>
+
