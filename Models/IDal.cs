@@ -13,8 +13,8 @@ namespace CodeVoyage.Models
             // Methodes OffreVoyage
 
             List<OffreVoyage> ObtientToutesLesOffresDeVoyage();
-            int CreerOffresVoyage(Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double PrixTotal, double prixAffiche);
-            void ModifierOffreVoyage(int id, Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double PrixTotal, double prixAffiche);
+            int CreerOffresVoyage(Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double PrixTotal);
+            void ModifierOffreVoyage(int id, Itineraire Itineraire, Evenement Event, Service Service, Service ServiceEx, int Remise, double PrixTotal);
             List<OffreVoyage> RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise,
             double prixMin, double prixMax);
 
