@@ -20,7 +20,7 @@ else
     <p>
         Veuillez vous authentifier :
     </p>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("VueAdmin", "Login", FormMethod.Post))
     {
         //if (User.IsInRole("Admin"))
         //{
@@ -37,6 +37,7 @@ else
             @Html.ValidationMessageFor(m => m.Admin.MotDePasse)
         </div>
         <input type="submit" value="Se connecter" />
+
         <br />
     }
 }
