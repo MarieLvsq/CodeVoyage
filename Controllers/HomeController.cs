@@ -42,10 +42,15 @@ namespace CodeVoyage.Controllers
             return View("NonTrouve");
         }*/
 
-        public IActionResult Admin()
+
+        public IActionResult IndexA()
         {
             return View();
         }
-    }
+        public IActionResult Admin()
+            {
+            return View();
+            }
+        }
 }
 

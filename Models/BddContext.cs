@@ -237,7 +237,7 @@ namespace CodeVoyage.Models
                       Email = "l.gaspard@gmail.com",
                      MotDePasse = "AAAAA",
                      
-                      Localisation = "Orléans",
+                      Localisation= "Orléans",
                       Age = 25,
                       User = Role.Entreprise
                   },
