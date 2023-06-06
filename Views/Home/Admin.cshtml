@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "Formulaire";
-    Layout = "_LayoutDuSite";
+    Layout = "_LayoutAdmin";
 }
 <!DOCTYPE html>
 
@@ -31,24 +31,27 @@
 </head>
 
 
-<div class="container-fluid text-left">
+@*<div class="container-fluid text-left">
     <div class="row content">
         <div class="col-sm-2 sidenav">
             <img class="avatar avatar-96 bg-light rounded-circle text-white p-2"
                  src="https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg">
-            <p><a href="#">Evénement</a></p>
-            <p><a href="#">Service</a></p>
-            <p><a href="#">Itinéraire</a></p>
-            <p><a href="#">Utilisateur</a></p>
-            <p><a href="#">Remboursement</a></p>
+            <p> @Html.ActionLink("Evènements", "AfficherTousLesEvenements", "Evenement")</p>
+            <p>@Html.ActionLink("Services", "AfficherTousLesServices", "Service")</p>
+            <p>@Html.ActionLink("Itineraires", "AfficherTousLesItineraires", "Itineraire")</p>
+            <p>@Html.ActionLink("Membres", "AfficherTousLesMembres", "Membre")</p>
+            <p>@Html.ActionLink("Partenaires", "AfficherTousLesPartenaires", "Partenaire")</p>
+            <p>@Html.ActionLink("Offres de voyages", "AfficherToutesLesOffresVoyages", "OffreVoyage")</p>
+            <p>@Html.ActionLink("Réservation", "CreerReservation", "Reservation")</p>
             <p><a href="#">Messagerie</a></p>
 
-
-            @*<div class="col-sm-8 text-left">
-                <h1>Welcome Admin</h1>
-                <p>Rien à signaler</p>
-                <hr>*@
-            
         </div>
 
+        <div class="col-sm-10">
+            <h1>Welcome Admin</h1>
+            <p>Rien à signaler</p>
+            <hr>
+        </div>
 
+    </div>*@
+</div>

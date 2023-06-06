@@ -1,7 +1,8 @@
 ﻿@model CodeVoyage.Models.OffreVoyage
 @{
     ViewBag.Title = "Formulaire";
-    Layout = "_LayoutDuSite";
+    Layout = "_LayoutAdmin";
+
 }
 <!DOCTYPE html>
 <html>
@@ -12,8 +13,10 @@
     <title>Modifier Offre de Voyage</title>
 </head>
 <body>
+   
     @using (Html.BeginForm())
         {
+    
         <fieldset>
 
             <table align="center" text-align="center">
@@ -90,9 +93,11 @@
                 </tr>
                 </table>
         </fieldset>
-
+         
 
     }
+
+          
     <script type="text/javascript" src="~/Scripts/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate-vsdoc.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.js"></script>
