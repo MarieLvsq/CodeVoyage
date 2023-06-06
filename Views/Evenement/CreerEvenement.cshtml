@@ -7,33 +7,91 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>CréerEvenement</title>
 </head>
 <body>
     @using (Html.BeginForm())
     {
         <fieldset>
-            <legend>Créer un évènement: </legend>
-            @Html.LabelFor(m => Model.Nom)
-            @Html.TextBoxFor(m => Model.Nom)
-            
-            <br />
-            @Html.LabelFor(m => Model.Localisation)
-            @Html.TextBoxFor(m => Model.Localisation)
-           
-            <br />
-            @Html.LabelFor(m => Model.DateDeb)
-            @Html.TextBoxFor(m => Model.DateDeb, new { type = "date" })
-            
-            <br />
-            @Html.LabelFor(m => Model.DateFin)
-            @Html.TextBoxFor(m => Model.DateFin, new { type = "date" })
-            <br />
 
-            @Html.LabelFor(m => Model.TypeEvenement)
-            @Html.TextBoxFor(m => Model.TypeEvenement)
+            <table align="center" text-align="center">
+                <tr>
+                    <th>
+                        Créer un évènement
+
+                    </th>
+
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Nom)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.Nom)
+                        @Html.ValidationMessageFor(m => Model.Nom)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Localisation)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.Localisation)
+                        @Html.ValidationMessageFor(m => Model.Localisation)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.DateDeb)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.DateDeb, new { type = "date" })
+                        @Html.ValidationMessageFor(m => Model.DateDeb)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.DateFin)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.DateFin, new { type = "date" })
+                        @Html.ValidationMessageFor(m => Model.DateFin)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.TypeEvenement)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.TypeEvenement)
+                        @Html.ValidationMessageFor(m => Model.TypeEvenement)
+                    </td>
+                </tr>
             
-            <input type="submit" value="Ajouter" />
+            
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-secondary">Ajouter</button>
+                    </td>
+                </tr>
+
+            </table>
         </fieldset>
     }
 </body>
