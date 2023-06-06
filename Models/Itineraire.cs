@@ -39,9 +39,19 @@ namespace CodeVoyage.Models
         {
             get
             {
-                return string.Format("{0} {1}", LieuDepart+"-", Destination);
+                return string.Format("{0} {1} {2} ", LieuDepart+"-", Destination+ "-", Transport);
             }
         }
+
+        public string ItineraireDescription2
+        {
+            get
+            {
+                return string.Format("{0} {1} {2} {3} {4}", "Lieu de départ:"+ LieuDepart + "-", "Destination :" +Destination + "-", "Départ :"+DateDepart + "-", "Retour :"+ DateArrivee + "-", "Moyen de Transport:" +Transport);
+            }
+        }
+
+
 
     }
 }
