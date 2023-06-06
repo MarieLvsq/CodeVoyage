@@ -20,7 +20,7 @@ namespace CodeVoyage.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=Kuroikage@25;database=CodeVoyageBDD");
 
         }
         public void InitializeDb()
@@ -302,12 +302,6 @@ namespace CodeVoyage.Models
            })
 
            ;
-
-
-
-
-
-
 
             this.SaveChanges();
         }

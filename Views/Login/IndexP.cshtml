@@ -1,5 +1,9 @@
 ﻿@model CodeVoyage.ViewModels.PartenaireViewModel
 
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
 
 
 
@@ -34,6 +38,6 @@ else
         </div>
         <input type="submit" value="Se connecter" />
         <br />
-        @Html.ActionLink("Créer un compte", "CreerComptePartenaire", "Login")
+        @Html.ActionLink("Devenez partenaire CodeVoyage", "CreerComptePartenaire", "Login")
     }
 }
