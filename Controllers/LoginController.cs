@@ -141,18 +141,14 @@ namespace CodeVoyage.Controllers
                     if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
                         return Redirect(returnUrl);
 
-                    return Redirect("/");
+                    return Redirect("IndexP");
                 }
                 ModelState.AddModelError("Utilisateur.Prenom", "Prénom et/ou mot de passe incorrect(s)");
             }
             return View(viewModel);
         }
 
-        public IActionResult CreerCompteP()
-        {
-            return View();
-        }
-
+        
         [HttpPost]
         public IActionResult CreerCompteP(Partenaire partenaire)
         {
@@ -172,8 +168,14 @@ namespace CodeVoyage.Controllers
 
                 return Redirect("/");
             }
-            return View(partenaire);
+            return View("CreerComptePartenaire",partenaire);
         }
+
+        public IActionResult CreerComptePartenaire()
+        {
+            return View();
+        }
+
 
         public ActionResult DeconnexionP()
         {
@@ -195,16 +197,16 @@ namespace CodeVoyage.Controllers
         }
 
         [HttpPost]
-        public IActionResult IndexA(PartenaireViewModel viewModel, string returnUrl)
+        public IActionResult IndexA(AdminViewModel viewModel, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                Partenaire partenaire = dal.AuthentifierP(viewModel.Partenaire.Nom, viewModel.Partenaire.MotDePasse);
-                if (partenaire != null)
+                Admin admin = dal.AuthentifierA(viewModel.Admin.Nom, viewModel.Admin.MotDePasse);
+                if (admin != null)
                 {
                     var userClaims = new List<Claim>()
                     {
-                        new Claim(ClaimTypes.Name, partenaire.Id.ToString()),
+                        new Claim(ClaimTypes.Name, admin.Id.ToString()),
                        //new Claim(ClaimTypes.Role, utilisateur.Role),
 
                     };

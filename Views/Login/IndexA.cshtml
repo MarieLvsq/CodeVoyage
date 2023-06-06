@@ -1,0 +1,43 @@
+﻿@model CodeVoyage.ViewModels.AdminViewModel
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+
+
+
+
+@if (Model.AuthentifierA)
+{
+    <h3>
+        Vous êtes déjà authentifié avec le login :
+        @Model.Admin.Prenom
+    </h3>
+    @Html.ActionLink("Voulez-vous vous déconnecter ?", "Deconnexion")
+}
+else
+{
+    <p>
+        Veuillez vous authentifier :
+    </p>
+    @using (Html.BeginForm())
+    {
+        //if (User.IsInRole("Admin"))
+        //{
+
+        //}
+        <div>
+            @Html.LabelFor(m => m.Admin.Email)
+            @Html.TextBoxFor(m => m.Admin.Email)
+            @Html.ValidationMessageFor(m => m.Admin.Email)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Admin.MotDePasse)
+            @Html.PasswordFor(m => m.Admin.MotDePasse)
+            @Html.ValidationMessageFor(m => m.Admin.MotDePasse)
+        </div>
+        <input type="submit" value="Se connecter" />
+        <br />
+    }
+}
+

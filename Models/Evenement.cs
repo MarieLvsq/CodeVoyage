@@ -6,6 +6,7 @@ namespace CodeVoyage.Models
     public class Evenement
     {
         public int Id { get; set; }
+
         [Required(ErrorMessage = "Le nom doit être rempli.")]
         public string Nom { get; set; }
 
@@ -14,9 +15,11 @@ namespace CodeVoyage.Models
         
         [Display(Name = "Date de fin")]
         public DateTime DateFin { get; set; }
-        //[Required(ErrorMessage = "Le lieu doit être renseigné.")]
+
+        [Required(ErrorMessage = "Le lieu doit être renseigné.")]
         public string Localisation{ get; set; }
-        //[Required(ErrorMessage = "Le type d'évènement doit être choisi.")]
+
+        [Required(ErrorMessage = "Le type d'évènement doit être choisi.")]
         public TypeEvenement TypeEvenement { get; set; }
 
         public string EvenementDescription
