@@ -1,4 +1,4 @@
-﻿@model List<CodeVoyage.Models.OffreVoyage>
+@model List<CodeVoyage.Models.OffreVoyage>
 @{
     ViewBag.Title = "Formulaire";
     Layout = "_LayoutDuSite";
@@ -36,7 +36,9 @@
             @Html.Label("Prix Max")
             @Html.DropDownList("prixMax", new SelectList(ViewBag.prixList, "Value", "Value"), "Selectionner un prix")
             <input type="submit" value="Rechercher" />
-        </fieldset>    }
+        </fieldset>    
+        }
+        <br />
 
 
     @if (Model.Count == 0)
@@ -48,21 +50,30 @@
     }
     else
     {
+        <fieldset>
+        <legend>Liste des offres disponibles: </legend>
         @foreach (var item in Model)
+
         {
 
 
-            <fieldset>
-                <legend>Résultat de votre recherche: </legend>
-                <div>@item.Itineraire.ItineraireDescription, @item.Event.EvenementDescription, @item.prixTotal € </div>
-                <a href=@("/Reservation/ReserverOffre/" + item.Id)>Je réserve</a>
-
-
-            </fieldset>
-
+                <div>Evènement selectionné :<strong>@item.Event.Nom</strong></div>
+                <div>Lieu de départ :<strong>@item.Itineraire.LieuDepart</strong></div>
+                <div>Destination : <strong>@item.Itineraire.Destination</strong></div>
+                <div>Date de Départ : <strong>@item.Itineraire.DateDepart</strong></div>
+                <div>Date de Retour : <strong>@item.Itineraire.DateArrivee</strong></div>
+                <div>>Service : <strong>@item.Service.nomService</strong></div>
+                <div>Service Extra : <strong>@item.ServiceEx.nomService</strong></div>
+                <div>Moyen de Transport selectionné : <strong>@item.Itineraire.Transport</strong></div>
+                <div>Prix total de la réservation: <strong>@item.prixTotal € </strong> </div>
+                <br/>
+                
+              <a href=@("/Reservation/ReserverOffre/" + item.Id)>Je réserve</a>
+              
 
 
         }
+        </fieldset>
     }
 
    

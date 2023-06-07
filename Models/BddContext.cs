@@ -23,6 +23,7 @@ namespace CodeVoyage.Models
 
             optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
 
+
         }
         public void InitializeDb()
         {
@@ -291,8 +292,8 @@ namespace CodeVoyage.Models
               new Itineraire
               {
                   Id = 13,
-                  DateDepart = new DateTime(2023, 07, 25),
-                  DateArrivee = new DateTime(2023, 08, 11),
+                  DateDepart = new DateTime(2024, 07, 25),
+                  DateArrivee = new DateTime(2024, 08, 11),
                   LieuDepart = "Lyon",
                   Destination = "Paris",
                   NombreVoyageur = 15,
@@ -320,8 +321,8 @@ namespace CodeVoyage.Models
                    LieuDepart = "Toulouse",
                    Destination = "Paris",
                    NombreVoyageur = 15,
-                   Transport = ((MoyenDeTransport)2),
-                   Prix = 180
+                   Transport = ((MoyenDeTransport)0),
+                   Prix = 250
 
                },
                new Itineraire
@@ -344,7 +345,7 @@ namespace CodeVoyage.Models
                     LieuDepart = "Toulouse",
                     Destination = "Paris",
                     NombreVoyageur = 08,
-                    Transport = ((MoyenDeTransport)2),
+                    Transport = ((MoyenDeTransport)0),
                     Prix = 300
 
                 },
@@ -359,7 +360,19 @@ namespace CodeVoyage.Models
                      Transport = ((MoyenDeTransport)0),
                      Prix = 315
 
-                 }
+                 },
+                  new Itineraire
+                  {
+                      Id = 19,
+                      DateDepart = new DateTime(2023, 10, 06),
+                      DateArrivee = new DateTime(2023, 10, 10),
+                      LieuDepart = "Paris",
+                      Destination = "Doha",
+                      NombreVoyageur = 08,
+                      Transport = ((MoyenDeTransport)0),
+                      Prix = 470
+
+                  }
 
              );
          
@@ -517,6 +530,18 @@ namespace CodeVoyage.Models
                             TypeService = ((TypeService)1),
                             Prix = 145
 
+                        },
+                          
+                        new Service
+                        {
+                            Id = 16,
+                            nomService = " Holiday Inn: Paris",
+                            Capacite = 100,
+                            DateDeb = new DateTime(2024, 01, 01),
+                            DateFin = new DateTime(2025, 01, 31),
+                            TypeService = ((TypeService)1),
+                            Prix = 150
+
                         }
 
                       );
@@ -529,6 +554,7 @@ namespace CodeVoyage.Models
                 Nom = "Holiday Inn",
                 Localisation = "Paris",
                 email = "service-reservation@holidayinn.com",
+                MotDePasse = Dal.EncodeMD5("AAAAA"),
                 NumSiret = "10120125630",
                 TypeService = ((TypeService)2),
                 Role = Role.Entreprise
@@ -539,6 +565,7 @@ namespace CodeVoyage.Models
                 Nom = "Air France",
                 Localisation = "Paris",
                 email = "flights-booking@air-france.fr",
+                MotDePasse = Dal.EncodeMD5("AAAAA"),
                 NumSiret = "87895000000000",
                 TypeService = TypeService.Transport,
                 Role = Role.Entreprise
@@ -549,6 +576,7 @@ namespace CodeVoyage.Models
                 Nom = "Cozinha Tradicional",
                 Localisation = "Rio de Janeiro",
                 email = "cozinha@gmail.com",
+                MotDePasse = Dal.EncodeMD5("AAAAA"),
                 NumSiret = "1882378500",
                 TypeService = TypeService.Restauration,
                 Role = Role.Entreprise
@@ -559,6 +587,7 @@ namespace CodeVoyage.Models
                  Nom = "Le Débarcadère",
                  Localisation = "Abidjan",
                  email = "ledebarcadere@gmail.com",
+                 MotDePasse = Dal.EncodeMD5("AAAAA"),
                  NumSiret = "1882378507",
                  TypeService = TypeService.Restauration,
                  Role = Role.Entreprise
@@ -569,6 +598,7 @@ namespace CodeVoyage.Models
                     Nom = "Sixt",
                     Localisation = "Abidjan",
                     email = "sixt@gmail.com",
+                    MotDePasse = Dal.EncodeMD5("AAAAA"),
                     NumSiret = "1882378509",
                     TypeService = TypeService.Transport,
                     Role = Role.Entreprise
@@ -582,7 +612,9 @@ namespace CodeVoyage.Models
                 Nom = "Garou",
                 Prenom = "Vincent",
                 Email="V.garou@gmail.com",
-                MotDePasse=Dal.EncodeMD5 ("AAAAA"),
+
+                MotDePasse=Dal.EncodeMD5("AAAAA"),
+
                 
                 Localisation = "Torento",
                 Age = 43,
@@ -594,7 +626,9 @@ namespace CodeVoyage.Models
                   Nom = "DION",
                   Prenom = "Jean",
                   Email = "jean.dion@gmail.com",
-                  MotDePasse = Dal.EncodeMD5("DADA"),
+
+                  MotDePasse = Dal.EncodeMD5("AAAAA"),
+
                   
                   Localisation = "Paris",
                   Age = 32,
@@ -607,7 +641,7 @@ namespace CodeVoyage.Models
                     Nom = "DILAN",
                     Prenom = "Robert",
                     Email = "robertDilan@gmail.com",
-                    MotDePasse = "AAAAA",
+                    MotDePasse = Dal.EncodeMD5("AAAAA"),
                    
                     Localisation = "Bruxelles",
                     Age = 23,
@@ -620,7 +654,7 @@ namespace CodeVoyage.Models
                       Nom = "GASPARD",
                       Prenom = "Lea",
                       Email = "l.gaspard@gmail.com",
-                     MotDePasse = "AAAAA",
+                     MotDePasse = Dal.EncodeMD5("AAAAA"),
                      
                       Localisation= "Orléans",
                       Age = 25,
@@ -633,7 +667,7 @@ namespace CodeVoyage.Models
                      Nom = "Mirales",
                      Prenom = "Octave",
                      Email = "omirales@gmail.com",
-                     MotDePasse = "AAAAA",
+                     MotDePasse = Dal.EncodeMD5("AAAAA"),
                     
                      Localisation = "Geneve",
                      Age = 71,
@@ -711,13 +745,31 @@ namespace CodeVoyage.Models
 
                    prixTotal = 460,
 
-               }
+               },
+               new OffreVoyage
+               {
+                   Id = 7,
+                   ItineraireId = 9,
+                   EventId = 9,
+                   ServiceId = 1,
+                   ServiceExId = 5,
+                   Remise = 0,
 
+                   prixTotal = 449,
 
+               },
+                new OffreVoyage
+                {
+                    Id = 8,
+                    ItineraireId = 13,
+                    EventId = 11,
+                    ServiceId = 1,
+                    ServiceExId = 13,
+                    Remise = 0,
 
+                    prixTotal = 247,
 
-
-
+                }
 
 
            );
@@ -732,7 +784,74 @@ namespace CodeVoyage.Models
 
            });
 
-           ;
+
+            this.Reservations.AddRange(
+          new Reservation
+          {
+              Id = 1,
+              MembreId=1,
+              OffreVoyageId=1
+
+          });
+            this.Reservations.AddRange(
+          new Reservation
+          {
+              Id = 2,
+              MembreId = 1,
+              OffreVoyageId = 2
+
+          });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 3,
+             MembreId = 1,
+             OffreVoyageId = 3
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 4,
+             MembreId = 1,
+             OffreVoyageId = 4
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 5,
+             MembreId = 1,
+             OffreVoyageId = 5
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 6,
+             MembreId = 3,
+             OffreVoyageId = 6
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 7,
+             MembreId = 2,
+             OffreVoyageId = 7
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 8,
+             MembreId = 1,
+             OffreVoyageId = 8
+
+         });
+
+
+            
 
             this.SaveChanges();
         }

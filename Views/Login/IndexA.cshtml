@@ -13,14 +13,16 @@
         Vous êtes déjà authentifié avec le login :
         @Model.Admin.Prenom
     </h3>
-    @Html.ActionLink("Voulez-vous vous déconnecter ?", "Deconnexion")
+    @Html.ActionLink("Voulez-vous vous déconnecter ?", "DeconnexionA")
+    <br />
+    @Html.ActionLink("Revenez à votre Espace", "Admin", "Home")
 }
 else
 {
     <p>
         Veuillez vous authentifier :
     </p>
-    @using (Html.BeginForm("VueAdmin", "Login", FormMethod.Post))
+    @using (Html.BeginForm("IndexA", "Login", FormMethod.Post))
     {
         //if (User.IsInRole("Admin"))
         //{
