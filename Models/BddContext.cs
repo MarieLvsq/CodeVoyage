@@ -21,7 +21,7 @@ namespace CodeVoyage.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=Kuroikage@25;database=CodeVoyageBDD");
 
         }
         public void InitializeDb()
@@ -553,6 +553,7 @@ namespace CodeVoyage.Models
                 Nom = "Holiday Inn",
                 Localisation = "Paris",
                 email = "service-reservation@holidayinn.com",
+                MotDePasse = Dal.EncodeMD5("AAAAA"),
                 NumSiret = "10120125630",
                 TypeService = ((TypeService)2),
                 Role = Role.Entreprise
@@ -563,6 +564,7 @@ namespace CodeVoyage.Models
                 Nom = "Air France",
                 Localisation = "Paris",
                 email = "flights-booking@air-france.fr",
+                MotDePasse = Dal.EncodeMD5("AAAAA"),
                 NumSiret = "87895000000000",
                 TypeService = TypeService.Transport,
                 Role = Role.Entreprise
@@ -573,6 +575,7 @@ namespace CodeVoyage.Models
                 Nom = "Cozinha Tradicional",
                 Localisation = "Rio de Janeiro",
                 email = "cozinha@gmail.com",
+                MotDePasse = Dal.EncodeMD5("AAAAA"),
                 NumSiret = "1882378500",
                 TypeService = TypeService.Restauration,
                 Role = Role.Entreprise
@@ -583,6 +586,7 @@ namespace CodeVoyage.Models
                  Nom = "Le Débarcadère",
                  Localisation = "Abidjan",
                  email = "ledebarcadere@gmail.com",
+                 MotDePasse = Dal.EncodeMD5("AAAAA"),
                  NumSiret = "1882378507",
                  TypeService = TypeService.Restauration,
                  Role = Role.Entreprise
@@ -593,6 +597,7 @@ namespace CodeVoyage.Models
                     Nom = "Sixt",
                     Localisation = "Abidjan",
                     email = "sixt@gmail.com",
+                    MotDePasse = Dal.EncodeMD5("AAAAA"),
                     NumSiret = "1882378509",
                     TypeService = TypeService.Transport,
                     Role = Role.Entreprise
@@ -606,7 +611,7 @@ namespace CodeVoyage.Models
                 Nom = "Garou",
                 Prenom = "Vincent",
                 Email="V.garou@gmail.com",
-                MotDePasse="AAAAA",
+                MotDePasse=Dal.EncodeMD5("AAAAA"),
                 
                 Localisation = "Torento",
                 Age = 43,
@@ -618,7 +623,7 @@ namespace CodeVoyage.Models
                   Nom = "DION",
                   Prenom = "Jean",
                   Email = "jean.dion@gmail.com",
-                  MotDePasse = "AAAAA",
+                  MotDePasse = Dal.EncodeMD5("AAAAA"),
                   
                   Localisation = "Paris",
                   Age = 32,
@@ -631,7 +636,7 @@ namespace CodeVoyage.Models
                     Nom = "DILAN",
                     Prenom = "Robert",
                     Email = "robertDilan@gmail.com",
-                    MotDePasse = "AAAAA",
+                    MotDePasse = Dal.EncodeMD5("AAAAA"),
                    
                     Localisation = "Bruxelles",
                     Age = 23,
@@ -644,7 +649,7 @@ namespace CodeVoyage.Models
                       Nom = "GASPARD",
                       Prenom = "Lea",
                       Email = "l.gaspard@gmail.com",
-                     MotDePasse = "AAAAA",
+                     MotDePasse = Dal.EncodeMD5("AAAAA"),
                      
                       Localisation= "Orléans",
                       Age = 25,
@@ -657,7 +662,7 @@ namespace CodeVoyage.Models
                      Nom = "Mirales",
                      Prenom = "Octave",
                      Email = "omirales@gmail.com",
-                     MotDePasse = "AAAAA",
+                     MotDePasse = Dal.EncodeMD5("AAAAA"),
                     
                      Localisation = "Geneve",
                      Age = 71,
@@ -762,25 +767,84 @@ namespace CodeVoyage.Models
                 }
 
 
-
-
-
-
-
-
            );
             this.Admins.AddRange(
            new Admin
            {
                Id = 1,
-              Nom="David",
-              Prenom="AITCHEOU",
-              Email="Dav@gmail.com",
-              MotDePasse="OnePiece"
-            
-           })
+               Nom = "David",
+               Prenom = "AITCHEOU",
+               Email = "Dav@gmail.com",
+               MotDePasse = Dal.EncodeMD5("OnePiece")
 
-           ;
+           });
+
+            this.Reservations.AddRange(
+          new Reservation
+          {
+              Id = 1,
+              MembreId=1,
+              OffreVoyageId=1
+
+          });
+            this.Reservations.AddRange(
+          new Reservation
+          {
+              Id = 2,
+              MembreId = 1,
+              OffreVoyageId = 2
+
+          });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 3,
+             MembreId = 1,
+             OffreVoyageId = 3
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 4,
+             MembreId = 1,
+             OffreVoyageId = 4
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 5,
+             MembreId = 1,
+             OffreVoyageId = 5
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 6,
+             MembreId = 3,
+             OffreVoyageId = 6
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 7,
+             MembreId = 2,
+             OffreVoyageId = 7
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 8,
+             MembreId = 1,
+             OffreVoyageId = 8
+
+         });
+
+            
 
             this.SaveChanges();
         }

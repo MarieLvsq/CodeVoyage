@@ -122,11 +122,6 @@ namespace CodeVoyage.Models
 
                 
 
-            
-        
-       
-		// Fin méthodes Offre de voyage
-
 
 		// Méthodes Evenements
 
@@ -390,7 +385,7 @@ namespace CodeVoyage.Models
         public int InscriptionPartenaire(string Nom, string Localisation, string email,string motDePasse, string numSiret, TypeService typeService,Role role)
         {
 
-            Partenaire partenaire = new Partenaire() { Nom = Nom, Localisation = Localisation, email = email, MotDePasse = motDePasse, NumSiret = numSiret, TypeService = typeService, Role = role };
+            Partenaire partenaire = new Partenaire() { Nom = Nom, Localisation = Localisation, email = email, MotDePasse = Dal.EncodeMD5( motDePasse), NumSiret = numSiret, TypeService = typeService, Role = role };
 
             _bddContext.Partenaires.Add(partenaire);
             _bddContext.SaveChanges();
@@ -439,9 +434,16 @@ namespace CodeVoyage.Models
             }
         }
 
+        // Methodes Reservation
+
         public List<Reservation> ObtientToutesLesReservations()
         {
-            return _bddContext.Reservations.ToList();
+            return _bddContext.Reservations.Include(r=>r.Membre)
+                .Include(r => r.OffrePayee).ThenInclude(op=>op.Itineraire)
+                .Include(r => r.OffrePayee).ThenInclude(op => op.Event)
+                .Include(r => r.OffrePayee).ThenInclude(op => op.Service)
+                .Include(r => r.OffrePayee).ThenInclude(op => op.ServiceEx)
+                .ToList();
         }
 
         public int CreerReservation(Membre membre,OffreVoyage offrePayee)
@@ -490,6 +492,7 @@ namespace CodeVoyage.Models
                 _bddContext.SaveChanges();
             }
         }
+
         //Methodes Admin
 
         public List<Admin> ObtientTousLesAdmins()
