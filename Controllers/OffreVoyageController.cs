@@ -137,8 +137,12 @@ namespace CodeVoyage.Controllers
             }
 
 
-
-			ViewBag.ItineraireList = itineraires;
+        public IActionResult RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, int prixMax)
+            {
+            var itineraires = _bddContext.Itineraires.ToList();
+            var evenements = _bddContext.Evenements.ToList();
+            var services = _bddContext.Services.ToList();
+            ViewBag.ItineraireList = itineraires;
 			ViewBag.EvenementList = evenements;
 			ViewBag.ServiceList = services;
 			ViewBag.prixList = new List<prixMax>() {
@@ -166,10 +170,9 @@ namespace CodeVoyage.Controllers
             }
 
 
-        }
+       }
 
-
-    }
+}
 
 
 
