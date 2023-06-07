@@ -8,8 +8,9 @@ namespace CodeVoyage.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Cette section doit être remplie.")]
+        
         public string Nom { get; set; }
-
+        
         [Required(ErrorMessage = "Cette section doit être remplie.")]
         [Display(Name = "Prénom")]
         public string Prenom { get; set; }

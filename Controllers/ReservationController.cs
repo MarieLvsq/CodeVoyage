@@ -13,6 +13,17 @@ namespace CodeVoyage.Controllers
     public class ReservationController : Controller
     {
 
+        public IActionResult Index() 
+        {
+            return View();
+        }
+
+        public IActionResult Index1()
+        {
+            return View();
+        }
+
+
         // Méthodes CreerReservation
         [Authorize]
 
