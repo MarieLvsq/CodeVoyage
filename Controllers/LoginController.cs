@@ -143,7 +143,7 @@ namespace CodeVoyage.Controllers
                     if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
                         return Redirect(returnUrl);
 
-                    return Redirect("../Home/Admin");
+                    return Redirect("../Partenaire/EspacePartenaire");
                 }
                 ModelState.AddModelError("Utilisateur.Prenom", "Prénom et/ou mot de passe incorrect(s)");
             }
@@ -168,7 +168,7 @@ namespace CodeVoyage.Controllers
                 var userPrincipal = new ClaimsPrincipal(new[] { ClaimIdentity });
                 HttpContext.SignInAsync(userPrincipal);
 
-                return Redirect("../Home/Admin");
+                return Redirect("../Partenaire/EspacePartenaire");
             }
             return View("CreerComptePartenaire", partenaire);
         }
