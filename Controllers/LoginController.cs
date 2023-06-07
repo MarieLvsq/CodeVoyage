@@ -38,7 +38,7 @@ namespace CodeVoyage.Controllers
         [HttpPost]
         public IActionResult IndexM(MembreViewModel viewModel, string returnUrl)
         {
-            if (ModelState.IsValid)
+            if (viewModel.Membre.Email != null && viewModel.Membre.MotDePasse != null)
             {
                 Membre membre = dal.AuthentifierM(viewModel.Membre.Email, viewModel.Membre.MotDePasse);
                 if (membre != null)

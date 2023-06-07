@@ -21,7 +21,9 @@ namespace CodeVoyage.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=Kuroikage@25;database=CodeVoyageBDD");
+
+
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
 
         }
         public void InitializeDb()
@@ -611,7 +613,9 @@ namespace CodeVoyage.Models
                 Nom = "Garou",
                 Prenom = "Vincent",
                 Email="V.garou@gmail.com",
+
                 MotDePasse=Dal.EncodeMD5("AAAAA"),
+
                 
                 Localisation = "Torento",
                 Age = 43,
@@ -623,7 +627,9 @@ namespace CodeVoyage.Models
                   Nom = "DION",
                   Prenom = "Jean",
                   Email = "jean.dion@gmail.com",
+
                   MotDePasse = Dal.EncodeMD5("AAAAA"),
+
                   
                   Localisation = "Paris",
                   Age = 32,
@@ -779,6 +785,7 @@ namespace CodeVoyage.Models
 
            });
 
+
             this.Reservations.AddRange(
           new Reservation
           {
@@ -843,6 +850,7 @@ namespace CodeVoyage.Models
              OffreVoyageId = 8
 
          });
+
 
             
 

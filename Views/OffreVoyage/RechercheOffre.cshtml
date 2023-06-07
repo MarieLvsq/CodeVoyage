@@ -51,23 +51,26 @@
     else
     {
         <fieldset>
-        <legend>Résultat de votre recherche: </legend>
+        <legend>Liste des offres disponibles: </legend>
         @foreach (var item in Model)
+
         {
 
-                <div>Evènement selectionné :<strong>@item.Event.Nom</strong></div>
 
+                <div>Evènement selectionné :<strong>@item.Event.Nom</strong></div>
                 <div>Lieu de départ :<strong>@item.Itineraire.LieuDepart</strong></div>
                 <div>Destination : <strong>@item.Itineraire.Destination</strong></div>
                 <div>Date de Départ : <strong>@item.Itineraire.DateDepart</strong></div>
                 <div>Date de Retour : <strong>@item.Itineraire.DateArrivee</strong></div>
-                <div>Service : <strong>@item.Service.nomService</strong></div>
+                <div>>Service : <strong>@item.Service.nomService</strong></div>
                 <div>Service Extra : <strong>@item.ServiceEx.nomService</strong></div>
                 <div>Moyen de Transport selectionné : <strong>@item.Itineraire.Transport</strong></div>
                 <div>Prix total de la réservation: <strong>@item.prixTotal € </strong> </div>
                 <br/>
-                @Html.ActionLink("Je réserve", "CreerReservation", "Reservation")
-            
+                
+              <a href=@("/Reservation/ReserverOffre/" + item.Id)>Je réserve</a>
+              
+
 
         }
         </fieldset>

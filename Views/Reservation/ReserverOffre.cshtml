@@ -1,4 +1,4 @@
-﻿@model CodeVoyage.Models.Reservation
+﻿@model CodeVoyage.Models.OffreVoyage
 @{
     ViewBag.Title = "Formulaire";
     Layout = "_LayoutDuSite";
@@ -14,7 +14,34 @@
     {
         <fieldset>
             <legend>Réserver votre voyage :</legend>
-            @Html.LabelFor(m => Model.Membre.Nom)
+            @Html.HiddenFor(m=>m.Id)
+            <div>Evênement Sélectionné :@Html.DisplayFor(m=>m.Event.Nom)</div>
+            <div>Moyen de transport :@Html.DisplayFor(m=>m.Itineraire.Transport)</div>
+            <div>Lieu de depart :@Html.DisplayFor(m=>m.Itineraire.LieuDepart)</div>
+            <div>Destionation :@Html.DisplayFor(m=>m.Itineraire.Destination)</div>
+            <div>Date de depart :@Html.DisplayFor(m=>m.Itineraire.DateDepart)</div>
+            <div>Date d'arrivée :@Html.DisplayFor(m=>m.Itineraire.DateArrivee)</div>
+            <div>Nom du service :@Html.DisplayFor(m=>m.Service.nomService)</div>
+            <div>Nom du serviceEx :@Html.DisplayFor(m=>m.ServiceEx.nomService)</div>
+            <div>Prix total :@Html.DisplayFor(m=>m.prixTotal)</div>
+            
+
+            
+
+            
+           
+            
+            
+          
+            
+            
+            
+            
+           
+            
+            
+
+           @* @Html.LabelFor(m => Model.Membre.Nom)
             @Html.TextBoxFor(m => Model.Membre.Nom)
 
             <br />
@@ -26,22 +53,30 @@
             @Html.LabelFor(m => Model.Membre.Email)
             @Html.TextBoxFor(m => Model.Membre.Email)
             <br />
-            @*@Html.LabelFor(m => Model.Membre.Statut)
+            @Html.LabelFor(m => Model.Membre.Statut)
             @Html.DropDownListFor(m => m.Membre.Statut, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Statut>(), "Sélectionnez votre Statut")
-            @Html.ValidationMessageFor(m => Model.Membre.Statut)*@
+            @Html.ValidationMessageFor(m => Model.Membre.Statut)
             <br />
             @Html.LabelFor(m => Model.Membre.Localisation)
             @Html.TextBoxFor(m => Model.Membre.Localisation)
             <br />
             @Html.LabelFor(m => Model.Membre.Age)
-            @Html.TextBoxFor(m => Model.Membre.Age)
+            @Html.TextBoxFor(m => Model.Membre.Age)*@
             <br />
             @*@Html.LabelFor(m => Model.Membre.User)
             @Html.DropDownListFor(m => m.Membre.User, Html.GetEnumSelectList<CodeVoyage.Models.Membre.Role>(), " Vous êtes : ")
             @Html.ValidationMessageFor(m => Model.Membre.User)
             <br />*@
+            
+        </fieldset>
+        <fieldset>
+           @* <legend> détails de votre réservation: </legend>
+            <div>MembreId.MembreDescription </div>
+            <div>ItineraireId.ItineraireDescription, EventId.EvenementDescription, prixTotal € </div>*@
             <input type="submit" value="Ajouter" />
         </fieldset>
     }
+    
+    
 </body>
 </html>
