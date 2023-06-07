@@ -1,6 +1,7 @@
 #entete, #menu, #contenu, #footer {
     padding: 1px 0;
     font-family: 'Roboto', sans-serif;
+    text-decoration:none;
 }
 
 #entete {

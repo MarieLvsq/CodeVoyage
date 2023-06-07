@@ -61,8 +61,8 @@ namespace CodeVoyage.Models
             //Methodes Reservations
 
             List<Service> ObtientToutesLesReservations();
-            int CreerReservation(Membre membre, OffreVoyage offrePayee);
-            void ModifierReservation(int Id, Membre membre, OffreVoyage offrePayee);
+            int CreerReservation(Membre membre, OffreVoyage offreVoyage);
+            void ModifierReservation(int Id, Membre membre, OffreVoyage offreVoyage);
             void SupprimerReservation(int id);
 
         }

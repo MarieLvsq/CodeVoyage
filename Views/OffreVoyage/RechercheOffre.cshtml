@@ -55,7 +55,7 @@
             <fieldset>
                 <legend>Résultat de votre recherche: </legend>
                 <div>@item.Itineraire.ItineraireDescription, @item.Event.EvenementDescription, @item.prixTotal € </div>
-                @Html.ActionLink("Je réserve", "CreerReservation", "Reservation")
+                <a href=@("/Reservation/ReserverOffre/" + item.Id)>Je réserve</a>
 
 
             </fieldset>

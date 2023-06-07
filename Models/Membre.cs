@@ -38,7 +38,7 @@ namespace CodeVoyage.Models
         {
             get
             {
-                return string.Format("{0} {1}", Nom+ "-", Prenom);
+                return string.Format("{0} {1}", Nom+ "-", Prenom+ "-",Localisation);
             }
         }
     }
