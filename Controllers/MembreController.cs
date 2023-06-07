@@ -103,7 +103,12 @@ namespace CodeVoyage.Controllers
 
         }
 
+        public ActionResult EspaceMembre()
 
+        {
+           return View();
+
+        }
     }
 
 

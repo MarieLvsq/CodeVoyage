@@ -14,6 +14,10 @@ namespace CodeVoyage.Controllers
         {
             return View();
         }
+        public IActionResult EspacePartenaire()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult InscriptionPartenaire(string Nom, string Localisation , string email,string motDePasse, string numSiret, TypeService typeService, Role role)
