@@ -1,6 +1,6 @@
 ﻿@model List<CodeVoyage.Models.OffreVoyage>
 @{
-    ViewBag.Title = "Formulaire";
+    ViewBag.Title = "Liste des Offres de Voyages";
     Layout = "_LayoutAdmin";
 }
 <!DOCTYPE html>
@@ -13,6 +13,8 @@
     <title>Liste des offres de voyages</title>
 </head>
 <body>
+    
+
     <div class="container mt-3">
         <table class="table">
         <tr>
@@ -33,10 +35,25 @@
 
             <th>
 
-                Service
+                Destination
 
             </th>
+            <th>
 
+               Date de départ
+
+            </th>
+            <th>
+
+              Date de retour
+
+             </th>
+
+            <th>
+
+                Service 
+
+            </th>
             <th>
 
                 Service Extra
@@ -44,7 +61,7 @@
             </th>
             <th>
 
-                Remise
+                Service Extra
 
             </th>
 
@@ -61,12 +78,15 @@
         @foreach (var offreVoyage in Model)
         {
             <tr>
+                
+                <td>@offreVoyage.Event.Nom</td>
                 <td>@offreVoyage.Itineraire.LieuDepart </td>
-                <td>@offreVoyage.Event.EvenementDescription</td>
+                <td>@offreVoyage.Itineraire.Destination</td>
+                <td>@offreVoyage.Itineraire.DateDepart</td>
+                <td>@offreVoyage.Itineraire.DateArrivee</td>
                 <td>@offreVoyage.Service.ServiceDescription</td>
                 <td>@offreVoyage.ServiceEx.ServiceDescription</td>
-                <td>@offreVoyage.Remise</td>
-                <td>@offreVoyage.prixTotal</td>
+                <td>@offreVoyage.prixTotal €</td>
                 <td>
                     <form method="get" action="@("/OffreVoyage/ModifierOffreVoyage/"+offreVoyage.Id)">
 
@@ -85,6 +105,8 @@
 
     </table>
     </div>
+    
 </body>
+
 
 </html>

@@ -51,6 +51,11 @@ namespace CodeVoyage.Controllers
             {
             return View();
             }
+        public IActionResult Apropos()
+        {
+            return View();
         }
+
+    }
 }
 
