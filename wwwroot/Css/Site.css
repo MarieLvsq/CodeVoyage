@@ -1,11 +1,13 @@
 #entete, #menu, #contenu, #footer {
     padding: 1px 0;
     font-family: 'Roboto', sans-serif;
-    text-decoration:none;
+    
 }
 
 #entete {
     background: ghostwhite;
+    
+    
 }
 
 
@@ -46,6 +48,7 @@ nav ul {
     list-style-type: none;
     margin-left: 20px;
     margin-right: 80px;
+
 }
 
     nav ul li {
