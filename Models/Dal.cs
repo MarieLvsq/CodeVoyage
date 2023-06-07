@@ -32,76 +32,67 @@ namespace CodeVoyage.Models
         // Méthodes OffresVoyage
 
         public List<OffreVoyage> ObtientToutesLesOffresVoyages()
-        {
+            {
 
             return _bddContext.OffreVoyages.Include(o => o.Itineraire).Include(o => o.Event).Include(o => o.Service).Include(o => o.ServiceEx).ToList();
-        }
+            }
 
-        public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId,int Remise, double PrixTotal)
+        public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise, double PrixTotal)
 
-        {
+            {
 
-            Itineraire itineraire = _bddContext.Itineraires.Find(itineraireId);
-            Service service = _bddContext.Services.Find(serviceId);
-            Service serviceEx = _bddContext.Services.Find(serviceExId);
-
-
-            
-            OffreVoyage offre = new OffreVoyage() { ItineraireId = itineraireId, EventId= eventId, ServiceId = serviceId, ServiceExId = serviceExId};
-            offre.prixTotal = itineraire.Prix + service.Prix + serviceEx.Prix;
-
+            OffreVoyage offre = new OffreVoyage() { ItineraireId = itineraireId, EventId = eventId, ServiceId = serviceId, ServiceExId = serviceExId, prixTotal = PrixTotal };
 
             _bddContext.OffreVoyages.Add(offre);
             _bddContext.SaveChanges();
-
             return offre.Id;
-        }
+            }
 
         public void ModifierOffreVoyage(int id, int ItineraireId, int EventId, int ServiceId, int ServiceExId, int Remise, double PrixTotal)
 
-        {
+            {
             OffreVoyage offre = _bddContext.OffreVoyages.Find(id);
 
             if (offre != null)
-            {
+                {
                 offre.ItineraireId = ItineraireId;
                 offre.EventId = EventId;
                 offre.ServiceId = ServiceId;
                 offre.ServiceExId = ServiceExId;
                 offre.Remise = Remise;
-           
-				offre.prixTotal = PrixTotal;
-				 _bddContext.SaveChanges();
+                offre.prixTotal = PrixTotal;
+                _bddContext.SaveChanges();
+                }
+
             }
 
-        }
-
-    
-
-		public void ModifierOffreVoyage(OffreVoyage offreVoyage)
-		{
 
 
-			_bddContext.OffreVoyages.Update(offreVoyage);
-			_bddContext.SaveChanges();
-		}
+        public void ModifierOffreVoyage(OffreVoyage offreVoyage)
+            {
 
 
-		public void SupprimerOffreVoyage(int id) // A tester
-		{
-			OffreVoyage offreVoyage = _bddContext.OffreVoyages.Find(id);
+            _bddContext.OffreVoyages.Update(offreVoyage);
+            _bddContext.SaveChanges();
+            }
 
 
-			if (offreVoyage != null)
-			{
+        public void SupprimerOffreVoyage(int id) // A tester
+            {
+            OffreVoyage offreVoyage = _bddContext.OffreVoyages.Find(id);
 
-				_bddContext.OffreVoyages.Remove(offreVoyage);
 
-				_bddContext.SaveChanges();
-			}
-		}
+            if (offreVoyage != null)
+                {
+
+                _bddContext.OffreVoyages.Remove(offreVoyage);
+
+                _bddContext.SaveChanges();
+                }
+            }
 
         public List<OffreVoyage> RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, double prixMax)
+
         {
 
             using var dbContext = new Models.BddContext();
@@ -123,7 +114,6 @@ namespace CodeVoyage.Models
 
                     listeOffreVoyageMulti.Add(offre);
 
-
                 }
 
             }
@@ -142,6 +132,7 @@ namespace CodeVoyage.Models
 
 
 		public List<Evenement> ObtientTousLesEvenements()
+
         {
             return _bddContext.Evenements.ToList();
         }

@@ -1,4 +1,4 @@
-﻿@model List<CodeVoyage.Models.OffreVoyage>
+@model List<CodeVoyage.Models.OffreVoyage>
 @{
     ViewBag.Title = "Formulaire";
     Layout = "_LayoutDuSite";
@@ -55,9 +55,6 @@
         @foreach (var item in Model)
         {
 
-
-
-
                 <div>Evènement selectionné :<strong>@item.Event.Nom</strong></div>
 
                 <div>Lieu de départ :<strong>@item.Itineraire.LieuDepart</strong></div>
@@ -71,11 +68,6 @@
                 <br/>
                 @Html.ActionLink("Je réserve", "CreerReservation", "Reservation")
             
-
-
-           
-
-
 
         }
         </fieldset>
