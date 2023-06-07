@@ -147,18 +147,21 @@ namespace CodeVoyage.Controllers
 			ViewBag.EvenementList = evenements;
 			ViewBag.ServiceList = services;
 			ViewBag.prixList = new List<prixMax>() {
-				new prixMax { Value = 400 },
+				new prixMax { Value = 300 },
 				new prixMax { Value = 500 },
-				new prixMax { Value = 600 },
 				new prixMax { Value = 700 },
-				new prixMax { Value = 800 },
+				new prixMax { Value = 900 },
+				new prixMax { Value = 1100 },
+                new prixMax { Value = 1300 },
+                new prixMax { Value = 1500 },
+                new prixMax { Value = 2000 },
 
 
 
-			};
+            };
 
 			Dal dal = new Dal();
-			List<OffreVoyage> voyages = dal.ObtientToutesLesOffresVoyages().Where(o => o.ItineraireId == itineraireId || o.EventId == eventId || o.ServiceId == serviceId|| o.ServiceExId == serviceExId && o.prixTotal < prixMax).ToList();
+			List<OffreVoyage> voyages = dal.ObtientToutesLesOffresVoyages().Where(o => o.ItineraireId == itineraireId && o.EventId == eventId && o.ServiceId == serviceId && o.ServiceExId == serviceExId && o.prixTotal <= prixMax).ToList();
 
 
 			return View(voyages);

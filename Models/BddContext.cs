@@ -21,7 +21,7 @@ namespace CodeVoyage.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
 
         }
         public void InitializeDb()
@@ -291,8 +291,8 @@ namespace CodeVoyage.Models
               new Itineraire
               {
                   Id = 13,
-                  DateDepart = new DateTime(2023, 07, 25),
-                  DateArrivee = new DateTime(2023, 08, 11),
+                  DateDepart = new DateTime(2024, 07, 25),
+                  DateArrivee = new DateTime(2024, 08, 11),
                   LieuDepart = "Lyon",
                   Destination = "Paris",
                   NombreVoyageur = 15,
@@ -320,8 +320,8 @@ namespace CodeVoyage.Models
                    LieuDepart = "Toulouse",
                    Destination = "Paris",
                    NombreVoyageur = 15,
-                   Transport = ((MoyenDeTransport)2),
-                   Prix = 180
+                   Transport = ((MoyenDeTransport)0),
+                   Prix = 250
 
                },
                new Itineraire
@@ -344,7 +344,7 @@ namespace CodeVoyage.Models
                     LieuDepart = "Toulouse",
                     Destination = "Paris",
                     NombreVoyageur = 08,
-                    Transport = ((MoyenDeTransport)2),
+                    Transport = ((MoyenDeTransport)0),
                     Prix = 300
 
                 },
@@ -359,7 +359,19 @@ namespace CodeVoyage.Models
                      Transport = ((MoyenDeTransport)0),
                      Prix = 315
 
-                 }
+                 },
+                  new Itineraire
+                  {
+                      Id = 19,
+                      DateDepart = new DateTime(2023, 10, 06),
+                      DateArrivee = new DateTime(2023, 10, 10),
+                      LieuDepart = "Paris",
+                      Destination = "Doha",
+                      NombreVoyageur = 08,
+                      Transport = ((MoyenDeTransport)0),
+                      Prix = 470
+
+                  }
 
              );
          
@@ -516,6 +528,18 @@ namespace CodeVoyage.Models
                             DateFin = new DateTime(2025, 09, 20),
                             TypeService = ((TypeService)1),
                             Prix = 145
+
+                        },
+                          
+                        new Service
+                        {
+                            Id = 16,
+                            nomService = " Holiday Inn: Paris",
+                            Capacite = 100,
+                            DateDeb = new DateTime(2024, 01, 01),
+                            DateFin = new DateTime(2025, 01, 31),
+                            TypeService = ((TypeService)1),
+                            Prix = 150
 
                         }
 
@@ -711,7 +735,31 @@ namespace CodeVoyage.Models
 
                    prixTotal = 460,
 
-               }
+               },
+               new OffreVoyage
+               {
+                   Id = 7,
+                   ItineraireId = 9,
+                   EventId = 9,
+                   ServiceId = 1,
+                   ServiceExId = 5,
+                   Remise = 0,
+
+                   prixTotal = 449,
+
+               },
+                new OffreVoyage
+                {
+                    Id = 8,
+                    ItineraireId = 13,
+                    EventId = 11,
+                    ServiceId = 1,
+                    ServiceExId = 13,
+                    Remise = 0,
+
+                    prixTotal = 247,
+
+                }
 
 
 

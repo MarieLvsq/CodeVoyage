@@ -106,27 +106,31 @@ namespace CodeVoyage.Models
 
             using var dbContext = new Models.BddContext();
 
-            var query = dbContext.OffreVoyages.Include(o => o.ItineraireId).Include(o => o.EventId).Include(o => o.ServiceId).Include(o => o.ServiceExId).Include(o => o.prixTotal).AsQueryable();
-            return query.ToList();
-        }
-            //foreach (OffreVoyage offre in listeOffreVoyage){
-            
-                /*  if ((itineraireId == 0 || offre.ItineraireId==itineraireId)
-                  && (eventId == 0 || offre.EventId==eventId)
+            List<OffreVoyage> listeOffreVoyage = _bddContext.OffreVoyages.ToList();
+            List<OffreVoyage> listeOffreVoyageMulti = new List<OffreVoyage>();
+
+
+
+            foreach (OffreVoyage offre in listeOffreVoyage)
+            {
+
+                if ((itineraireId == 0 || offre.ItineraireId == itineraireId)
+                  && (eventId == 0 || offre.EventId == eventId)
                          && (serviceId == 0 || offre.ServiceId == serviceId)
-                         && (serviceExId == 0 || offre.ServiceExId==serviceExId)
+                         && (serviceExId == 0 || offre.ServiceExId == serviceExId)
                          && (prixMax == 0 || offre.prixTotal <= prixMax))
-                  {
+                {
 
-                      listeOffreVoyageMulti.Add(offre);
-
-
-                  }
-
-              }
-              return listeOffreVoyageMulti;*/
+                    listeOffreVoyageMulti.Add(offre);
 
 
+                }
+
+            }
+            return listeOffreVoyageMulti;
+        }
+
+                
 
             
         
