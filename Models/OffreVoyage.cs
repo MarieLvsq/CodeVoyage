@@ -17,13 +17,13 @@ namespace CodeVoyage.Models
         public double prixTotal { get; set; }
 
 
-        public string OffreVoyageDescription
+        /*public string OffreVoyageDescription
             {
             get
                 {
                 return string.Format("{0} {1} {2} {3}", Itineraire.LieuDepart + "-", Itineraire.Destination + "-", Event.Nom + "-", prixTotal);
                 }
-            }
+            }*/
 
         }
 

@@ -41,13 +41,13 @@
 
                 <tr>
                     <td>
-                        @Html.LabelFor(m => Model.OffreVoyage)
+                        @Html.LabelFor(m => Model.OffrePayee)
                     </td>
                 </tr>
                 <tr>
                     <td class="form-control">
                         @Html.DropDownListFor(m => m.OffreVoyageId, new SelectList(ViewBag.OffreVoyageList, "Id", "OffreVoyageDescription"))
-                        @Html.ValidationMessageFor(m => Model.OffreVoyage)
+                        @Html.ValidationMessageFor(m => Model.OffrePayee)
                     </td>
                 </tr>
 

@@ -471,7 +471,7 @@ namespace CodeVoyage.Models
             {
                 reservation.Id = Id;
                 reservation.Membre = membre;
-                reservation.OffreVoyage = offreVoyage;
+                reservation.OffrePayee = offreVoyage;
                 _bddContext.SaveChanges();
             }
 
