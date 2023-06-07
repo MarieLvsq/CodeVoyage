@@ -142,8 +142,14 @@ namespace CodeVoyage.Controllers
         public IActionResult RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, int prixMax)
             {
             var itineraires = _bddContext.Itineraires.ToList();
+            itineraires.Add(new Itineraire() { Id = 0, Destination = "All Destinations" });
+            itineraires= itineraires.OrderBy(i => i.Id).ToList();
             var evenements = _bddContext.Evenements.ToList();
+            evenements.Add(new Evenement() { Id = 0, Nom = "All Events" });
+            evenements =  evenements.OrderBy(i => i.Id).ToList();
             var services = _bddContext.Services.ToList();
+            services.Add(new Service { Id = 0, nomService = "All Services" });
+            services = services.OrderBy(i => i.Id).ToList();
             ViewBag.ItineraireList = itineraires;
 			ViewBag.EvenementList = evenements;
 			ViewBag.ServiceList = services;
@@ -164,8 +170,26 @@ namespace CodeVoyage.Controllers
 
 
 			Dal dal = new Dal();
-			List<OffreVoyage> voyages = dal.ObtientToutesLesOffresVoyages().Where(o => o.ItineraireId == itineraireId && o.EventId == eventId && o.ServiceId == serviceId && o.ServiceExId == serviceExId && o.prixTotal <= prixMax).ToList();
+			List<OffreVoyage> voyages = dal.ObtientToutesLesOffresVoyages();
 
+            if (prixMax != 0)
+            {
+                voyages = voyages.Where(o => o.prixTotal <= prixMax).ToList();
+            }
+
+            if(itineraireId != 0) {
+               voyages = voyages.Where(v => v.ItineraireId == itineraireId).ToList();
+            }
+
+            if(eventId != 0)
+            {
+                voyages = voyages.Where(v => v.EventId == eventId).ToList();
+            }
+
+            if (serviceId != 0)
+            {
+                voyages = voyages.Where(v => v.ServiceId == serviceId && v.ServiceExId ==serviceId).ToList();
+            }
 
 
             return View(voyages);
