@@ -97,6 +97,7 @@ namespace CodeVoyage.Models
 
             using var dbContext = new Models.BddContext();
 
+
             List<OffreVoyage> listeOffreVoyage = _bddContext.OffreVoyages.ToList();
             List<OffreVoyage> listeOffreVoyageMulti = new List<OffreVoyage>();
 
@@ -122,10 +123,11 @@ namespace CodeVoyage.Models
 
                 
 
-            
+       
         
        
 		// Fin méthodes Offre de voyage
+
 
 
 		// Méthodes Evenements
@@ -390,7 +392,7 @@ namespace CodeVoyage.Models
         public int InscriptionPartenaire(string Nom, string Localisation, string email,string motDePasse, string numSiret, TypeService typeService,Role role)
         {
 
-            Partenaire partenaire = new Partenaire() { Nom = Nom, Localisation = Localisation, email = email, MotDePasse = motDePasse, NumSiret = numSiret, TypeService = typeService, Role = role };
+            Partenaire partenaire = new Partenaire() { Nom = Nom, Localisation = Localisation, email = email, MotDePasse = Dal.EncodeMD5( motDePasse), NumSiret = numSiret, TypeService = typeService, Role = role };
 
             _bddContext.Partenaires.Add(partenaire);
             _bddContext.SaveChanges();
@@ -439,22 +441,29 @@ namespace CodeVoyage.Models
             }
         }
 
+        // Methodes Reservation
+
         public List<Reservation> ObtientToutesLesReservations()
         {
-            return _bddContext.Reservations.ToList();
+            return _bddContext.Reservations.Include(r=>r.Membre)
+                .Include(r => r.OffrePayee).ThenInclude(op=>op.Itineraire)
+                .Include(r => r.OffrePayee).ThenInclude(op => op.Event)
+                .Include(r => r.OffrePayee).ThenInclude(op => op.Service)
+                .Include(r => r.OffrePayee).ThenInclude(op => op.ServiceEx)
+                .ToList();
         }
 
-        public int CreerReservation(Membre membre,OffreVoyage offrePayee)
+        public int CreerReservation(Membre membre,OffreVoyage offreVoyage)
         {
 
-           Reservation reservation = new Reservation() { Membre = membre, OffrePayee = offrePayee };
+           Reservation reservation = new Reservation() { MembreId = membre.Id, OffreVoyageId= offreVoyage.Id };
 
             _bddContext.Reservations.Add(reservation);
             _bddContext.SaveChanges();
             return reservation.Id;
         }
 
-        public void ModifierReservation(int Id, Membre membre, OffreVoyage offrePayee)
+        public void ModifierReservation(int Id, Membre membre, OffreVoyage offreVoyage)
         {
             Reservation reservation = _bddContext.Reservations.Find(Id);
 
@@ -462,7 +471,7 @@ namespace CodeVoyage.Models
             {
                 reservation.Id = Id;
                 reservation.Membre = membre;
-                reservation.OffrePayee = offrePayee;
+                reservation.OffreVoyage = offreVoyage;
                 _bddContext.SaveChanges();
             }
 
@@ -490,6 +499,7 @@ namespace CodeVoyage.Models
                 _bddContext.SaveChanges();
             }
         }
+
         //Methodes Admin
 
         public List<Admin> ObtientTousLesAdmins()

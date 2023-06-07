@@ -38,7 +38,7 @@ namespace CodeVoyage.Controllers
         [HttpPost]
         public IActionResult IndexM(MembreViewModel viewModel, string returnUrl)
         {
-            if (ModelState.IsValid)
+            if (viewModel.Membre.Email != null && viewModel.Membre.MotDePasse != null)
             {
                 Membre membre = dal.AuthentifierM(viewModel.Membre.Email, viewModel.Membre.MotDePasse);
                 if (membre != null)
@@ -59,11 +59,11 @@ namespace CodeVoyage.Controllers
                     if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
                         return Redirect(returnUrl);
 
-                    return Redirect("IndexM");
+                    return Redirect("../Home/Admin");
                 }
                 ModelState.AddModelError("Membre.Prenom", "Email et/ou mot de passe incorrect(s)");
             }
-            return View(viewModel);
+            return View("IndexM");
         }
 
         [HttpPost]
@@ -83,7 +83,7 @@ namespace CodeVoyage.Controllers
                 var userPrincipal = new ClaimsPrincipal(new[] { ClaimIdentity });
                 HttpContext.SignInAsync(userPrincipal);
 
-                return Redirect("/");
+                return Redirect("../Home/Admin");// retourne à la vue du membre 
             }
             return View("CreerCompteMembre", membre);
         }
@@ -124,7 +124,7 @@ namespace CodeVoyage.Controllers
         {
             if (ModelState.IsValid)
             {
-                Partenaire partenaire = dal.AuthentifierP(viewModel.Partenaire.Nom, viewModel.Partenaire.MotDePasse);
+                Partenaire partenaire = dal.AuthentifierP(viewModel.Partenaire.email, viewModel.Partenaire.MotDePasse);
                 if (partenaire != null)
                 {
                     var userClaims = new List<Claim>()
@@ -143,11 +143,11 @@ namespace CodeVoyage.Controllers
                     if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
                         return Redirect(returnUrl);
 
-                    return Redirect("IndexP");
+                    return Redirect("../Home/Admin");
                 }
                 ModelState.AddModelError("Utilisateur.Prenom", "Prénom et/ou mot de passe incorrect(s)");
             }
-            return View(viewModel);
+            return View("IndexP");
         }
 
 
@@ -168,7 +168,7 @@ namespace CodeVoyage.Controllers
                 var userPrincipal = new ClaimsPrincipal(new[] { ClaimIdentity });
                 HttpContext.SignInAsync(userPrincipal);
 
-                return Redirect("/");
+                return Redirect("../Home/Admin");
             }
             return View("CreerComptePartenaire", partenaire);
         }
@@ -208,7 +208,7 @@ namespace CodeVoyage.Controllers
             {
                 using (var admindal = new Dal())
                 {
-                    Admin admin = admindal.AuthentifierA(viewModel.Admin.Nom, viewModel.Admin.MotDePasse);
+                    Admin admin = admindal.AuthentifierA(viewModel.Admin.Email, viewModel.Admin.MotDePasse);
                     if (admin != null)
                     {
                         var userClaims = new List<Claim>()
@@ -230,14 +230,20 @@ namespace CodeVoyage.Controllers
 
                             return Redirect(returnUrl);
 
-                        return RedirectToAction("/");
+                        return View("../Home/Admin");
                     }
-                    ModelState.AddModelError("Utilisateur.Prenom", "Prénom et/ou mot de passe incorrect(s)");
+                    else
+                    {
+                        ModelState.AddModelError("Utilisateur.Prenom", "Prénom et/ou mot de passe incorrect(s)");
+                        return View(viewModel);
+                    }
+                    
+                    
                 }
-                return View(viewModel);
+                
 
             }
-            return View("IndexA");
+            return View(viewModel); ;
         }
 
         public IActionResult VueAdmin()
