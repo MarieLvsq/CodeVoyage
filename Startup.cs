@@ -28,7 +28,7 @@ namespace CodeVoyage
             {
                 options.Cookie.Name = "CodeVoyage.AuthCookie";
                 options.Cookie.HttpOnly = true;
-                options.LoginPath = "/Login/Index";
+                options.LoginPath = "/Login/IndexM";
                 options.AccessDeniedPath = "/Login/AccessDenied";
             });
             services.AddControllersWithViews();

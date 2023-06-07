@@ -606,7 +606,7 @@ namespace CodeVoyage.Models
                 Nom = "Garou",
                 Prenom = "Vincent",
                 Email="V.garou@gmail.com",
-                MotDePasse="AAAAA",
+                MotDePasse=Dal.EncodeMD5 ("AAAAA"),
                 
                 Localisation = "Torento",
                 Age = 43,
@@ -618,7 +618,7 @@ namespace CodeVoyage.Models
                   Nom = "DION",
                   Prenom = "Jean",
                   Email = "jean.dion@gmail.com",
-                  MotDePasse = "AAAAA",
+                  MotDePasse = Dal.EncodeMD5("DADA"),
                   
                   Localisation = "Paris",
                   Age = 32,
@@ -773,12 +773,12 @@ namespace CodeVoyage.Models
            new Admin
            {
                Id = 1,
-              Nom="David",
-              Prenom="AITCHEOU",
-              Email="Dav@gmail.com",
-              MotDePasse="OnePiece"
-            
-           })
+               Nom = "David",
+               Prenom = "AITCHEOU",
+               Email = "Dav@gmail.com",
+               MotDePasse = Dal.EncodeMD5("OnePiece")
+
+           });
 
            ;
 

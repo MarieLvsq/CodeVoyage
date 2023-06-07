@@ -97,6 +97,7 @@ namespace CodeVoyage.Models
 
             using var dbContext = new Models.BddContext();
 
+
             List<OffreVoyage> listeOffreVoyage = _bddContext.OffreVoyages.ToList();
             List<OffreVoyage> listeOffreVoyageMulti = new List<OffreVoyage>();
 
@@ -121,6 +122,7 @@ namespace CodeVoyage.Models
         }
 
                 
+
 
             
         
@@ -444,17 +446,17 @@ namespace CodeVoyage.Models
             return _bddContext.Reservations.ToList();
         }
 
-        public int CreerReservation(Membre membre,OffreVoyage offrePayee)
+        public int CreerReservation(Membre membre,OffreVoyage offreVoyage)
         {
 
-           Reservation reservation = new Reservation() { Membre = membre, OffrePayee = offrePayee };
+           Reservation reservation = new Reservation() { MembreId = membre.Id, OffreVoyageId= offreVoyage.Id };
 
             _bddContext.Reservations.Add(reservation);
             _bddContext.SaveChanges();
             return reservation.Id;
         }
 
-        public void ModifierReservation(int Id, Membre membre, OffreVoyage offrePayee)
+        public void ModifierReservation(int Id, Membre membre, OffreVoyage offreVoyage)
         {
             Reservation reservation = _bddContext.Reservations.Find(Id);
 
@@ -462,7 +464,7 @@ namespace CodeVoyage.Models
             {
                 reservation.Id = Id;
                 reservation.Membre = membre;
-                reservation.OffrePayee = offrePayee;
+                reservation.OffreVoyage = offreVoyage;
                 _bddContext.SaveChanges();
             }
 
