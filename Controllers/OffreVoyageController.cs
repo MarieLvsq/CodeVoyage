@@ -18,10 +18,12 @@ namespace CodeVoyage.Controllers
             _bddContext = new BddContext();
             }
 
-        public IActionResult Index()
+        public IActionResult Catalogue()
             {
             return View();
             }
+
+
         // Méthodes Créer
 
         public IActionResult CreerOffreVoyage()
@@ -168,6 +170,8 @@ namespace CodeVoyage.Controllers
 
             return View(voyages);
             }
+
+
 
 
        }
