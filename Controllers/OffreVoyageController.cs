@@ -137,28 +137,29 @@ namespace CodeVoyage.Controllers
             }
 
 
-        public IActionResult RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, int prixMax)
-            {
-            var itineraires = _bddContext.Itineraires.ToList();
-            var evenements = _bddContext.Evenements.ToList();
-            var services = _bddContext.Services.ToList();
 
-            ViewBag.ItineraireList = itineraires;
-            ViewBag.EvenementList = evenements;
-            ViewBag.ServiceList = services;
-            ViewBag.prixList = new List<prixMax>() {
-                new prixMax { Value = 400 },
-                new prixMax { Value = 500 },
-                new prixMax { Value = 600 },
-                new prixMax { Value = 700 },
-                new prixMax { Value = 800 },
+			ViewBag.ItineraireList = itineraires;
+			ViewBag.EvenementList = evenements;
+			ViewBag.ServiceList = services;
+			ViewBag.prixList = new List<prixMax>() {
+				new prixMax { Value = 300 },
+				new prixMax { Value = 500 },
+				new prixMax { Value = 700 },
+				new prixMax { Value = 900 },
+				new prixMax { Value = 1100 },
+                new prixMax { Value = 1300 },
+                new prixMax { Value = 1500 },
+                new prixMax { Value = 2000 },
+
 
 
 
             };
 
-            Dal dal = new Dal();
-            List<OffreVoyage> voyages = dal.ObtientToutesLesOffresVoyages().Where(o => o.ItineraireId == itineraireId || o.EventId == eventId || o.ServiceId == serviceId || o.ServiceExId == serviceExId && o.prixTotal < prixMax).ToList();
+
+			Dal dal = new Dal();
+			List<OffreVoyage> voyages = dal.ObtientToutesLesOffresVoyages().Where(o => o.ItineraireId == itineraireId && o.EventId == eventId && o.ServiceId == serviceId && o.ServiceExId == serviceExId && o.prixTotal <= prixMax).ToList();
+
 
 
             return View(voyages);

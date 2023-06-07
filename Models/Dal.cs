@@ -92,41 +92,47 @@ namespace CodeVoyage.Models
             }
 
         public List<OffreVoyage> RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, double prixMax)
-            {
+
+        {
+
+            using var dbContext = new Models.BddContext();
 
             List<OffreVoyage> listeOffreVoyage = _bddContext.OffreVoyages.ToList();
-
             List<OffreVoyage> listeOffreVoyageMulti = new List<OffreVoyage>();
 
+
+
             foreach (OffreVoyage offre in listeOffreVoyage)
-                {
+            {
+
                 if ((itineraireId == 0 || offre.ItineraireId == itineraireId)
-                && (eventId == 0 || offre.EventId == eventId)
-                       && (serviceId == 0 || offre.ServiceId == serviceId)
-                       && (serviceExId == 0 || offre.ServiceExId == serviceExId)
-                       && (prixMax == 0 || offre.prixTotal <= prixMax))
-                    {
+                  && (eventId == 0 || offre.EventId == eventId)
+                         && (serviceId == 0 || offre.ServiceId == serviceId)
+                         && (serviceExId == 0 || offre.ServiceExId == serviceExId)
+                         && (prixMax == 0 || offre.prixTotal <= prixMax))
+                {
 
                     listeOffreVoyageMulti.Add(offre);
 
-
-                    }
-
                 }
-            return listeOffreVoyageMulti;
-
-
 
             }
+            return listeOffreVoyageMulti;
+        }
+
+                
+
+            
+        
+       
+		// Fin méthodes Offre de voyage
 
 
-        // Fin méthodes Offre de voyage
+		// Méthodes Evenements
 
 
-        // Méthodes Evenements
+		public List<Evenement> ObtientTousLesEvenements()
 
-
-        public List<Evenement> ObtientTousLesEvenements()
         {
             return _bddContext.Evenements.ToList();
         }
