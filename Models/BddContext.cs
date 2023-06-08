@@ -17,11 +17,12 @@ namespace CodeVoyage.Models
             public DbSet<Reservation> Reservations { get; set; }
             public DbSet<Service> Services { get; set; }
             public DbSet<Admin> Admins { get; set; }
+            public DbSet<OffrePerso> OffrePersos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=Kuroikage@25;database=CodeVoyageBDD");
 
 
         }
