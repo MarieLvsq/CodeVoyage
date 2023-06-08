@@ -124,61 +124,6 @@
 
         @RenderSection("ExtraScripts", required: false)
     </footer>
-            <div class="container-fluid mt-5 ">
-                <div class="row">
-
-                    <div class="col-sm-4">
-                        <a href="https://localhost:5001/"><img src="~/Images/LogoCV1.png" width="100%" height="100%" /></a>
-                    </div>
-                    <div class="col-sm-2">
-                        <h3>Contact</h3>
-                        <br />
-
-                        <p>
-                            15 rue Felix Faure, 75015 Paris
-                            <br />
-                            0658245075
-                            <br />
-
-                            reservation@codevoyage.com
-                            <br />
-
-                            @DateTime.Now.Year - Contactez nous !
-                        </p>
-                    </div>
-                    <div class="col-sm-3">
-                        <h3>A propos</h3>
-                        <p>
-                            Code Voyage est une startup spécialisée dans
-                            l’organisation d'événements.
-                            À travers notre site web, nous souhaitons répondre à la demande d’une clientèle
-                            spécifique en permettant un accès facilité et personnalisé à des événements à
-                            travers le monde.
-                        </p>
-                    </div>
-                    <div class="col-sm-2">
-                        <h3>Plan du site</h3>
-                        <ul class="footerUl">
-                            <li><a href="#">Laissez-vous inspirer</a></li>
-                            <li><a href="#">Prenez le contrôle</a></li>
-                            <li><a href="#">À propos</a></li>
-                            <li>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
-                            <li>@Html.ActionLink("Connexion", "IndexM", "Login")</li>
-                            <li>@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
-                            <li>@Html.ActionLink("Admin", "IndexA", "Login")</li>
-                            <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement", "Evenement")</li>
-                            <li>@Html.ActionLink("Ajout d'Itineraire", "CreerItineraire","Itineraire")</li>
-                            <li>@Html.ActionLink("Inscription Membre", "InscriptionMembre","Membre")</li>
-                            <li>@Html.ActionLink("Incription d'un partenaire", "InscriptionPartenaire", "Partenaire")</li>
-                            <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
-                            <li>@Html.ActionLink("Recherche offre de voyages", "RechercheOffre", "OffreVoyage")</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-1">
-                    </div>
-                </div>
-            </div>
-
-        @RenderSection("ExtraScripts", required: false)
+           
 </body>
 </html>
