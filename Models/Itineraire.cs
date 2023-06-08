@@ -32,8 +32,8 @@ namespace CodeVoyage.Models
 
 
         [Required(ErrorMessage = "Cette section doit être remplie.")]
-        [Display(Name = "Date d'arrivée")]
-        public DateTime DateArrivee { get; set; }
+        [Display(Name = "Date de retour")]
+        public DateTime DateRetour { get; set; }
 
         public string ItineraireDescription
         {

@@ -21,7 +21,7 @@ namespace CodeVoyage.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=Kuroikage@25;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
 
 
         }
@@ -158,7 +158,7 @@ namespace CodeVoyage.Models
             {
                 Id = 1,
                 DateDepart = new DateTime(2024, 02, 07),
-                DateArrivee = new DateTime(2024, 02, 21),
+                DateRetour = new DateTime(2024, 02, 21),
                 LieuDepart = "Paris",
                 Destination = "Rio De Janeiro",
                 NombreVoyageur = 40,
@@ -169,7 +169,7 @@ namespace CodeVoyage.Models
             {
                 Id = 2,
                 DateDepart = new DateTime(2023, 06, 30),
-                DateArrivee = new DateTime(2023, 07, 14),
+                DateRetour = new DateTime(2023, 07, 14),
                 LieuDepart = "Paris",
                 Destination = "Toronto",
                 NombreVoyageur = 50,
@@ -180,7 +180,7 @@ namespace CodeVoyage.Models
             {
                 Id = 3,
                 DateDepart = new DateTime(2023, 10, 15),
-                DateArrivee = new DateTime(2023, 11, 01),
+                DateRetour = new DateTime(2023, 11, 01),
                 LieuDepart = "Paris",
                 Destination = "San Francisco",
                 NombreVoyageur = 30,
@@ -193,7 +193,7 @@ namespace CodeVoyage.Models
             {
                 Id = 4,
                 DateDepart = new DateTime(2023, 08, 02),
-                DateArrivee = new DateTime(2023, 08, 08),
+                DateRetour = new DateTime(2023, 08, 08),
                 LieuDepart = "Paris",
                 Destination = "Toronto",
                 NombreVoyageur = 50,
@@ -206,7 +206,7 @@ namespace CodeVoyage.Models
             {
                 Id = 5,
                 DateDepart = new DateTime(2023, 10, 01),
-                DateArrivee = new DateTime(2023, 10, 15),
+                DateRetour = new DateTime(2023, 10, 15),
                 LieuDepart = "Paris",
                 Destination = "Venise",
                 NombreVoyageur = 20,
@@ -218,7 +218,7 @@ namespace CodeVoyage.Models
             {
                 Id = 6,
                 DateDepart = new DateTime(2023, 10, 02),
-                DateArrivee = new DateTime(2023, 10, 14),
+                DateRetour = new DateTime(2023, 10, 14),
                 LieuDepart = "Paris",
                 Destination = "Venise",
                 NombreVoyageur = 20,
@@ -231,7 +231,7 @@ namespace CodeVoyage.Models
             {
                 Id = 7,
                 DateDepart = new DateTime(2023, 01, 11),
-                DateArrivee = new DateTime(2023, 01, 25),
+                DateRetour = new DateTime(2023, 01, 25),
                 LieuDepart = "Paris",
                 Destination = "Abidjan",
                 NombreVoyageur = 20,
@@ -244,7 +244,7 @@ namespace CodeVoyage.Models
             {
                 Id = 8,
                 DateDepart = new DateTime(2023, 02, 01),
-                DateArrivee = new DateTime(2023, 02, 13),
+                DateRetour = new DateTime(2023, 02, 13),
                 LieuDepart = "Paris",
                 Destination = "Abidjan",
                 NombreVoyageur = 20,
@@ -257,7 +257,7 @@ namespace CodeVoyage.Models
             {
                 Id = 9,
                 DateDepart = new DateTime(2023, 02, 06),
-                DateArrivee = new DateTime(2023, 02, 10),
+                DateRetour = new DateTime(2023, 02, 10),
                 LieuDepart = "Paris",
                 Destination = "Doha",
                 NombreVoyageur = 20,
@@ -269,7 +269,7 @@ namespace CodeVoyage.Models
             {
                 Id = 10,
                 DateDepart = new DateTime(2023, 09, 15),
-                DateArrivee = new DateTime(2023, 10, 04),
+                DateRetour = new DateTime(2023, 10, 04),
                 LieuDepart = "Paris",
                 Destination = "Munich",
                 NombreVoyageur = 20,
@@ -281,7 +281,7 @@ namespace CodeVoyage.Models
              {
                  Id = 11,
                  DateDepart = new DateTime(2023, 09, 15),
-                 DateArrivee = new DateTime(2023, 10, 04),
+                 DateRetour = new DateTime(2023, 10, 04),
                  LieuDepart = "Paris",
                  Destination = "Munich",
                  NombreVoyageur = 20,
@@ -293,7 +293,7 @@ namespace CodeVoyage.Models
               {
                   Id = 13,
                   DateDepart = new DateTime(2024, 07, 25),
-                  DateArrivee = new DateTime(2024, 08, 11),
+                  DateRetour = new DateTime(2024, 08, 11),
                   LieuDepart = "Lyon",
                   Destination = "Paris",
                   NombreVoyageur = 15,
@@ -305,7 +305,7 @@ namespace CodeVoyage.Models
               {
                   Id = 14,
                   DateDepart = new DateTime(2023, 07, 25),
-                  DateArrivee = new DateTime(2023, 08, 11),
+                  DateRetour = new DateTime(2023, 08, 11),
                   LieuDepart = "Toulouse",
                   Destination = "Paris",
                   NombreVoyageur = 15,
@@ -317,7 +317,7 @@ namespace CodeVoyage.Models
                {
                    Id = 15,
                    DateDepart = new DateTime(2023, 07, 25),
-                   DateArrivee = new DateTime(2023, 08, 11),
+                   DateRetour = new DateTime(2023, 08, 11),
                    LieuDepart = "Toulouse",
                    Destination = "Paris",
                    NombreVoyageur = 15,
@@ -329,7 +329,7 @@ namespace CodeVoyage.Models
                {
                    Id = 16,
                    DateDepart = new DateTime(2023, 06, 13),
-                   DateArrivee = new DateTime(2023, 07, 15),
+                   DateRetour = new DateTime(2023, 07, 15),
                    LieuDepart = "Toulouse",
                    Destination = "Paris",
                    NombreVoyageur = 15,
@@ -341,7 +341,7 @@ namespace CodeVoyage.Models
                 {
                     Id = 17,
                     DateDepart = new DateTime(2023, 06, 13),
-                    DateArrivee = new DateTime(2023, 07, 15),
+                    DateRetour = new DateTime(2023, 07, 15),
                     LieuDepart = "Toulouse",
                     Destination = "Paris",
                     NombreVoyageur = 08,
@@ -353,7 +353,7 @@ namespace CodeVoyage.Models
                  {
                      Id = 18,
                      DateDepart = new DateTime(2023, 08, 18),
-                     DateArrivee = new DateTime(2023, 08, 21),
+                     DateRetour = new DateTime(2023, 08, 21),
                      LieuDepart = "Paris",
                      Destination = "Atlanta",
                      NombreVoyageur = 08,
@@ -365,7 +365,7 @@ namespace CodeVoyage.Models
                   {
                       Id = 19,
                       DateDepart = new DateTime(2023, 10, 06),
-                      DateArrivee = new DateTime(2023, 10, 10),
+                      DateRetour = new DateTime(2023, 10, 10),
                       LieuDepart = "Paris",
                       Destination = "Doha",
                       NombreVoyageur = 08,

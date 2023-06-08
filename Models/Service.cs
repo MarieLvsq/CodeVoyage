@@ -19,6 +19,7 @@ namespace CodeVoyage.Models
         [Display(Name = "Date de début")]
         public DateTime DateDeb { get; set; }
         [Display(Name = "Date de fin")]
+       
         public DateTime DateFin { get; set; }
         [Display(Name = "Prix en euros")]
         public double Prix { get; set; }
