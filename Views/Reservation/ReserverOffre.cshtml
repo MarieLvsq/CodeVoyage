@@ -3,13 +3,12 @@
     ViewBag.Title = "Formulaire";
     Layout = "_LayoutDuSite";
 }
-<!DOCTYPE html>
-<html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Je procède  à la réservation </title>
 </head>
-<body>
+@section content{
     @using (Html.BeginForm())
     {
         <fieldset>
@@ -36,6 +35,4 @@
        
     }
     
-    
-</body>
-</html>
+}

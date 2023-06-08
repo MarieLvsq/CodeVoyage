@@ -5,8 +5,7 @@
 }
 
 
-
-
+@section content{
 @if (Model.AuthentifierM)
 {
     <h3>
@@ -39,5 +38,6 @@ else
     <input type="submit" value="Se connecter" />
     <br />
     @Html.ActionLink("Devenez membre CodeVoyage", "CreerCompteMembre", "Login")
+}
 }
 }
