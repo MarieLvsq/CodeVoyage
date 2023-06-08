@@ -13,6 +13,7 @@
     <None Remove="Views\Home\" />
     <None Remove="Views\RechercheMulti\" />
     <None Remove="ViewModels\" />
+    <None Remove="Views\OffrePerso\" />
   </ItemGroup>
   <ItemGroup>
 
@@ -24,6 +25,7 @@
     <Folder Include="ViewModels\" />
 
     <Folder Include="wwwroot\Images\Offres\" />
+    <Folder Include="Views\OffrePerso\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

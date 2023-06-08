@@ -32,10 +32,21 @@ namespace CodeVoyage.Models
         // Méthodes OffresVoyage
 
         public List<OffreVoyage> ObtientToutesLesOffresVoyages()
-            {
+        {
 
             return _bddContext.OffreVoyages.Include(o => o.Itineraire).Include(o => o.Event).Include(o => o.Service).Include(o => o.ServiceEx).ToList();
-            }
+        }
+
+        public List<OffrePerso> ObtientToutesLesOffresPerso()
+        {
+
+            return _bddContext.OffrePersos.Include(o=>o.Offre).
+                ThenInclude(op => op.Itineraire).
+                Include(o => o.Offre).Include(o => o.Offre).
+                ThenInclude(op => op.Event).
+
+                Include(o => o.ServicePerso).ThenInclude(op => op.ServiceDescription).ToList();
+        }
 
         public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise, double PrixTotal)
 
@@ -47,6 +58,19 @@ namespace CodeVoyage.Models
             _bddContext.SaveChanges();
             return offre.Id;
             }
+
+        public int CreerOffrePerso(int offreId,int serviceId)
+
+        {
+
+            OffrePerso offreP = new OffrePerso() { OffreId = offreId, ServicePersoId = serviceId };
+
+            _bddContext.OffrePersos.Add(offreP);
+
+            _bddContext.SaveChanges();
+            return offreP.Id;
+        }
+
 
         public void ModifierOffreVoyage(int id, int ItineraireId, int EventId, int ServiceId, int ServiceExId, int Remise, double PrixTotal)
 
