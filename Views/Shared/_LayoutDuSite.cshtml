@@ -2,7 +2,7 @@
 <html>
 
 
-
+<div class="flex-wrapper">
 <head>
 
 
@@ -13,13 +13,15 @@
     <link href="~/css/Site.css" rel="stylesheet" />
     @RenderSection("ExtraCss", required: false)
 </head>
-<body>
-    <div id="entete">
+    <body class="d-flex flex-column min-vh-100">
+        <div id="page-container">
+        <div id="content-wrap">
+            <div id="entete">
         <nav>
             <ul>
                 <li><a href="https://localhost:5001/"><img src="~/Images/LogoBlanc2.png" width="25%" height="25%" /></a></li>
                 <li>@Html.ActionLink("Laissez-vous inspirer", "Catalogue", "OffreVoyage")</li>
-                <li>@Html.ActionLink("Prenez le contrôle", "CreerOffreVoyage", "OffreVoyage")</li>
+                <li>@Html.ActionLink("Prenez le contrôle", "RechercheOffre", "OffreVoyage")</li>
                 <li>@Html.ActionLink("A propos", "Apropos", "Home")</li>
                 <li>@Html.ActionLink("Connexion", "IndexM", "Login")</li>
                 <li>@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
@@ -27,11 +29,11 @@
             </ul>
         </nav>
     </div>
-        <div id="contenu">
+        <div id="contenu main">
             @RenderBody()
         </div>
     <div class="container-fluid" id="footer">
-       
+                    <footer class="mt-auto">
         <div class="container-fluid mt-5 ">
             <div class="row">
                
@@ -66,8 +68,9 @@
                     <h3>Plan du site</h3>
                     <ul class="footerUl">
                         <li><a href="#">Laissez-vous inspirer</a></li>
-                        <li><a href="#">Prenez le contrôle</a></li>
+                         <li><a href="#">Prenez le controle</a></li>
                         <li><a href="#">À propos</a></li>
+                        <li><a href="#">Reserver</a></li>
                         <li>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
                         <li>@Html.ActionLink("Connexion", "IndexM", "Login")</li>
                         <li>@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
@@ -84,10 +87,10 @@
 
                        <li>@Html.ActionLink("Recherche offre de voyages", "RechercheOffre", "OffreVoyage")</li>
 
-                       <li>@Html.ActionLink("Votre historique de voyage", "AfficherToutesLesReservations", "Reservation")</li>
+                       
 
 
-                        <li>@Html.ActionLink("Je Réserve", "ReserverOffre", "Reservation")</li>
+                        
 
 r
                         
@@ -101,5 +104,8 @@ r
         </div>
 
     @RenderSection("ExtraScripts", required: false)
+    </div>
+    </div>
 </body>
+</div>
 </html>

@@ -59,7 +59,7 @@ namespace CodeVoyage.Controllers
                     if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
                         return Redirect(returnUrl);
 
-                    return Redirect("../Home/Admin");
+                    return Redirect("../Membre/EspaceMembre");
                 }
                 ModelState.AddModelError("Membre.Prenom", "Email et/ou mot de passe incorrect(s)");
             }
@@ -83,7 +83,7 @@ namespace CodeVoyage.Controllers
                 var userPrincipal = new ClaimsPrincipal(new[] { ClaimIdentity });
                 HttpContext.SignInAsync(userPrincipal);
 
-                return Redirect("../Home/Admin");// retourne à la vue du membre 
+                return Redirect("../Membre/EspaceMembre");// retourne à la vue du membre 
             }
             return View("CreerCompteMembre", membre);
         }

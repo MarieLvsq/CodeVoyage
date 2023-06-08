@@ -15,9 +15,15 @@
     <None Remove="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
+
+    <Folder Include="Views\Admin\" />
+
     <Folder Include="wwwroot\Images\" />
 
+
     <Folder Include="ViewModels\" />
+
+    <Folder Include="wwwroot\Images\Offres\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

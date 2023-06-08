@@ -1,0 +1,56 @@
+﻿@model CodeVoyage.Models.Reservation
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutMembre";
+}
+<!DOCTYPE html>
+
+<html>
+                
+    <meta name="viewport" content="width=device-width" />
+
+
+    <body>
+
+    <h2> Vous êtes sur le point de confirmer votre paiement</h2> 
+    <fieldset>
+        <legend>Vos coordonnées personnelles:</legend>
+        <hr />
+        <table border="1">
+            <tr>
+                <td><label for="nom"> <strong>Indiquez le nom indiqué sur la carte :</strong></label></td>
+               
+                <td><input type="text" id="nom" name="nom" size="40" maxlength="30" placeholder="Ici" /></td>
+            </tr>
+           
+            <tr>
+                <td><label for="nom"><strong>Veuillez saisir les numéros de votre carbe bleue :</strong></label></td>
+                
+                <td><input type="text" id="nom" name="nom" id="nom" size="40" maxlength="30" placeholder="Ici" />
+                </td>
+            </tr>
+            
+            <tr>
+                <td><label for="nom"><strong>Veuillez saisir les 3 chiffres au dos de votre carte bleue :</strong></label></td>
+               
+                <td><input type="text" id="nom" name="nom" id="nom" size="40" maxlength="30" placeholder="Ici" />
+                </td>
+            </tr>
+
+        </table>
+
+        <br/>
+        <br/>
+        <div><a href=@("/Reservation/Index1")>Valider</a></div>
+        <br/>
+        <a href=@("/Reservation/Index/")>Effacer</a>
+        <a href=@("/OffreVoyage/RechercheOffre/")>Annuler</a>
+
+
+
+    </fieldset>
+                
+
+
+    </body>
+</html>

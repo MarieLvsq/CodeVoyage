@@ -10,6 +10,10 @@
     <title>Rechercher une offre sur mesure</title>
 </head>
 <body>
+    <div id="contenu">
+        <div class="container-fluid text-left">
+            <div class="row content">
+                <div class="col-sm-3 sidenav">
     @using (Html.BeginForm())
     {
         <fieldset>
@@ -60,15 +64,16 @@
                 <div>Evènement selectionné :<strong>@item.Event.Nom</strong></div>
                 <div>Lieu de départ :<strong>@item.Itineraire.LieuDepart</strong></div>
                 <div>Destination : <strong>@item.Itineraire.Destination</strong></div>
-                <div>Date de Départ : <strong>@item.Itineraire.DateDepart</strong></div>
-                <div>Date de Retour : <strong>@item.Itineraire.DateArrivee</strong></div>
-                <div>>Service : <strong>@item.Service.nomService</strong></div>
+                <div>Date de Départ : <strong>@item.Itineraire.DateDepart.ToShortDateString()</strong></div>
+                <div>Date de Retour : <strong>@item.Itineraire.DateRetour.ToShortDateString()</strong></div>
+                <div>Service : <strong>@item.Service.nomService</strong></div>
                 <div>Service Extra : <strong>@item.ServiceEx.nomService</strong></div>
                 <div>Moyen de Transport selectionné : <strong>@item.Itineraire.Transport</strong></div>
                 <div>Prix total de la réservation: <strong>@item.prixTotal € </strong> </div>
                 <br/>
                 
-              <a href=@("/Reservation/ReserverOffre/" + item.Id)>Je réserve</a>
+                <a href=@("/Reservation/ReserverOffre/" + item.Id)>Je réserve</a>
+                
               
 
 
@@ -76,8 +81,283 @@
         </fieldset>
     }
 
-   
+
+                </div>               
+                <div class="col-sm-8 text-right">
+                    <!--==============Places===================-->
+                    <section class="places">
+                        <div class="places-text">
+                            <small>OFFRES CODE VOYAGE</small>
+                            <h2>Nos Offres de séjour</h2>
+                        </div>
+                        <div class="cards">
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card" >
+                                        <img src="~/Images/Culture/TulipIstanbul1.jpg" alt="TulipIstanbul">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Festival de la Tulipe à Istanbul</h2>
+                                    <p class="cost">336€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 4 Jours</p>
+                                        <p class="location">✈️ Istanbul, Turquie</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Offres/GrandPrix2.jpg" alt="Qatar">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Qatar Grand Prix</h2>
+                                    <p class="cost">449€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 5 Jours</p>
+                                        <p class="location">✈️ Doha, Qatar</p>
+                                    </div>
+                                    <p class="services">Ne ratez pas l'incontournable safari dans le désert qatari !</p>
+
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Offres/paris-olympics-2024.jpg" alt="JO">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Jeux Olympiques 2024</h2>
+                                    <p class="cost">277€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 7 Jours</p>
+                                        <p class="location">🚆 Paris, France</p>
+                                    </div>
+                                    <p class="services">Sans oublier notre visite de la Tour Eiffel et du Musée du Louvre !</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Culture/DIFF1.jpg" alt="DIFF">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Durban international film festival</h2>
+                                    <p class="cost">977€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 14 Jours</p>
+                                        <p class="location">✈️ Paris - Durban</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Culture/Fes.png" alt="Fes" />
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Fes musique sacrée du monde</h2>
+                                    <p class="cost">359€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 7 Jours</p>
+                                        <p class="location">✈️ Paris - Fes</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Culture/SFantiqueshow.png" alt="SF Antique">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>The San Francisco Fall Antiques Show</h2>
+                                    <p class="cost">572€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 7 Jours</p>
+                                        <p class="location">✈️ San Francisco, Etats-Unis</p>
+                                    </div>
+                                    <p class="services">Avec une sortie au mini golf incluse !</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Offres/AtlantaArts.jpeg" alt="AtlantaArts">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Atlanta Arts Festival</h2>
+                                    <p class="cost">460€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 10 Jours</p>
+                                        <p class="location">✈️ Atlanta, Etats-Unis</p>
+                                    </div>
+                                    <p class="services">Séjour à l'hôtel Holiday Inn d'Atlanta !</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Offres/carnaval rio.jpg" alt="CarnavRio">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Carnaval de Rio</h2>
+                                    <p class="cost">760€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 8 Jours</p>
+                                        <p class="location">✈️ Rio de Janeiro, Brésil</p>
+                                    </div>
+                                    <p class="services">Avec location d'une limousine sur place !</p>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Festival/caribana2.jpg" alt="Caribana">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Caribana festival</h2>
+                                    <p class="cost">1075€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 6 Jours</p>
+                                        <p class="location">✈️ Toronto, Canada</p>
+                                    </div>
+                                    <p class="services">Séjour à l'hôtel Holiday Inn de Toronto !</p>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Offres/CarnavalVenise2.jpg" alt="Venise">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Carnaval de Venise</h2>
+                                    <p class="cost">796€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 12 Jours</p>
+                                        <p class="location">✈/🚆 Venise, France</p>
+                                    </div>
+                                    <p class="services">Avec balade privée en gondole et location de voiture sur place !</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Offres/Dubai1.jpg" alt="Dubai">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Dubai Shopping Festival</h2>
+                                    <p class="cost">648€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 8 Jours</p>
+                                        <p class="location">✈️ Dubai, Emirats Arabes Unis</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Offres/OktoberFest.jpg" alt="OktoberFest">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>OktoberFest</h2>
+                                    <p class="cost">289€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 7 Jours</p>
+                                        <p class="location">🚆 Munich, Allemagne</p>
+                                    </div>
+                                    <p class="services">Avec une sortie au mini golf rien que pour vous !</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Offres/CAN.jpg" alt="CAN">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Coupe d'Afrique des Nations (CAN)'</h2>
+                                    <p class="cost">883€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 15 Jours</p>
+                                        <p class="location">✈️ Abidjan, Côte d'Ivoire'</p>
+                                    </div>
+                                    <p class="services">Votre voiture louée sur place vous attendra à l'arrivée !</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Offres/Sport-Portugal-Rugby.jpg" alt="Rugby">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Coupe du monde de Rugby 2024</h2>
+                                    <p class="cost">398€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 7 Jours</p>
+                                        <p class="location">🚆 Paris, France</p>
+                                    </div>
+                                    <p class="services">Vos nuits à l'Holiday Inn de Paris, sans oublier notre visite de la Tour Eiffel et du Musée du Louvre !</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="zoom-img">
+                                    <div class="img-card">
+                                        <img src="~/Images/Offres/RockinRio.png" alt="RockRio">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    <h2>Rock in Rio</h2>
+                                    <p class="cost">802€ / par personne</p>
+                                    <div class="card-box">
+                                        <p class="time">🕓 6 Jours</p>
+                                        <p class="location">✈️ Rio de Janeiro, Brésil</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </section>
+                </div>
+
+        </div>
+    </div>
 
     
+
+   </div> 
 </body>
 </html>

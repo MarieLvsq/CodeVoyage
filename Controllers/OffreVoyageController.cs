@@ -37,16 +37,7 @@ namespace CodeVoyage.Controllers
             return View();
             }
 
-        public IActionResult CreerOffreSurMesure()
-        {
-            var itineraires = _bddContext.Itineraires.ToList();
-            var evenements = _bddContext.Evenements.ToList();
-            var services = _bddContext.Services.ToList();
-            ViewBag.ItineraireList = itineraires;
-            ViewBag.EvenementList = evenements;
-            ViewBag.ServiceList = services;
-            return View();
-        }
+       
 
 
         [HttpPost]
@@ -63,17 +54,7 @@ namespace CodeVoyage.Controllers
             }
 
 
-        public IActionResult CreerOffreSurMesure(OffreVoyage offreVoyage)
-        {
-
-
-            using (Dal dal = new Dal())
-            {
-                int id = dal.CreerOffreVoyage(offreVoyage.ItineraireId, offreVoyage.EventId, offreVoyage.ServiceId, offreVoyage.ServiceExId, offreVoyage.Remise, offreVoyage.prixTotal);
-                return RedirectToAction("CreerOffreSurMesure");
-            }
-
-        }
+       
         public ActionResult AjouterOffres(int itineraire, int Event, int service, int serviceextra, int remise, double prixAffiche, double prixTotal)
             {
             using (Dal dal = new Dal())
@@ -82,6 +63,10 @@ namespace CodeVoyage.Controllers
                 return RedirectToAction("CreerOffreVoyage");
                 }
             }
+
+      
+
+
         //Méthodes Supprimer
 
         public IActionResult SupprimerOffreVoyage(int id)

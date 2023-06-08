@@ -259,7 +259,7 @@ namespace CodeVoyage.Models
         public int CreerItineraire(string LieuDepart, String Destination, double Prix, MoyenDeTransport Transport, int NombreVoyageur, DateTime DateDepart, DateTime DateArrivee)
         {
 
-            Itineraire itineraire = new Itineraire() { LieuDepart = LieuDepart, Destination = Destination, Prix = Prix, Transport = Transport, NombreVoyageur = NombreVoyageur, DateDepart = DateDepart, DateArrivee = DateArrivee };
+            Itineraire itineraire = new Itineraire() { LieuDepart = LieuDepart, Destination = Destination, Prix = Prix, Transport = Transport, NombreVoyageur = NombreVoyageur, DateDepart = DateDepart, DateRetour = DateArrivee };
 
             _bddContext.Itineraires.Add(itineraire);
             _bddContext.SaveChanges();
@@ -278,7 +278,7 @@ namespace CodeVoyage.Models
                 itineraire.Transport = Transport;
                 itineraire.NombreVoyageur = NombreVoyageur;
                 itineraire.DateDepart = DateDepart;
-                itineraire.DateArrivee = DateArrivee;
+                itineraire.DateRetour = DateArrivee;
                 _bddContext.SaveChanges();
             }
 

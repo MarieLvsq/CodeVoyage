@@ -9,6 +9,14 @@ html {
     padding: 5px;
     
 }
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;  Footer height 
+}
 
 
 #entete, #menu, #contenu, #footer {
@@ -26,6 +34,7 @@ html {
 
 #main {
     margin: auto;
+    flex: auto;
 }
 
 #contenu {
@@ -37,9 +46,20 @@ html {
     border-top: 1px solid #D0D1D2;
     background-color: ghostwhite;
     color: black;
-    position: absolute;
-    padding-top: 40px;
+    position: relative;
+    margin-top: inherit;
+    flex-shrink : 0;
+    height:100%;
+    
 }
+
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 
 .titre {
     text-align: center;
@@ -63,6 +83,7 @@ nav ul {
 
         nav ul li a {
             color: #333;
+            text-decoration:none;
         }
 
 .search-bar input[type="text"] {
@@ -106,6 +127,15 @@ div.scroll-container {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.Reserver{
+    color:#ffd800
+    ActiveBorder:2px solid #ffd880;
+    padding:5px 20px;
+    transition:0.5s;
+
+
+}
+
 
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -118,10 +148,7 @@ div.scroll-container {
     background-color: #f1f1f1;
     height: 100%;
 }
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-}
+
 
 html {
     box-sizing: border-box;
@@ -196,14 +223,14 @@ html {
 }
 
     .places-text small {
-        font-family: Roboto;
+        font-family: 'Roboto', sans-serif;
         color: #ffc342;
         font-size: 15px;
         font-weight: bolder;
     }
 
     .places-text h2 {
-        font-family: Barlow Condensed;
+        font-family: 'Roboto', sans-serif;
         font-size: 55px;
         color: #191d34;
         letter-spacing: 1px;
@@ -237,7 +264,7 @@ html {
 
 .cards .text {
     padding: 20px;
-    font-family: Barlow Condensed;
+    font-family: 'Roboto', sans-serif;
     line-height: 50px;
 }
 
@@ -246,10 +273,15 @@ html {
     flex-flow: row;
     background-color: #fde02f;
     font-size: 18px;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.cards .services {
+    flex: 3;
+    font-weight: bold;
 }
 
 .cards .time {
