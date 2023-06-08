@@ -5,6 +5,8 @@
 
 body,
 html {
+    position: relative;
+    min-height: 100%;
     margin: 1px;
     padding: 5px;
 }
