@@ -9,40 +9,94 @@
     <title>Rechercher une offre sur mesure</title>
 </head>
 @section content{
-
     <div id="contenu">
+
         <div class="container-fluid text-left">
             <div class="row content">
-                <div class="col-sm-12">
+                <div class="col-sm-4">
+                    <img class="bg" src="~/Images/FondMer.jpg" alt="FondMer">
+
+                </div>
+                <div class="col-sm-4 align-self-center">
     @using (Html.BeginForm())
     {
         <fieldset>
-            <legend>Recherche avancée: </legend>
+             <table align="center" text-align="center">
+                                <tr>
+                                    <th>
+                                        <h3>
+                                            Recherche Avancée
 
-            @Html.Label("Itineraire")
-            @Html.DropDownList("ItineraireId", new SelectList(ViewBag.ItineraireList, "Id", "ItineraireDescription"))
-            @*@Html.TextBoxFor(m => Model.Itineraire)*@
+                                        </h3>
+                                    </th>
 
-            <br />
-            @Html.Label("Evénement")
-            @Html.DropDownList("EventId",new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.Label("Itineraire")
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-control">
+                                        @Html.DropDownList("ItineraireId", new SelectList(ViewBag.ItineraireList, "Id", "ItineraireDescription"))
+                                        @*@Html.TextBoxFor(m => Model.Itineraire)*@
+                                    </td>
+                                </tr>
 
-            <br />
-            @Html.Label("service")
-            @Html.DropDownList("ServiceId", new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
 
-            <br />
-            @Html.Label("Service")
-            @Html.DropDownList("ServiceExId", new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
-            
-          
-            <br />
-            @Html.Label("Prix Max")
-            @Html.DropDownList("prixMax", new SelectList(ViewBag.prixList, "Value", "Value"), "Selectionner un prix")
-            <input type="submit" value="Rechercher" />
-        </fieldset>    
-        }
-        <br />
+                                <tr>
+                                    <td>
+                                        @Html.Label("Evénement")
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-control">
+                                        @Html.DropDownList("EventId",new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
+                                        @*@Html.TextBoxFor(m => Model.Itineraire)*@
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        @Html.Label("service")
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-control">
+                                        @Html.DropDownList("ServiceId", new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
+                                        @*@Html.TextBoxFor(m => Model.Itineraire)*@
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.Label("Service Extra")
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-control">
+                                        @Html.DropDownList("ServiceExId", new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.Label("Prix Max")
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-control">
+                                        @Html.DropDownList("prixMax", new SelectList(ViewBag.prixList, "Value", "Value"), "Selectionner un prix")
+                                    </td>
+                                </tr>
+
+                                <tr class="text-end">
+                                    <td>
+                                        <button type="submit" class="btn btn-secondary btn-lg">Rechercher</button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </fieldset>
+                        }
 
 
     @if (Model.Count == 0)
@@ -55,13 +109,86 @@
     else
     {
         <fieldset>
-        <legend>Liste des offres disponibles: </legend>
-        @foreach (var item in Model)
+            <table align="center" text-align="center">
+
+                                <tr>
+                                    <th>
+                                        <h3>
+                                            Liste des offres disponibles
+
+                                        </h3>
+                                    </th>
+
+                                </tr>
+                                    @foreach (var item in Model)
 
         {
+            <tr>
+<td>
+                                            <hr>
+
+</td>
+            </tr>                        
+
+                                    <tr>
+                                        <td class="form-label">
+                                            Evènement selectionné :<strong>@item.Event.Nom</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-control">
+                                            Lieu de départ :<strong>@item.Itineraire.LieuDepart</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-control">
+                                            Destination : <strong>@item.Itineraire.Destination</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-control">
+                                            Date de Départ : <strong>@item.Itineraire.DateDepart.ToShortDateString()</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-control">
+                                            Date de Retour : <strong>@item.Itineraire.DateRetour.ToShortDateString()</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-control">
+                                            Date de Retour : <strong>@item.Itineraire.DateRetour.ToShortDateString()</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-control">
+                                            Service : <strong>@item.Service.nomService</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-control">
+                                            Service Extra : <strong>@item.ServiceEx.nomService</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-control">
+                                            Moyen de Transport selectionné : <strong>@item.Itineraire.Transport</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-control">
+                                            Prix total de la réservation: <strong>@item.prixTotal € </strong>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-end">
+                                        <td class="form-check">
+                                            <button class="btn btn-secondary btn-lg"><a href=@("/Reservation/ReserverOffre/" + item.Id) class="link-light text-decoration-none">Réserver</a></button>
+
+                                        </td>
+                                    </tr>
 
 
-                <div>Evènement selectionné :<strong>@item.Event.Nom</strong></div>
+                @*<div>Evènement selectionné :<strong>@item.Event.Nom</strong></div>
                 <div>Lieu de départ :<strong>@item.Itineraire.LieuDepart</strong></div>
                 <div>Destination : <strong>@item.Itineraire.Destination</strong></div>
                 <div>Date de Départ : <strong>@item.Itineraire.DateDepart.ToShortDateString()</strong></div>
@@ -71,19 +198,21 @@
                 <div>Moyen de Transport selectionné : <strong>@item.Itineraire.Transport</strong></div>
                 <div>Prix total de la réservation: <strong>@item.prixTotal € </strong> </div>
                 <br/>
-                
-                <a href=@("/Reservation/ReserverOffre/" + item.Id)>Je réserve</a>
+
+                        <a href=@("/Reservation/ReserverOffre/" + item.Id)>Je réserve</a>*@
                 
               
 
 
         }
+        </table>
         </fieldset>
     }
 
 
                 </div>
-               
+                <div class="col-sm-4">
+                </div>
                 </div>
 
         </div>
