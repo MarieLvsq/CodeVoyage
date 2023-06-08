@@ -165,13 +165,13 @@ namespace CodeVoyage.Controllers
         public IActionResult RechercheOffre(int itineraireId, int eventId, int serviceId, int serviceExId, int prixMax)
             {
             var itineraires = _bddContext.Itineraires.ToList();
-            itineraires.Add(new Itineraire() { Id = 0, Destination = "All Destinations" });
+            itineraires.Add(new Itineraire() { Id = 0, Destination = "Toutes les Destinations" });
             itineraires= itineraires.OrderBy(i => i.Id).ToList();
             var evenements = _bddContext.Evenements.ToList();
-            evenements.Add(new Evenement() { Id = 0, Nom = "All Events" });
+            evenements.Add(new Evenement() { Id = 0, Nom = "Tous les Evénements" });
             evenements =  evenements.OrderBy(i => i.Id).ToList();
             var services = _bddContext.Services.ToList();
-            services.Add(new Service { Id = 0, nomService = "All Services" });
+            services.Add(new Service { Id = 0, nomService = "Tous les Services" });
             services = services.OrderBy(i => i.Id).ToList();
             ViewBag.ItineraireList = itineraires;
 			ViewBag.EvenementList = evenements;
