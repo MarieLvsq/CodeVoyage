@@ -21,7 +21,7 @@ namespace CodeVoyage.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
 
         }
         public void InitializeDb()
@@ -132,7 +132,7 @@ namespace CodeVoyage.Models
                      new Evenement
                      {
                          Id = 11,
-                         Nom = "Euro 2024, Paris",
+                         Nom = "JO 2024, Paris",
                          DateDeb = new DateTime(2024, 06, 14),
                          DateFin = new DateTime(2024, 07, 14),
                          Localisation = "Paris",
@@ -759,11 +759,57 @@ namespace CodeVoyage.Models
 
                     prixTotal = 247,
 
-                }
+                },
+                 new OffreVoyage
+                     {
+                     Id = 9,
+                     ItineraireId = 10,
+                     EventId = 8,
+                     ServiceId = 3,
+                     ServiceExId = 1,
+                     Remise = 0,
 
+                     prixTotal = 289,
 
+                     },
 
+                  new OffreVoyage
+                      {
+                      Id = 10,
+                      ItineraireId = 8,
+                      EventId = 6,
+                      ServiceId = 11,
+                      ServiceExId = 1,
+                      Remise = 0,
 
+                      prixTotal = 883,
+
+                      },
+
+                  new OffreVoyage
+                      {
+                      Id = 11,
+                      ItineraireId = 5,
+                      EventId = 5,
+                      ServiceId = 8,
+                      ServiceExId = 9,
+                      Remise = 0,
+
+                      prixTotal = 796,
+
+                      },
+                  new OffreVoyage
+                      {
+                      Id = 12,
+                      ItineraireId = 17,
+                      EventId = 12,
+                      ServiceId = 16,
+                      ServiceExId = 13,
+                      Remise = 0,
+
+                      prixTotal = 398,
+
+                      }
 
 
 
