@@ -12,25 +12,25 @@ namespace CodeVoyage.Controllers
 
         // Méthodes Ajouter
 
-        /*public IActionResult InscriptionMembre()
+        public IActionResult InscriptionMembre()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult InscriptionMembre(string Nom, string Prenon, string Email , string Localisation, int Age)
+        public IActionResult InscriptionMembre(string Nom, string Prenon, string Email , string motDePasse, string Localisation, int Age, Role role)
         {
 
 
             using (Dal dal = new Dal())
             {
-                dal.InscriptionMembre(Nom,Prenon,Email,Localisation,Age);
+                dal.InscriptionMembre(Nom,Prenon,Email,motDePasse,Localisation,Age,role);
                 return RedirectToAction("AfficherTousLesMembres");
             }
 
 
         }
-        */
+        
 
         //Méthodes Supprimer
 
@@ -103,7 +103,12 @@ namespace CodeVoyage.Controllers
 
         }
 
+        public ActionResult EspaceMembre()
 
+        {
+           return View();
+
+        }
     }
 
 

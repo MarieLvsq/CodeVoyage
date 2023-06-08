@@ -21,7 +21,7 @@
             <ul>
                 <li><a href="https://localhost:5001/"><img src="~/Images/LogoBlanc2.png" width="25%" height="25%" /></a></li>
                 <li>@Html.ActionLink("Laissez-vous inspirer", "Catalogue", "OffreVoyage")</li>
-                <li>@Html.ActionLink("Prenez le contrôle", "RechercheOffre", "OffreVoyage")</li>
+                <li>@Html.ActionLink("Prenez le contrôle", "CreerOffreVoyage", "OffreVoyage")</li>
                 <li>@Html.ActionLink("A propos", "Apropos", "Home")</li>
                 <li>@Html.ActionLink("Connexion", "IndexM", "Login")</li>
                 <li>@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
@@ -79,8 +79,19 @@
                         <li>@Html.ActionLink("Inscription Membre", "InscriptionMembre","Membre")</li>
                        <li>@Html.ActionLink("Incription d'un partenaire", "InscriptionPartenaire", "Partenaire")</li>
                        <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
+
+                        
+                        <li>@Html.ActionLink("Espace Membre", "EspaceMembre", "Membre")</li>
+                        <li>@Html.ActionLink("Espace Partenaire", "EspacePartenaire", "Partenaire")</li>
+
                        <li>@Html.ActionLink("Recherche offre de voyages", "RechercheOffre", "OffreVoyage")</li>
-                       
+
+                       <li>@Html.ActionLink("Votre historique de voyage", "AfficherToutesLesReservations", "Reservation")</li>
+
+
+                        
+
+r
                         
 
                         </ul>

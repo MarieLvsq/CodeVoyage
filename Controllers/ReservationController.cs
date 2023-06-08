@@ -1,32 +1,49 @@
 ﻿using CodeVoyage.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using static CodeVoyage.Models.IDal;
 
 namespace CodeVoyage.Controllers
 {
     public class ReservationController : Controller
     {
 
-        // Méthodes CreerReservation
-
-        public IActionResult CreerReservation()
+        public IActionResult Index() 
         {
             return View();
         }
 
-        [HttpPost]
-        public IActionResult ReserverOffre(Membre Membre, OffreVoyage OffrePayee)
+        public IActionResult Index1()
+        {
+            return View();
+        }
+
+
+        // Méthodes CreerReservation
+        [Authorize]
+
+        public IActionResult ReserverOffre(int id)
         {
 
+            Dal dal = new Dal();
+            OffreVoyage offre = dal.ObtientToutesLesOffresVoyages().Where(o=>o.Id == id).FirstOrDefault();
+            return View(offre);
+        }
 
+        [HttpPost]
+        public IActionResult ReserverOffre(OffreVoyage OffreVoyage)
+        {
+            
             using (Dal dal = new Dal())
             {
-                dal.CreerReservation(Membre,OffrePayee);
-                return RedirectToAction("CreerReservation");
+                Membre membre = dal.ObtenirMembre(User.Identity.Name);
+                dal.CreerReservation(membre,OffreVoyage);
+                return RedirectToAction("ReserverOffre");
             }
 
 
@@ -101,6 +118,7 @@ namespace CodeVoyage.Controllers
             return View(reservations);
 
         }
+
         
     }
 

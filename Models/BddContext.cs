@@ -23,6 +23,7 @@ namespace CodeVoyage.Models
 
             optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
 
+
         }
         public void InitializeDb()
         {
@@ -157,7 +158,7 @@ namespace CodeVoyage.Models
             {
                 Id = 1,
                 DateDepart = new DateTime(2024, 02, 07),
-                DateArrivee = new DateTime(2024, 02, 21),
+                DateRetour = new DateTime(2024, 02, 21),
                 LieuDepart = "Paris",
                 Destination = "Rio De Janeiro",
                 NombreVoyageur = 40,
@@ -168,7 +169,7 @@ namespace CodeVoyage.Models
             {
                 Id = 2,
                 DateDepart = new DateTime(2023, 06, 30),
-                DateArrivee = new DateTime(2023, 07, 14),
+                DateRetour = new DateTime(2023, 07, 14),
                 LieuDepart = "Paris",
                 Destination = "Toronto",
                 NombreVoyageur = 50,
@@ -179,7 +180,7 @@ namespace CodeVoyage.Models
             {
                 Id = 3,
                 DateDepart = new DateTime(2023, 10, 15),
-                DateArrivee = new DateTime(2023, 11, 01),
+                DateRetour = new DateTime(2023, 11, 01),
                 LieuDepart = "Paris",
                 Destination = "San Francisco",
                 NombreVoyageur = 30,
@@ -192,7 +193,7 @@ namespace CodeVoyage.Models
             {
                 Id = 4,
                 DateDepart = new DateTime(2023, 08, 02),
-                DateArrivee = new DateTime(2023, 08, 08),
+                DateRetour = new DateTime(2023, 08, 08),
                 LieuDepart = "Paris",
                 Destination = "Toronto",
                 NombreVoyageur = 50,
@@ -205,7 +206,7 @@ namespace CodeVoyage.Models
             {
                 Id = 5,
                 DateDepart = new DateTime(2023, 10, 01),
-                DateArrivee = new DateTime(2023, 10, 15),
+                DateRetour = new DateTime(2023, 10, 15),
                 LieuDepart = "Paris",
                 Destination = "Venise",
                 NombreVoyageur = 20,
@@ -217,7 +218,7 @@ namespace CodeVoyage.Models
             {
                 Id = 6,
                 DateDepart = new DateTime(2023, 10, 02),
-                DateArrivee = new DateTime(2023, 10, 14),
+                DateRetour = new DateTime(2023, 10, 14),
                 LieuDepart = "Paris",
                 Destination = "Venise",
                 NombreVoyageur = 20,
@@ -230,7 +231,7 @@ namespace CodeVoyage.Models
             {
                 Id = 7,
                 DateDepart = new DateTime(2023, 01, 11),
-                DateArrivee = new DateTime(2023, 01, 25),
+                DateRetour = new DateTime(2023, 01, 25),
                 LieuDepart = "Paris",
                 Destination = "Abidjan",
                 NombreVoyageur = 20,
@@ -243,7 +244,7 @@ namespace CodeVoyage.Models
             {
                 Id = 8,
                 DateDepart = new DateTime(2023, 02, 01),
-                DateArrivee = new DateTime(2023, 02, 13),
+                DateRetour = new DateTime(2023, 02, 13),
                 LieuDepart = "Paris",
                 Destination = "Abidjan",
                 NombreVoyageur = 20,
@@ -256,7 +257,7 @@ namespace CodeVoyage.Models
             {
                 Id = 9,
                 DateDepart = new DateTime(2023, 02, 06),
-                DateArrivee = new DateTime(2023, 02, 10),
+                DateRetour = new DateTime(2023, 02, 10),
                 LieuDepart = "Paris",
                 Destination = "Doha",
                 NombreVoyageur = 20,
@@ -268,7 +269,7 @@ namespace CodeVoyage.Models
             {
                 Id = 10,
                 DateDepart = new DateTime(2023, 09, 15),
-                DateArrivee = new DateTime(2023, 10, 04),
+                DateRetour = new DateTime(2023, 10, 04),
                 LieuDepart = "Paris",
                 Destination = "Munich",
                 NombreVoyageur = 20,
@@ -280,7 +281,7 @@ namespace CodeVoyage.Models
              {
                  Id = 11,
                  DateDepart = new DateTime(2023, 09, 15),
-                 DateArrivee = new DateTime(2023, 10, 04),
+                 DateRetour = new DateTime(2023, 10, 04),
                  LieuDepart = "Paris",
                  Destination = "Munich",
                  NombreVoyageur = 20,
@@ -292,7 +293,7 @@ namespace CodeVoyage.Models
               {
                   Id = 13,
                   DateDepart = new DateTime(2024, 07, 25),
-                  DateArrivee = new DateTime(2024, 08, 11),
+                  DateRetour = new DateTime(2024, 08, 11),
                   LieuDepart = "Lyon",
                   Destination = "Paris",
                   NombreVoyageur = 15,
@@ -304,7 +305,7 @@ namespace CodeVoyage.Models
               {
                   Id = 14,
                   DateDepart = new DateTime(2023, 07, 25),
-                  DateArrivee = new DateTime(2023, 08, 11),
+                  DateRetour = new DateTime(2023, 08, 11),
                   LieuDepart = "Toulouse",
                   Destination = "Paris",
                   NombreVoyageur = 15,
@@ -316,7 +317,7 @@ namespace CodeVoyage.Models
                {
                    Id = 15,
                    DateDepart = new DateTime(2023, 07, 25),
-                   DateArrivee = new DateTime(2023, 08, 11),
+                   DateRetour = new DateTime(2023, 08, 11),
                    LieuDepart = "Toulouse",
                    Destination = "Paris",
                    NombreVoyageur = 15,
@@ -328,7 +329,7 @@ namespace CodeVoyage.Models
                {
                    Id = 16,
                    DateDepart = new DateTime(2023, 06, 13),
-                   DateArrivee = new DateTime(2023, 07, 15),
+                   DateRetour = new DateTime(2023, 07, 15),
                    LieuDepart = "Toulouse",
                    Destination = "Paris",
                    NombreVoyageur = 15,
@@ -340,7 +341,7 @@ namespace CodeVoyage.Models
                 {
                     Id = 17,
                     DateDepart = new DateTime(2023, 06, 13),
-                    DateArrivee = new DateTime(2023, 07, 15),
+                    DateRetour = new DateTime(2023, 07, 15),
                     LieuDepart = "Toulouse",
                     Destination = "Paris",
                     NombreVoyageur = 08,
@@ -352,7 +353,7 @@ namespace CodeVoyage.Models
                  {
                      Id = 18,
                      DateDepart = new DateTime(2023, 08, 18),
-                     DateArrivee = new DateTime(2023, 08, 21),
+                     DateRetour = new DateTime(2023, 08, 21),
                      LieuDepart = "Paris",
                      Destination = "Atlanta",
                      NombreVoyageur = 08,
@@ -364,7 +365,7 @@ namespace CodeVoyage.Models
                   {
                       Id = 19,
                       DateDepart = new DateTime(2023, 10, 06),
-                      DateArrivee = new DateTime(2023, 10, 10),
+                      DateRetour = new DateTime(2023, 10, 10),
                       LieuDepart = "Paris",
                       Destination = "Doha",
                       NombreVoyageur = 08,
@@ -553,6 +554,7 @@ namespace CodeVoyage.Models
                 Nom = "Holiday Inn",
                 Localisation = "Paris",
                 email = "service-reservation@holidayinn.com",
+                MotDePasse = Dal.EncodeMD5("AAAAA"),
                 NumSiret = "10120125630",
                 TypeService = ((TypeService)2),
                 Role = Role.Entreprise
@@ -563,6 +565,7 @@ namespace CodeVoyage.Models
                 Nom = "Air France",
                 Localisation = "Paris",
                 email = "flights-booking@air-france.fr",
+                MotDePasse = Dal.EncodeMD5("AAAAA"),
                 NumSiret = "87895000000000",
                 TypeService = TypeService.Transport,
                 Role = Role.Entreprise
@@ -573,6 +576,7 @@ namespace CodeVoyage.Models
                 Nom = "Cozinha Tradicional",
                 Localisation = "Rio de Janeiro",
                 email = "cozinha@gmail.com",
+                MotDePasse = Dal.EncodeMD5("AAAAA"),
                 NumSiret = "1882378500",
                 TypeService = TypeService.Restauration,
                 Role = Role.Entreprise
@@ -583,6 +587,7 @@ namespace CodeVoyage.Models
                  Nom = "Le Débarcadère",
                  Localisation = "Abidjan",
                  email = "ledebarcadere@gmail.com",
+                 MotDePasse = Dal.EncodeMD5("AAAAA"),
                  NumSiret = "1882378507",
                  TypeService = TypeService.Restauration,
                  Role = Role.Entreprise
@@ -593,6 +598,7 @@ namespace CodeVoyage.Models
                     Nom = "Sixt",
                     Localisation = "Abidjan",
                     email = "sixt@gmail.com",
+                    MotDePasse = Dal.EncodeMD5("AAAAA"),
                     NumSiret = "1882378509",
                     TypeService = TypeService.Transport,
                     Role = Role.Entreprise
@@ -606,7 +612,9 @@ namespace CodeVoyage.Models
                 Nom = "Garou",
                 Prenom = "Vincent",
                 Email="V.garou@gmail.com",
-                MotDePasse="AAAAA",
+
+                MotDePasse=Dal.EncodeMD5("AAAAA"),
+
                 
                 Localisation = "Torento",
                 Age = 43,
@@ -618,7 +626,9 @@ namespace CodeVoyage.Models
                   Nom = "DION",
                   Prenom = "Jean",
                   Email = "jean.dion@gmail.com",
-                  MotDePasse = "AAAAA",
+
+                  MotDePasse = Dal.EncodeMD5("AAAAA"),
+
                   
                   Localisation = "Paris",
                   Age = 32,
@@ -631,7 +641,7 @@ namespace CodeVoyage.Models
                     Nom = "DILAN",
                     Prenom = "Robert",
                     Email = "robertDilan@gmail.com",
-                    MotDePasse = "AAAAA",
+                    MotDePasse = Dal.EncodeMD5("AAAAA"),
                    
                     Localisation = "Bruxelles",
                     Age = 23,
@@ -644,7 +654,7 @@ namespace CodeVoyage.Models
                       Nom = "GASPARD",
                       Prenom = "Lea",
                       Email = "l.gaspard@gmail.com",
-                     MotDePasse = "AAAAA",
+                     MotDePasse = Dal.EncodeMD5("AAAAA"),
                      
                       Localisation= "Orléans",
                       Age = 25,
@@ -657,7 +667,7 @@ namespace CodeVoyage.Models
                      Nom = "Mirales",
                      Prenom = "Octave",
                      Email = "omirales@gmail.com",
-                     MotDePasse = "AAAAA",
+                     MotDePasse = Dal.EncodeMD5("AAAAA"),
                     
                      Localisation = "Geneve",
                      Age = 71,
@@ -783,7 +793,6 @@ namespace CodeVoyage.Models
                       Remise = 0,
 
                       prixTotal = 883,
-
                       },
 
                   new OffreVoyage
@@ -812,21 +821,86 @@ namespace CodeVoyage.Models
                       }
 
 
-
-
            );
             this.Admins.AddRange(
            new Admin
            {
                Id = 1,
-              Nom="David",
-              Prenom="AITCHEOU",
-              Email="Dav@gmail.com",
-              MotDePasse="OnePiece"
-            
-           })
+               Nom = "David",
+               Prenom = "AITCHEOU",
+               Email = "Dav@gmail.com",
+               MotDePasse = Dal.EncodeMD5("OnePiece")
 
-           ;
+           });
+
+
+            this.Reservations.AddRange(
+          new Reservation
+          {
+              Id = 1,
+              MembreId=1,
+              OffreVoyageId=1
+
+          });
+            this.Reservations.AddRange(
+          new Reservation
+          {
+              Id = 2,
+              MembreId = 1,
+              OffreVoyageId = 2
+
+          });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 3,
+             MembreId = 1,
+             OffreVoyageId = 3
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 4,
+             MembreId = 1,
+             OffreVoyageId = 4
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 5,
+             MembreId = 1,
+             OffreVoyageId = 5
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 6,
+             MembreId = 3,
+             OffreVoyageId = 6
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 7,
+             MembreId = 2,
+             OffreVoyageId = 7
+
+         });
+            this.Reservations.AddRange(
+         new Reservation
+         {
+             Id = 8,
+             MembreId = 1,
+             OffreVoyageId = 8
+
+         });
+
+
+            
 
             this.SaveChanges();
         }

@@ -13,7 +13,9 @@
         Vous êtes déjà authentifié avec le login :
         @Model.Partenaire.Nom
     </h3>
-    @Html.ActionLink("Voulez-vous vous déconnecter ?", "Deconnexion")
+    @Html.ActionLink("Voulez-vous vous déconnecter ?", "DeconnexionP")
+    <br />
+    @Html.ActionLink("Revenez à votre Espace", "EspacePartenaire", "Partenaire")
 }
 else
 {
