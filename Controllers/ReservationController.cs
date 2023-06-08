@@ -37,6 +37,8 @@ namespace CodeVoyage.Controllers
 
 
         }
+
+
         //Méthodes Supprimer
 
         public IActionResult SupprimerReservation(int id)

@@ -1,1 +1,35 @@
 ﻿
+@model CodeVoyage.Models.OffreVoyage
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Résumé de votre voyage</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Résumé de  votre réservation:</legend>
+            <p>Nom du </p>@Html.HiddenFor(m=>m.Id)
+            <p>Evênement Sélectionné :@Html.DisplayFor(m=>m.Event.Nom)</p>
+            <p>Moyen de transport    :@Html.DisplayFor(m=>m.Itineraire.Transport)</p>
+            <p>Lieu de depart        :@Html.DisplayFor(m=>m.Itineraire.LieuDepart)</p>
+            <p>Destionation          :@Html.DisplayFor(m=>m.Itineraire.Destination)</p>
+            <p>Date de depart        :@Html.DisplayFor(m=>m.Itineraire.DateDepart)</p>
+            <p>Date d'arrivée        :@Html.DisplayFor(m=>m.Itineraire.DateArrivee)</p>
+            <p>Nom du service        :@Html.DisplayFor(m=>m.Service.nomService)</p>
+            <p>Nom du serviceEx      :@Html.DisplayFor(m=>m.ServiceEx.nomService)</p>
+            <p>Prix total            :@Html.DisplayFor(m=>m.prixTotal)</p>
+
+            </fieldset>
+   }
+
+   
+    
+</body>
+</html>
