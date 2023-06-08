@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html>
-
-
-<div class="flex-wrapper">
 <head>
 
 
@@ -13,35 +10,38 @@
     <link href="~/css/Site.css" rel="stylesheet" />
     @RenderSection("ExtraCss", required: false)
 </head>
-    <body class="d-flex flex-column min-vh-100">
-        <div id="page-container">
-        <div id="content-wrap">
-            <div id="entete">
+<body>
+
+    <header>
+                <div id="entete">
         <nav>
             <ul>
                 <li><a href="https://localhost:5001/"><img src="~/Images/LogoBlanc2.png" width="25%" height="25%" /></a></li>
                 <li>@Html.ActionLink("Laissez-vous inspirer", "Catalogue", "OffreVoyage")</li>
-                <li>@Html.ActionLink("Prenez le contrôle", "CreerOffreVoyage", "OffreVoyage")</li>
+                <li>@Html.ActionLink("Prenez le controle", "RechercheOffre", "OffreVoyage")</li>
                 <li>@Html.ActionLink("A propos", "Apropos", "Home")</li>
                 <li>@Html.ActionLink("Connexion", "IndexM", "Login")</li>
                 <li>@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
                 <li>@Html.ActionLink("Admin", "IndexA", "Login")</li>
             </ul>
         </nav>
-    </div>
+                </div>
+    </header>
+    <main>
         <div id="contenu main">
-            @RenderBody()
+
+            @RenderSection("content")
         </div>
-    <div class="container-fluid" id="footer">
-                    <footer class="mt-auto">
-        <div class="container-fluid mt-5 ">
+    </main>
+    <footer>    
+        <div class="container-fluid">
             <div class="row">
                
                 <div class="col-sm-4">
-                    <a href="https://localhost:5001/"><img src="~/Images/LogoCV1.png" width="100%" height="100%" /></a>
+                    <a href="https://localhost:5001/"><img src="~/Images/LogoCV1.png" width="80%" height="80%" /></a>
                     </div>
                 <div class="col-sm-2" >
-                    <h3>Contact</h3>
+                    <h4>Contact</h4>
                                             <br />
 
                     <p>15 rue Felix Faure, 75015 Paris
@@ -55,7 +55,7 @@
                     @DateTime.Now.Year - Contactez nous !</p>
                 </div>
                 <div class="col-sm-3">
-                    <h3>A propos</h3>
+                    <h4>A propos</h4>
                     <p>
                         Code Voyage est une startup spécialisée dans
                         l’organisation d'événements.
@@ -65,46 +65,22 @@
                     </p>
                 </div>
                 <div class="col-sm-2">
-                    <h3>Plan du site</h3>
+                    <h4>Plan du site</h4>
                     <ul class="footerUl">
                         <li><a href="#">Laissez-vous inspirer</a></li>
                         <li><a href="#">Prenez le contrôle</a></li>
                         <li><a href="#">À propos</a></li>
-                        <li>@Html.ActionLink("Ajout de service", "CreerService", "Service")</li>
                         <li>@Html.ActionLink("Connexion", "IndexM", "Login")</li>
                         <li>@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
-                        <li>@Html.ActionLink("Admin", "IndexA", "Login")</li>
-                        <li>@Html.ActionLink("Ajout d'Evenement", "CreerEvenement", "Evenement")</li>
-                        <li>@Html.ActionLink("Ajout d'Itineraire", "CreerItineraire","Itineraire")</li>
-                        <li>@Html.ActionLink("Inscription Membre", "InscriptionMembre","Membre")</li>
-                       <li>@Html.ActionLink("Incription d'un partenaire", "InscriptionPartenaire", "Partenaire")</li>
-                       <li>@Html.ActionLink("Ajout offreVoyage", "CreerOffreVoyage", "OffreVoyage")</li>
-
-                        
                         <li>@Html.ActionLink("Espace Membre", "EspaceMembre", "Membre")</li>
                         <li>@Html.ActionLink("Espace Partenaire", "EspacePartenaire", "Partenaire")</li>
-
                        <li>@Html.ActionLink("Recherche offre de voyages", "RechercheOffre", "OffreVoyage")</li>
-
-                       
-
-
-                        
-
-r
-                        
-
                         </ul>
                 </div>
                 <div class="col-sm-1">
-                </div>
+               </div>
             </div>
-        </div>
-        </div>
-
-    @RenderSection("ExtraScripts", required: false)
-    </div>
-    </div>
+          </div>
+    </footer>
 </body>
-</div>
 </html>

@@ -3,7 +3,7 @@
     ViewBag.Title = "Catalogue";
     Layout = "_LayoutDuSite";
 }
-
+@section content{
 <!--==============Places===================-->
 <section class="places">
     <div class="places-text">
@@ -42,6 +42,9 @@
                     <p class="location">✈️ Doha, Qatar</p>
                 </div>
                 <p class="services">Ne ratez pas l'incontournable safari dans le désert qatari !</p>
+                <p>
+                        <button type="submit" class="btn btn-success btn-lg link-light" value="Réserver" href=@("/Reservation/ReserverOffre/7")>Réserver</button>
+                </p>
 
             </div>
         </div>
@@ -60,6 +63,9 @@
                     <p class="location">🚆 Paris, France</p>
                 </div>
                 <p class="services">Sans oublier notre visite de la Tour Eiffel et du Musée du Louvre !</p>
+                <p>
+                    <a href=@("/Reservation/ReserverOffre/11")>Je réserve</a>
+                </p>
             </div>
         </div>
         <div class="card">
@@ -109,6 +115,9 @@
                     <p class="location">✈️ San Francisco, Etats-Unis</p>
                 </div>
                 <p class="services">Avec une sortie au mini golf incluse !</p>
+                <p>
+                    <a href=@("/Reservation/ReserverOffre/4")>Je réserve</a>
+                </p>
             </div>
         </div>
         <div class="card">
@@ -126,6 +135,9 @@
                     <p class="location">✈️ Atlanta, Etats-Unis</p>
                 </div>
                 <p class="services">Séjour à l'hôtel Holiday Inn d'Atlanta !</p>
+                <p>
+                    <a href=@("/Reservation/ReserverOffre/3")>Je réserve</a>
+                </p>
             </div>
         </div>
         <div class="card">
@@ -143,6 +155,9 @@
                     <p class="location">✈️ Rio de Janeiro, Brésil</p>
                 </div>
                 <p class="services">Avec location d'une limousine sur place !</p>
+                <p>
+                    <a href=@("/Reservation/ReserverOffre/1")>Je réserve</a>
+                </p>
             </div>
         </div>
 
@@ -161,6 +176,9 @@
                     <p class="location">✈️ Toronto, Canada</p>
                 </div>
                 <p class="services">Séjour à l'hôtel Holiday Inn de Toronto !</p>
+                <p>
+                    <a href=@("/Reservation/ReserverOffre/2")>Je réserve</a>
+                </p>
 
             </div>
         </div>
@@ -181,6 +199,9 @@
                     <p class="location">✈/🚆 Venise, France</p>
                 </div>
                 <p class="services">Avec balade privée en gondole et location de voiture sur place !</p>
+                <p>
+                    <a href=@("/Reservation/ReserverOffre/5")>Je réserve</a>
+                </p>
             </div>
         </div>
         <div class="card">
@@ -214,6 +235,9 @@
                     <p class="location">🚆 Munich, Allemagne</p>
                 </div>
                 <p class="services">Avec une sortie au mini golf rien que pour vous !</p>
+                <p>
+                    <a href=@("/Reservation/ReserverOffre/8")>Je réserve</a>
+                </p>
             </div>
         </div>
         <div class="card">
@@ -231,6 +255,9 @@
                     <p class="location">✈️ Abidjan, Côte d'Ivoire</p>
                 </div>
                 <p class="services">Votre voiture louée sur place vous attendra à l'arrivée !</p>
+                <p>
+                    <a href=@("/Reservation/ReserverOffre/6")>Je réserve</a>
+                </p>
             </div>
         </div>
         <div class="card">
@@ -248,6 +275,9 @@
                         <p class="location">🚆 Paris, France</p>
                     </div>
                 <p class="services">Vos nuits à l'Holiday Inn de Paris, sans oublier notre visite de la Tour Eiffel et du Musée du Louvre !</p>
+                <p>
+                    <a href=@("/Reservation/ReserverOffre/12")>Je réserve</a>
+                </p>
                 </div>
         </div>
         <div class="card">
@@ -271,3 +301,4 @@
 
 
 </section>
+}

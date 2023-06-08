@@ -1,4 +1,5 @@
-﻿﻿﻿@{
+﻿@model CodeVoyage.Models.Partenaire
+﻿﻿@{
     ViewBag.Title = "Formulaire";
     Layout = "_LayoutPartenaire";
 }
@@ -27,4 +28,7 @@
         }
     </style>
 </head>
-</html>
+@section content{
+    <h3>Bienvenue, @*@Html.TextBoxFor(Model.Nom)*@</h3>
+    <text>Ici, vous pouvez proposer et gérer vos services, réserver un voyage, mettre à jour vos informations et nous contacter.</text>
+}

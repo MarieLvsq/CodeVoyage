@@ -8,13 +8,11 @@ html {
     margin: 1px;
     padding: 5px;
 }
+
+
 #page-container {
     position: relative;
     min-height: 100vh;
-}
-
-#content-wrap {
-    padding-bottom: 2.5rem; /* Footer height */
 }
 
 
@@ -39,16 +37,18 @@ html {
     background-color: ghostwhite;
 }
 
-#footer {
+footer {
     border-top: 1px solid #D0D1D2;
     background-color: ghostwhite;
     color: black;
     position: relative;
-    margin-top: inherit;
-    flex-shrink : 0;
+    width: 100%;
+    /* Height of the footer*/
+    height: 300px;
 }
 
-.flex-wrapper {
+
+    .flex-wrapper {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -113,6 +113,8 @@ div.scroll-container {
     position: relative;
     text-align: center;
     color: white;
+    height: 100%;
+    padding: 0 16px;
 }
 .centered {
     position: absolute;
@@ -133,10 +135,6 @@ div.scroll-container {
     height: 100%;
 }
 
-
-html {
-    box-sizing: border-box;
-}
 
 *, *:before, *:after {
     box-sizing: inherit;
@@ -161,15 +159,12 @@ html {
     color: white;
 }
 
-.container {
-    padding: 0 16px;
-}
 
-    .container::after, .row::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 
 .title {
     color: grey;
