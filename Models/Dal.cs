@@ -37,11 +37,15 @@ namespace CodeVoyage.Models
             return _bddContext.OffreVoyages.Include(o => o.Itineraire).Include(o => o.Event).Include(o => o.Service).Include(o => o.ServiceEx).ToList();
             }
 
-        public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise, double PrixTotal)
+        public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId, double prixTotal)
 
             {
+            Itineraire itineraire = _bddContext.Itineraires.Find(itineraireId);
+            Service service = _bddContext.Services.Find(serviceId);
+            Service serviceEx = _bddContext.Services.Find(serviceExId);
 
-            OffreVoyage offre = new OffreVoyage() { ItineraireId = itineraireId, EventId = eventId, ServiceId = serviceId, ServiceExId = serviceExId, prixTotal = PrixTotal };
+            OffreVoyage offre = new OffreVoyage() { ItineraireId = itineraireId, EventId = eventId, ServiceId = serviceId, ServiceExId = serviceExId };
+            offre.prixTotal = itineraire.Prix + service.Prix + serviceEx.Prix;
 
             _bddContext.OffreVoyages.Add(offre);
             _bddContext.SaveChanges();

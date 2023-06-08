@@ -18,9 +18,9 @@
             <div>Evênement Sélectionné :<strong>@Html.DisplayFor(m=>m.Event.Nom)</strong></div>
             <div>Moyen de transport :<strong>@Html.DisplayFor(m=>m.Itineraire.Transport)</strong></div>
             <div>Lieu de depart :<strong>@Html.DisplayFor(m=>m.Itineraire.LieuDepart)</strong></div>
-            <div>Destionation :<strong>@Html.DisplayFor(m=>m.Itineraire.Destination)</strong></div>
-            <div>Date de depart :<strong>@Model.Itineraire.DateDepart.ToShortDateString()</strong></div>
-            <div>Date de retour:<strong>@Model.Itineraire.DateRetour.ToShortDateString()</strong></div>
+            <div>Destination :<strong>@Html.DisplayFor(m=>m.Itineraire.Destination)</strong></div>
+           @*<div>Date de depart :<strong>@Model.Itineraire.DateDepart.ToShortDateString()</strong></div>
+        <div>Date de retour:<strong>@Model.Itineraire.DateRetour.ToShortDateString()</strong></div>*@
             <div>Nom du service :<strong>@Html.DisplayFor(m=>m.Service.nomService)</strong></div>
             <div>Nom du serviceEx :<strong>@Html.DisplayFor(m=>m.ServiceEx.nomService)</strong></div>
             <div>Prix total :<strong>@Html.DisplayFor(m=>m.prixTotal) € </strong> </div>

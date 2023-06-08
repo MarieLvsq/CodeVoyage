@@ -29,6 +29,8 @@ namespace CodeVoyage.Models
                 return string.Format("{0} {1} ", Nom+",", Localisation);
             }
         }
+
+        
     }
 
 

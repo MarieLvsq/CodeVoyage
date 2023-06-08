@@ -19,13 +19,15 @@
         <fieldset>
             <legend>Recherche avancée: </legend>
 
+            
+
+            
+            @Html.Label("Evénement")
+            @Html.DropDownList("EventId",new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
+            <br/>
             @Html.Label("Itineraire")
             @Html.DropDownList("ItineraireId", new SelectList(ViewBag.ItineraireList, "Id", "ItineraireDescription"))
             @*@Html.TextBoxFor(m => Model.Itineraire)*@
-
-            <br />
-            @Html.Label("Evénement")
-            @Html.DropDownList("EventId",new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
 
             <br />
             @Html.Label("service")
@@ -60,7 +62,7 @@
 
         {
 
-
+                <body>
                 <div>Evènement selectionné :<strong>@item.Event.Nom</strong></div>
                 <div>Lieu de départ :<strong>@item.Itineraire.LieuDepart</strong></div>
                 <div>Destination : <strong>@item.Itineraire.Destination</strong></div>
@@ -73,7 +75,7 @@
                 <br/>
                 
                 <a href=@("/Reservation/ReserverOffre/" + item.Id)>Je réserve</a>
-                
+                </body>
               
 
 

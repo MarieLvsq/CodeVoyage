@@ -19,10 +19,21 @@
             <table align="center" text-align="center">
                 <tr>
                     <th>
-                        Ajouter une offre de voyage
+                        Ajouter une nouvelle Offre
 
                     </th>
 
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Event)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.DropDownListFor(m => m.EventId, new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
+                        @Html.ValidationMessageFor(m => Model.Event)
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -36,17 +47,7 @@
                     </td>
                 </tr>
 
-                <tr>
-                    <td>
-                        @Html.LabelFor(m => Model.Event)
-                    </td>
-                </tr>
-                <tr>
-                    <td class="form-control">
-                        @Html.DropDownListFor(m => m.EventId, new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
-                        @Html.ValidationMessageFor(m => Model.Event)
-                    </td>
-                </tr>
+                
 
                 <tr>
                     <td>
@@ -81,12 +82,12 @@
                         @Html.TextBoxFor(m => Model.prixTotal)
                         @Html.ValidationMessageFor(m => Model.prixTotal)
                     </td>
-                </tr>*@
+            </tr>*@
 
                 <tr>
                     <td>
                         <button type="submit" class="btn btn-secondary">Ajouter</button>
-                        @Html.ActionLink("Je réserve", "CreerReservation", "Reservation")
+                        
                     </td>
                 </tr>
             </table>

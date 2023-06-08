@@ -1,0 +1,49 @@
+@model List<CodeVoyage.Models.OffreVoyage>
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Rechercher une offre sur mesure</title>
+</head>
+<body>
+    
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Je cree mon offre de voyage sur mesure: </legend>
+
+            
+
+            
+            @Html.Label("Evenement")
+            @Html.DropDownList("EventId",new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
+            <br/>
+            @Html.Label("Itineraire")
+            @Html.DropDownList("ItineraireId", new SelectList(ViewBag.ItineraireList, "Id", "ItineraireDescription"))
+            @*@Html.TextBoxFor(m => Model.Itineraire)*@
+
+            <br />
+            @Html.Label("Service")
+            @Html.DropDownList("ServiceId", new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
+
+            <br />
+            @Html.Label("Service Extra")
+            @Html.DropDownList("ServiceExId", new SelectList(ViewBag.ServiceList, "Id", "ServiceDescription"))
+            
+          
+            <br />
+            @Html.Label("Prix Max")
+            @Html.DropDownList("prixMax", new SelectList(ViewBag.prixList, "Value", "Value"), "Selectionner un prix")
+
+            <button type="submit" class="btn btn-secondary">Ajouter</button>
+
+            @* <input type="submit" value="Rechercher" />*@
+        </fieldset>    
+        }
+    
+</body>
+</html>
