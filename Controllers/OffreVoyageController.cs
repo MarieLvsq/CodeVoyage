@@ -171,7 +171,7 @@ namespace CodeVoyage.Controllers
             evenements.Add(new Evenement() { Id = 0, Nom = "Tous les Evénements" });
             evenements =  evenements.OrderBy(i => i.Id).ToList();
             var services = _bddContext.Services.ToList();
-            services.Add(new Service { Id = 0, nomService = "Tous les Services" });
+            services.Add(new Service { Id = 0, nomService = "Tous les  Services" });
             services = services.OrderBy(i => i.Id).ToList();
             ViewBag.ItineraireList = itineraires;
 			ViewBag.EvenementList = evenements;
