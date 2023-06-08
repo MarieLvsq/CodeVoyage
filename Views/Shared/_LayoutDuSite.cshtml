@@ -69,14 +69,12 @@
                 <div class="col-sm-2">
                     <h4>Plan du site</h4>
                     <ul class="footerUl">
-                        <li><a href="#">Laissez-vous inspirer</a></li>
-                        <li><a href="#">Prenez le contrôle</a></li>
-                        <li><a href="#">À propos</a></li>
+                        <li>@Html.ActionLink("Laissez-vous inspirer", "Catalogue", "OffreVoyage")</li>
+                        <li>@Html.ActionLink("Prenez le controle", "RechercheOffre", "OffreVoyage")</li>
+                        <li>@Html.ActionLink("A propos", "Apropos", "Home")</li>
                         <li>@Html.ActionLink("Connexion", "IndexM", "Login")</li>
                         <li>@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
-                        <li>@Html.ActionLink("Espace Membre", "EspaceMembre", "Membre")</li>
-                        <li>@Html.ActionLink("Espace Partenaire", "EspacePartenaire", "Partenaire")</li>
-                       <li>@Html.ActionLink("Recherche offre de voyages", "RechercheOffre", "OffreVoyage")</li>
+                       
                         </ul>
                 </div>
                 <div class="col-sm-1">
