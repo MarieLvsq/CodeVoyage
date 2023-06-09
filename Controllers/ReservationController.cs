@@ -43,7 +43,7 @@ namespace CodeVoyage.Controllers
             {
                 Membre membre = dal.ObtenirMembre(User.Identity.Name);
                 dal.CreerReservation(membre,OffreVoyage);
-                return RedirectToAction("ReserverOffre");
+                return Redirect("/Reservation/Index");
             }
 
 
@@ -119,7 +119,21 @@ namespace CodeVoyage.Controllers
 
         }
 
-        
+        public ActionResult AfficherToutesLesReservationsMembre()
+
+        {
+            List<Reservation> reservations;
+            using (Dal dal = new Dal())
+            {
+                Membre membre = dal.ObtenirMembre(User.Identity.Name);
+                reservations = dal.ObtientToutesLesReservations().Where(r=>r.MembreId == membre.Id).ToList();
+            }
+
+
+            return View(reservations);
+
+        }
+
     }
 
 

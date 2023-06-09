@@ -345,6 +345,8 @@ namespace CodeVoyage.Models
             return this._bddContext.Membres.ToList();
         }
 
+        
+
         public Membre ObtenirMembre(int id)
         {
             return this._bddContext.Membres.Find(id);
@@ -487,6 +489,13 @@ namespace CodeVoyage.Models
                 .ToList();
         }
 
+        public List<Reservation> ObtientToutesLesReservationsMembre()
+        {
+
+            return _bddContext.Reservations.Include(r => r.MembreId).Include(r => r.OffrePayee).ToList();
+        }
+
+       
         public int CreerReservation(Membre membre,OffreVoyage offreVoyage)
         {
 

@@ -22,7 +22,7 @@ namespace CodeVoyage.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
 
 
         }
@@ -863,7 +863,7 @@ namespace CodeVoyage.Models
          new Reservation
          {
              Id = 4,
-             MembreId = 1,
+             MembreId = 5,
              OffreVoyageId = 4
 
          });
