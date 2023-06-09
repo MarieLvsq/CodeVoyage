@@ -45,7 +45,7 @@ namespace CodeVoyage.Controllers
             using (Dal dal = new Dal())
             {
                 int id = dal.CreerOffrePerso(offrePerso.OffreId, offrePerso.ServicePersoId);
-                return RedirectToAction("CreerOffrePerso");
+                return RedirectToAction("AfficherToutesLesOffresPerso");
             }
 
         }
