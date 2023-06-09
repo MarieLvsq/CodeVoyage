@@ -14,6 +14,7 @@
     <None Remove="Views\RechercheMulti\" />
     <None Remove="ViewModels\" />
     <None Remove="Views\OffrePerso\" />
+    <None Remove="Views\ReservationPerso\" />
   </ItemGroup>
   <ItemGroup>
 
@@ -26,6 +27,7 @@
 
     <Folder Include="wwwroot\Images\Offres\" />
     <Folder Include="Views\OffrePerso\" />
+    <Folder Include="Views\ReservationPerso\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

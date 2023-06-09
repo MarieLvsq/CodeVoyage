@@ -14,6 +14,8 @@ namespace CodeVoyage.Models
         public int ServicePersoId { get; set; }
         public virtual Service ServicePerso { get; set; }
 
+        public double prix { get; set; } 
+
     }
 }
 

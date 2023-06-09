@@ -1,0 +1,36 @@
+﻿@model CodeVoyage.Models.OffrePerso
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+
+<head>
+    <title>Je procède  à la réservation </title>
+</head>
+@section content{
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Réserver votre voyage :</legend>
+            @Html.HiddenFor(m => m.Id)
+            <div>Votre Itinéraire :<strong>@Html.DisplayFor(m => m.Offre.Itineraire.ItineraireDescription)</strong></div>
+            <div>L'évènement de votre choix :<strong>@Html.DisplayFor(m => m.Offre.Event.EvenementDescription)</strong></div>
+            <div>Date de depart :<strong>@Model.Offre.Itineraire.DateDepart.ToShortDateString()</strong></div>
+            <div>Date de retour:<strong>@Model.Offre.Itineraire.DateRetour.ToShortDateString()</strong></div>
+            <div>Service de Base :<strong>@Html.DisplayFor(m => m.Offre.Service.nomService)</strong></div>
+            <div>Service Extra:<strong>@Html.DisplayFor(m => m.Offre.ServiceEx.nomService)</strong></div>
+            <div>Votre choix de service :<strong>@Html.DisplayFor(m => m.ServicePerso.nomService)</strong></div>
+            <div>Prix :<strong>@Html.DisplayFor(m => m.prix) € </strong> </div>
+
+
+
+            <input type="submit" value="Payer" />
+            <a href=@("/Membre/EspaceMembre/")>Annuler</a>
+
+
+        </fieldset>
+
+    }
+
+}
+
