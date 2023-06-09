@@ -59,6 +59,15 @@ namespace CodeVoyage.Models
             return offre.Id;
             }
 
+        public int CreerPaiement(string Nom, string Email, int OffreVoyageId)
+        {
+            Paiement paiement = new Paiement() { Nom = Nom, Email = Email, OffreVoyageId= OffreVoyageId };
+
+            _bddContext.Paiements.Add(paiement);
+            _bddContext.SaveChanges();
+            return paiement.Id;
+        }
+
         public int CreerOffrePerso(int offreId,int serviceId)
 
         {

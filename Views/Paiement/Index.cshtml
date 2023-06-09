@@ -1,0 +1,59 @@
+﻿@model CodeVoyage.Models.Paiement
+@{
+    ViewBag.Title = "Formulaire";
+    Layout = "_LayoutDuSite";
+}
+
+@section content{
+    <h4>
+        Veuillez Remplir les champs afin de valider votre réservation :
+    </h4>
+    <hr />
+
+
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Vos données personnelles: </legend>
+            @Html.HiddenFor(m=>m.Id)
+                 <table  border="1">
+                     <tr>
+                         <td>@Html.LabelFor(m => Model.Nom)</td>
+                         <td>@Html.TextBoxFor(m => Model.Nom)</td>
+                         <td>@Html.ValidationMessageFor(m => Model.Nom)</td>
+                     </tr>
+                     <tr>        
+                        <td>@Html.LabelFor(m => Model.Email)</td>
+                        <td>@Html.TextBoxFor(m => Model.Email)</td>
+                        <td>@Html.ValidationMessageFor(m => Model.Email)</td>
+                     </tr>
+
+                     <tr>
+                        <td>@Html.LabelFor(m => Model.numCb)</td>
+                        <td>@Html.TextBoxFor(m => Model.numCb)</td>
+                        <td>@Html.ValidationMessageFor(m => Model.numCb)</td>
+                     </tr>
+                     <tr>
+                         <td>@Html.LabelFor(m => Model.codeSecu)</td>
+                         <td>@Html.PasswordFor(m => Model.codeSecu)</td>
+                         <td>@Html.ValidationMessageFor(m => Model.codeSecu)</td>
+                         <td><input type="submit" value="Je confirme" /></td>
+
+                    </tr>
+                   
+             </table >
+
+            <div><a href=@("/Paiement/Index1")> Poursuivre ma réservation</a></div>
+            <br />
+            <a href=@("/Paiement/Index/")>Effacer</a>
+            <a href=@("/OffreVoyage/RechercheOffre/")>Annuler</a>
+
+           
+        </fieldset>
+
+       
+    }
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+}
