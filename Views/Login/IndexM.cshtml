@@ -8,13 +8,27 @@
 @section content{
     @if (Model.AuthentifierM)
     {
-        <h3>
-            Vous êtes déjà authentifié avec le login :
-            @Model.Membre.Prenom
-        </h3>
-        @Html.ActionLink("Voulez-vous vous déconnecter ?", "DeconnexionM")
         <br />
-        @Html.ActionLink("Revenez à votre Espace", "EspaceMembre", "Membre")
+        <br />
+        <br />
+        <h3>
+            <span>
+                Vous êtes déjà authentifié avec le login :
+                @Model.Membre.Prenom
+            </span>
+            
+
+        <span class="align-self-end">
+            <button type="submit" class="btn btn-secondary btn-lg"> <a href=@("/Login/DeconnexionM") class="link-light text-decoration-none">Voulez-vous vous déconnecter ?</a></button>
+
+        </span>
+        <span class="align-self-end">
+            <button type="submit" class="btn btn-secondary btn-lg"> <a href=@("/Membre/EspaceMembre") class="link-light text-decoration-none">Revenez à votre Espace</a></button>
+        </span>
+        </h3>
+       <br />
+       <br />
+       <br />
     }
     else
     {

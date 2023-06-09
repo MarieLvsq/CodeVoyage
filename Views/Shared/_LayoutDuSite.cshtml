@@ -11,24 +11,31 @@
     @RenderSection("ExtraCss", required: false)
 </head>
 <body>
+    <div class="contenu">
 
+   
     <header>
                 <div id="entete">
-        <nav>
+            <nav>
                 <a href="https://localhost:5001/"><img src="~/Images/LogoBlanc2.png" width="25%" height="25%" /></a>
-            <ul class="text-lg-end text-decoration-none">
-                    <li>@Html.ActionLink("Laissez-vous inspirer", "Catalogue", "OffreVoyage")</li>
-                    <li>@Html.ActionLink("Explorez nos offres", "RechercheOffre", "OffreVoyage")</li>
-                    <li>@Html.ActionLink("A propos", "Apropos", "Home")</li>
-                    <li>@Html.ActionLink("Compte Membre", "IndexM", "Login")</li>
-                    <li>@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
-                    <li>@Html.ActionLink("Admin", "IndexA", "Login")</li>
-            </ul>
-        </nav>
+                <ul id="ulhaute" class="text-lg-end text-decoration-none">
+                    <li id="lihaute">@Html.ActionLink("Admin", "IndexA", "Login")</li>
+
+                    <li id="lihaute">@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
+
+                    <li id="lihaute">@Html.ActionLink("Compte Membre", "IndexM", "Login")</li>
+
+                    <li id="lihaute">@Html.ActionLink("A propos", "Apropos", "Home")</li>
+
+                    <li id="lihaute">@Html.ActionLink("Explorez nos offres", "RechercheOffre", "OffreVoyage")</li>
+
+                    <li id="lihaute">@Html.ActionLink("Laissez-vous inspirer", "Catalogue", "OffreVoyage")</li>
+                </ul>
+            </nav>
                 </div>
     </header>
     <main>
-        <div id="contenu main">
+        <div id="contenu">
 
             @RenderSection("content")
         </div>
@@ -66,21 +73,22 @@
                 </div>
                 <div class="col-sm-2">
                     <h4>Plan du site</h4>
-                    <ul class="footerUl">
-                        <li>@Html.ActionLink("Laissez-vous inspirer", "Catalogue", "OffreVoyage")</li>
-                        <li>@Html.ActionLink("Explorez nos offres", "RechercheOffre", "OffreVoyage")</li>
-                        <li>@Html.ActionLink("A propos", "Apropos", "Home")</li>
-                        <li>@Html.ActionLink("Compte Membre", "IndexM", "Login")</li>
-                        <li>@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
-                        <li>@Html.ActionLink("Admin", "IndexA", "Login")</li>
+                    <ul id="uldroite" class="footerUl">
+                        <li id="lidroite">@Html.ActionLink("Laissez-vous inspirer", "Catalogue", "OffreVoyage")</li>
+                        <li id="lidroite">@Html.ActionLink("Explorez nos offres", "RechercheOffre", "OffreVoyage")</li>
+                        <li id="lidroite">@Html.ActionLink("A propos", "Apropos", "Home")</li>
+                        <li id="lidroite">@Html.ActionLink("Compte Membre", "IndexM", "Login")</li>
+                        <li id="lidroite">@Html.ActionLink("Proposez vos services", "IndexP", "Login")</li>
+                        <li id="lidroite">@Html.ActionLink("Admin", "IndexA", "Login")</li>
 
-                       
-                        </ul>
+
+                    </ul>
                 </div>
                 <div class="col-sm-1">
                </div>
             </div>
           </div>
     </footer>
+    </div>
 </body>
 </html>
