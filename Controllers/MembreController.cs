@@ -102,6 +102,21 @@ namespace CodeVoyage.Controllers
             return View(membres);
 
         }
+        public ActionResult AfficherTousLesReservationsMembre()
+
+        {
+            List<Reservation> reservations;
+
+            using (Dal dal = new Dal())
+            {
+                reservations = dal.ObtientToutesLesReservationsMembre();
+            }
+
+
+            return View(reservations);
+
+        }
+
 
         public ActionResult EspaceMembre()
 
