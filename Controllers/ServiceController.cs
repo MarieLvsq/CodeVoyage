@@ -16,6 +16,10 @@ namespace CodeVoyage.Controllers
         {
             return View();
         }
+        public IActionResult CreerServiceA()
+            {
+            return View();
+            }
 
         [HttpPost]
         public IActionResult CreerService(string nomService, TypeService TypeService, int Capacite, DateTime DateDeb, DateTime DateFin, double Prix)

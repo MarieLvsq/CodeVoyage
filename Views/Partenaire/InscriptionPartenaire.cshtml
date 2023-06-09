@@ -12,32 +12,86 @@
     @using (Html.BeginForm())
     {
         <fieldset>
-            <legend>Inscription d'un partenaire': </legend>
-            @Html.LabelFor(m => Model.Nom)
-            @Html.TextBoxFor(m => Model.Nom)
-            @Html.ValidationMessageFor(m => Model.Nom)
-            <br />
-            @Html.LabelFor(m => Model.Localisation)
-            @Html.TextBoxFor(m => Model.Localisation)
-            @Html.ValidationMessageFor(m => Model.Localisation)
-            <br />
-            @Html.LabelFor(m => Model.email)
-            @Html.TextBoxFor(m => Model.email)
-            @Html.ValidationMessageFor(m => Model.email)
-            <br />
-            @Html.LabelFor(m => Model.NumSiret)
-            @Html.TextBoxFor(m => Model.NumSiret)
-            @Html.ValidationMessageFor(m => Model.NumSiret)
-            
-            <br/>
-            @Html.LabelFor(m => Model.TypeService)
-            @Html.DropDownListFor(m => m.TypeService, Html.GetEnumSelectList<CodeVoyage.Models.TypeService>(), "Selectionner le type de service")
-            @Html.ValidationMessageFor(m => Model.TypeService)
-            <br />
-            @Html.LabelFor(m => Model.Role)
-            @Html.DropDownListFor(m => m.Role, Html.GetEnumSelectList<CodeVoyage.Models.Role>(), "Sélectionner le rôle")
-            @Html.ValidationMessageFor(m => Model.Role)
-            <input type="submit" value="Ajouter" />
+            <table align="center" text-align="center">
+                <tr>
+                    <th>
+                        Inscription Partenaire
+                    </th>
+
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Nom)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.Nom)
+                        @Html.ValidationMessageFor(m => Model.Nom)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Localisation)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.Localisation)
+                        @Html.ValidationMessageFor(m => Model.Localisation)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.email)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.email)
+                        @Html.ValidationMessageFor(m => Model.email)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.NumSiret)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.NumSiret)
+                        @Html.ValidationMessageFor(m => Model.NumSiret)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.TypeService)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.DropDownListFor(m => m.TypeService, Html.GetEnumSelectList<CodeVoyage.Models.TypeService>(), "Selectionner le type de service")
+                        @Html.ValidationMessageFor(m => Model.TypeService)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Role)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.DropDownListFor(m => m.Role, Html.GetEnumSelectList<CodeVoyage.Models.Role>(), "Sélectionner le rôle")
+                        @Html.ValidationMessageFor(m => Model.Role)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-secondary">Ajouter</button>
+                    </td>
+                </tr>
+                </table>
         </fieldset>
         
     }

@@ -24,7 +24,7 @@ namespace CodeVoyage.Models
         {
 
 
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=rrrrr;database=CodeVoyageBDD");
 
 
 
