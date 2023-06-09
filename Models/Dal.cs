@@ -52,12 +52,22 @@ namespace CodeVoyage.Models
 
             {
 
-            OffreVoyage offre = new OffreVoyage() { ItineraireId = itineraireId, EventId = eventId, ServiceId = serviceId, ServiceExId = serviceExId, prixTotal = PrixTotal };
+            Itineraire itineraire = _bddContext.Itineraires.Find(itineraireId);
+            Service service = _bddContext.Services.Find(serviceId);
+            Service serviceEx = _bddContext.Services.Find(serviceExId);
+
+
+
+            OffreVoyage offre = new OffreVoyage() { ItineraireId = itineraireId, EventId = eventId, ServiceId = serviceId, ServiceExId = serviceExId };
+            offre.prixTotal = itineraire.Prix + service.Prix + serviceEx.Prix;
+
 
             _bddContext.OffreVoyages.Add(offre);
             _bddContext.SaveChanges();
+
             return offre.Id;
             }
+
 
         public int CreerOffrePerso(int offreId,int serviceId)
 
