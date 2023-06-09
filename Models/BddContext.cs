@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.Xml;
 using Microsoft.EntityFrameworkCore;
@@ -18,11 +18,14 @@ namespace CodeVoyage.Models
             public DbSet<Service> Services { get; set; }
             public DbSet<Admin> Admins { get; set; }
             public DbSet<OffrePerso> OffrePersos { get; set; }
+            public DbSet<ReservationPerso> ReservationPersos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
+
             optionsBuilder.UseMySql("server=localhost;user id=root;password=MMMMM;database=CodeVoyageBDD");
+
 
 
         }

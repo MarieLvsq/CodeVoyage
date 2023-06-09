@@ -40,14 +40,20 @@ namespace CodeVoyage.Controllers
         [HttpPost]
         public IActionResult CreerOffrePerso(OffrePerso offrePerso)
         {
-
+            
 
             using (Dal dal = new Dal())
             {
                 int id = dal.CreerOffrePerso(offrePerso.OffreId, offrePerso.ServicePersoId);
-                return RedirectToAction("CreerOffrePerso");
+               
+                return Redirect("/ReservationPerso/ReserverOffrePerso/" + id);
             }
 
+        }
+
+        public IActionResult ReserverOffrePerso()
+        {
+            return View();
         }
     }
 }

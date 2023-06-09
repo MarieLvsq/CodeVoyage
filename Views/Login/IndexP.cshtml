@@ -9,13 +9,31 @@
 @section content{
 @if (Model.AuthentifierP)
 {
-    <h3>
-        Vous êtes déjà authentifié avec le login :
-        @Model.Partenaire.Nom
-    </h3>
-    @Html.ActionLink("Voulez-vous vous déconnecter ?", "DeconnexionP")
     <br />
-    @Html.ActionLink("Revenez à votre Espace", "EspacePartenaire", "Partenaire")
+    <br />
+    <br />
+    <h3>
+        <span>
+                    Vous êtes déjà authentifié avec le login :
+                    @Model.Partenaire.Nom
+        </span>
+
+       
+       
+        <span class="align-self-end">
+                    <button type="submit" class="btn btn-secondary btn-lg"> <a href=@("/Login/DeconnexionP") class="link-light text-decoration-none">Voulez-vous vous déconnecter ?</a></button>
+
+        </span>
+        <span class="align-self-end">
+                <button type="submit" class="btn btn-secondary btn-lg"> <a href=@("/Partenaire/EspacePartenaire") class="link-light text-decoration-none">Revenez à votre Espace</a></button>
+        </span>
+           
+
+    </h3>
+   <br />
+   <br />
+   <br />
+   
 }
 else
 {

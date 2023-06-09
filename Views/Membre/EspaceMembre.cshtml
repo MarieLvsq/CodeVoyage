@@ -16,14 +16,7 @@
 </head>
 
 
-        /* Set gray background color and 100% height */
-        .sidenav {
-            background-color: #f1f1f1;
-            height: 100%;
-        }
-    </style>
-
 @section content{
-    <h3>Bienvenue, @*@Html.DisplayText(Model.Prenom)*@</h3>
-    <p>Bienvenue dans votre espace membre. Ici, vous pouvez gérer votre compte, vos réservations et nous contacter !</p>
+    <h3>Bienvenue dans votre espace Membre, @*@Model.Prenom*@</h3>
+    <p>Ici, vous pouvez gérer votre compte, vos réservations et nous contacter !</p>
 }

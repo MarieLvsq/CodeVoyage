@@ -40,12 +40,10 @@ namespace CodeVoyage.Models
         public List<OffrePerso> ObtientToutesLesOffresPerso()
         {
 
-            return _bddContext.OffrePersos.Include(o=>o.Offre).
-                ThenInclude(op => op.Itineraire).
-                Include(o => o.Offre).Include(o => o.Offre).
-                ThenInclude(op => op.Event).
-
-                Include(o => o.ServicePerso).ThenInclude(op => op.ServiceDescription).ToList();
+            return _bddContext.OffrePersos
+                .Include(op=>op.Offre).ThenInclude(op => op.Itineraire)
+                .Include(op => op.Offre).ThenInclude(op => op.Event)
+                .Include(op => op.ServicePerso).ToList();
         }
 
         public int CreerOffreVoyage(int itineraireId, int eventId, int serviceId, int serviceExId, int Remise, double PrixTotal)
@@ -74,6 +72,13 @@ namespace CodeVoyage.Models
         {
 
             OffrePerso offreP = new OffrePerso() { OffreId = offreId, ServicePersoId = serviceId };
+
+            offreP.Offre = this.ObtientToutesLesOffresVoyages().Where(o => o.Id == offreP.OffreId).FirstOrDefault();
+            offreP.ServicePerso = this.ObtientTousLesServices().Where(o => o.Id == offreP.ServicePersoId).FirstOrDefault();
+
+            offreP.prix = offreP.Offre.prixTotal + offreP.ServicePerso.Prix;
+
+
 
             _bddContext.OffrePersos.Add(offreP);
 
@@ -488,6 +493,14 @@ namespace CodeVoyage.Models
                 .Include(r => r.OffrePayee).ThenInclude(op => op.ServiceEx)
                 .ToList();
         }
+        public List<ReservationPerso> ObtientToutesLesReservationsPerso()
+        {
+            return _bddContext.ReservationPersos.Include(r => r.Membre)
+                .Include(r => r.Offre).ThenInclude(op => op.Offre).ThenInclude(op=>op.Event).
+                Include(r => r.Offre).ThenInclude(op => op.Offre).
+                ThenInclude(op => op.Itineraire)
+                .ToList();
+        }
 
         public List<Reservation> ObtientToutesLesReservationsMembre()
         {
@@ -502,6 +515,16 @@ namespace CodeVoyage.Models
            Reservation reservation = new Reservation() { MembreId = membre.Id, OffreVoyageId= offreVoyage.Id };
 
             _bddContext.Reservations.Add(reservation);
+            _bddContext.SaveChanges();
+            return reservation.Id;
+        }
+
+        public int CreerReservationPerso(Membre membre, OffrePerso offreVoyage)
+        {
+
+            ReservationPerso reservation = new ReservationPerso() { MembreId = membre.Id, OffreVoyageId = offreVoyage.Id };
+
+            _bddContext.ReservationPersos.Add(reservation);
             _bddContext.SaveChanges();
             return reservation.Id;
         }
