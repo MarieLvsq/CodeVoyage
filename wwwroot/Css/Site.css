@@ -128,8 +128,6 @@ div.scroll-container {
 /* Set gray background color and 100% height */
 .sidenav {
     background-color: ghostwhite;
-    border-right: 1px solid;
-    border-color : saddlebrown;
     height: 100%;
 }
 /*=========================A Propos===========================*/
@@ -337,7 +335,7 @@ div.scroll-container {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 300px;
+    width: 200px;
     background-color: ghostwhite;
 }
 
