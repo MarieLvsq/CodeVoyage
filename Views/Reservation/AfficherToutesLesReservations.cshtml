@@ -19,7 +19,13 @@
         <table class="table">
             <tr>
 
+                <th>
 
+
+                    Membre
+
+
+                </th>
 
                 <th>
 
@@ -65,12 +71,12 @@
             @foreach (var reservation in Model)
             {
                 <tr>
-
+                    <td>@reservation.Membre.MembreDescription</td>
                     <td>@reservation.OffrePayee.Itineraire.ItineraireDescription</td>
                     <td>@reservation.OffrePayee.Event.EvenementDescription</td>
                     <td>@reservation.OffrePayee.Service.ServiceDescription</td>
                     <td>@reservation.OffrePayee.ServiceEx.ServiceDescription</td>
-                    <td>@reservation.OffrePayee.prixTotal</td>
+                    <td>@reservation.OffrePayee.prixTotal €</td>
                     
                     <td>
                         
