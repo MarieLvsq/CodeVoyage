@@ -33,28 +33,50 @@
 }
 else
 {
-    <p>
-        Veuillez vous authentifier :
-    </p>
+  
     @using (Html.BeginForm("IndexA", "Login", FormMethod.Post))
     {
         //if (User.IsInRole("Admin"))
         //{
 
         //}
-        <div>
-            @Html.LabelFor(m => m.Admin.Email)
-            @Html.TextBoxFor(m => m.Admin.Email)
-            @Html.ValidationMessageFor(m => m.Admin.Email)
-        </div>
-        <div>
-            @Html.LabelFor(m => m.Admin.MotDePasse)
-            @Html.PasswordFor(m => m.Admin.MotDePasse)
-            @Html.ValidationMessageFor(m => m.Admin.MotDePasse)
-        </div>
-        <input type="submit" value="Se connecter" />
+        <table align="center" text-align="center">
+                <tr>
+                    <th>
+                    Veuillez vous authentifier :
+                    </th>
 
-        <br />
+                </tr>
+                <tr>
+                    <td>
+                    @Html.LabelFor(m => m.Admin.Email)
+                </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                    @Html.TextBoxFor(m => m.Admin.Email)
+                    @Html.ValidationMessageFor(m => m.Admin.Email)
+                </td>
+                </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Admin.MotDePasse)
+                </td>
+            </tr>
+            <tr>
+                <td class="form-control">
+                    @Html.PasswordFor(m => m.Admin.MotDePasse)
+                    @Html.ValidationMessageFor(m => m.Admin.MotDePasse)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <button type="submit" class="btn btn-secondary"> Se connecter</button>
+
+                </td>
+            </tr>
+
+</table>
     }
 }
 }

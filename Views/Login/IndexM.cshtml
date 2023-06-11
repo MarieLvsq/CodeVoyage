@@ -32,28 +32,52 @@
     }
     else
     {
-        <p>
-            Veuillez vous authentifier :
-        </p>
+
         @using (Html.BeginForm())
         {
             //if (User.IsInRole("Admin"))
             //{
 
             //}
-            <div>
-                @Html.LabelFor(m => m.Membre.Email)
-                @Html.TextBoxFor(m => m.Membre.Email)
-                @Html.ValidationMessageFor(m => m.Membre.Email)
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Membre.MotDePasse)
-                @Html.PasswordFor(m => m.Membre.MotDePasse)
-                @Html.ValidationMessageFor(m => m.Membre.MotDePasse)
-            </div>
-            <input type="submit" value="Se connecter" />
-            <br />
-            @Html.ActionLink("Devenez membre CodeVoyage", "CreerCompteMembre", "Login")
+            <table align="center" text-align="center">
+                <tr>
+                    <th>
+                    Veuillez vous authentifier :
+                    </th>
+
+                </tr>
+                <tr>
+                    <td>
+                    @Html.LabelFor(m => m.Membre.Email)
+                </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                    @Html.TextBoxFor(m => m.Membre.Email)
+                    @Html.ValidationMessageFor(m => m.Membre.Email)
+                </td>
+                </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Membre.MotDePasse)
+                </td>
+            </tr>
+            <tr>
+                <td class="form-control">
+                    @Html.PasswordFor(m => m.Membre.MotDePasse)
+                    @Html.ValidationMessageFor(m => m.Membre.MotDePasse)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <button type="submit" class="btn btn-secondary"> Se connecter</button>
+
+                </td>
+            </tr>
+
+</table>
+            <button type="submit" class="btn btn-secondary"><a href="@("/Login/CreerCompteMembre/")" class="text-decoration-none link-light" )> Devenez Membre CodeVoyage</a></button>
+
         }
     }
 }

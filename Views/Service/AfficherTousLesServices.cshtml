@@ -70,14 +70,14 @@
                 <td>
                         <form method= "get" action="@("/Service/ModifierService/"+service.Id)">
 
-                            <input type="submit" value="Modifier" />
+                                    <button type="submit" class="btn btn-secondary"> Modifier</button>
                         </form>
                     </td>
                 <td>
                     <form method="get" action="@("/Service/SupprimerService/"+service.Id)">
 
-                        <input type="submit" value="Supprimer" />
-                    </form>
+                                    <button type="submit" class="btn btn-secondary"> Supprimer</button>
+                            </form>
                 </td>
             </tr>
         }

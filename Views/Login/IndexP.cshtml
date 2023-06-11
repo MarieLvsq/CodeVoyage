@@ -37,28 +37,48 @@
 }
 else
 {
-    <p>
-        Veuillez vous authentifier :
-    </p>
+
     using (Html.BeginForm())
     {
-        //if (User.IsInRole("Admin"))
-        //{
+            <table align="center" text-align="center">
+                <tr>
+                    <th>
+                        Veuillez vous authentifier :
+                    </th>
 
-        //}
-        <div>
-            @Html.LabelFor(m => m.Partenaire.email)
-            @Html.TextBoxFor(m => m.Partenaire.email)
-            @Html.ValidationMessageFor(m => m.Partenaire.email)
-        </div>
-        <div>
-            @Html.LabelFor(m => m.Partenaire.MotDePasse)
-            @Html.PasswordFor(m => m.Partenaire.MotDePasse)
-            @Html.ValidationMessageFor(m => m.Partenaire.MotDePasse)
-        </div>
-        <input type="submit" value="Se connecter" />
-        <br />
-        @Html.ActionLink("Devenez partenaire CodeVoyage", "CreerComptePartenaire", "Login")
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => m.Partenaire.email)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => m.Partenaire.email)
+                        @Html.ValidationMessageFor(m => m.Partenaire.email)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => m.Partenaire.MotDePasse)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.PasswordFor(m => m.Partenaire.MotDePasse)
+                        @Html.ValidationMessageFor(m => m.Partenaire.MotDePasse)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-secondary"> Se connecter</button>
+
+                    </td>
+                </tr>
+
+            </table>
+
+            <button type="submit" class="btn btn-secondary"><a href="@("/Login/CreerComptePartenaire/")" class="text-decoration-none link-light")> Devenez partenaire</a></button>
     }
 }
 }

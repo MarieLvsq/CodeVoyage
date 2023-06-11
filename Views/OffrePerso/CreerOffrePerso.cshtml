@@ -30,14 +30,12 @@
                     </td>
                 </tr>
                 <tr>
-             
+                    <td class="form-control">
+                        @Html.DropDownListFor(m => m.OffreId,new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
+                        @Html.ValidationMessageFor(m => Model.Offre)
+                    </td>
                 </tr>
-                <tr>
-                </tr>
-                <td class="form-control">
-                    @Html.DropDownListFor(m => m.OffreId,new SelectList(ViewBag.EvenementList, "Id", "EvenementDescription"))
-                    @Html.ValidationMessageFor(m => Model.Offre)
-                </td>
+               
                 <tr>
                     <td>
                         @Html.LabelFor(m => Model.ServicePerso)

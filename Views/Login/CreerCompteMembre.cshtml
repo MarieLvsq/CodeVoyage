@@ -5,98 +5,7 @@
 }
 
 @section content{
-<section class="">
-    <!-- Jumbotron -->
-    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
-        <div class="container">
-            <div class="row gx-lg-5 align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <h1 class="my-5 display-3 fw-bold ls-tight">
-                        Les meilleurs voyages<br />
-                        <span class="text-primary">au meilleur prix</span>
-                    </h1>
-                    <p style="color: hsl(217, 10%, 50.8%)">
-                        Inscris-toi
-                    </p>
-                </div>
 
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="card">
-                        <div class="card-body py-5 px-md-5">
-                            <form>
-                                <!-- 2 column grid layout with text inputs for the first and last names -->
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <div class="form-outline">
-                                            <input type="text" id="form3Example1" class="form-control" />
-                                            @Html.LabelFor(m => Model.Prenom)
-                                            <label class="form-label" for="form3Example1" style="color: black">Prenom</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <div class="form-outline">
-                                            <input type="text" id="form3Example2" class="form-control" />
-                                            @Html.LabelFor(m => Model.Nom)
-                                            <label class="form-label" for="form3Example2">Nom</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Email input -->
-                                <div class="form-outline mb-4">
-                                    <input type="email" id="form3Example3" class="form-control" />
-                                    @Html.LabelFor(m => Model.Email)
-                                    <label class="form-label" for="form3Example3">Email</label>
-                                </div>
-
-                                <!-- Password input -->
-                                <div class="form-outline mb-4">
-                                    <input type="password" id="form3Example4" class="form-control" />
-
-                                    <label class="form-label" for="form3Example4">Mot de passe</label>
-                                </div>
-
-                                <!-- Checkbox -->
-                                <div class="form-check d-flex justify-content-center mb-4">
-                                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                                    <label class="form-check-label" for="form2Example33">
-                                        Subscribe to our newsletter
-                                    </label>
-                                </div>
-
-                                <!-- Submit button -->
-                                <button type="submit" class="btn btn-primary btn-block mb-4">
-                                    Sign up
-                                </button>
-
-                                <!-- Register buttons -->
-                                <div class="text-center">
-                                    <p>or sign up with:</p>
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                        <i class="fab fa-google"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                        <i class="fab fa-twitter"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                        <i class="fab fa-github"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Jumbotron -->
-</section>
 
 
 <p>
@@ -108,37 +17,102 @@
 @using (Html.BeginForm("CreerCompteM", "Login", FormMethod.Post))
 {
     <fieldset>
-        <legend>Inscription d'un Membre: </legend>
-        @Html.LabelFor(m => Model.Nom)
-        @Html.TextBoxFor(m => Model.Nom)
-        @*@Html.ValidationMessageFor(m => Model.Nom)*@
-        <br />
-        @Html.LabelFor(m => Model.Prenom)
-        @Html.TextBoxFor(m => Model.Prenom)
-        @*Html.ValidationMessageFor(m => Model.Prenom)*@
-        <br />
-        @Html.LabelFor(m => Model.Email)
-        @Html.TextBoxFor(m => Model.Email)
-        @*Html.ValidationMessageFor(m => Model.Email)*@
-        <br />
-        @Html.LabelFor(m => Model.MotDePasse)
-        @Html.PasswordFor(m => m.MotDePasse)
-        @*Html.ValidationMessageFor(m => Model.Localisation)*@
-        <br />
-        @Html.LabelFor(m => Model.Localisation)
-        @Html.TextBoxFor(m => Model.Localisation)
-        @*Html.ValidationMessageFor(m => Model.Localisation)*@
-        <br />
-        @Html.LabelFor(m => Model.Age)
-        @Html.TextBoxFor(m => Model.Age)
-        @*Html.ValidationMessageFor(m => Model.Age)*@
-        <br />
-        @Html.LabelFor(m => Model.User)
-        @Html.DropDownListFor(m => m.User, Html.GetEnumSelectList<CodeVoyage.Models.Role>(), "Vous êtes")
-        @*Html.ValidationMessageFor(m => Model.User)*@
-        <br />
+            <table align="center" text-align="center">
+                <tr>
+                    <th>
+                        Veuillez remplir les champs pour créer votre compte :
 
-        <input type="submit" value="Créer" />
-    </fieldset>
+                    </th>
+
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Nom)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.Nom)
+                        @Html.ValidationMessageFor(m => Model.Nom)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Prenom)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.Prenom)
+                        @Html.ValidationMessageFor(m => Model.Prenom)
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.Email)
+                        @Html.ValidationMessageFor(m => Model.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.MotDePasse)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.PasswordFor(m => m.MotDePasse)
+                        @Html.ValidationMessageFor(m => Model.MotDePasse)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Localisation)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.Localisation)
+                        @Html.ValidationMessageFor(m => Model.Localisation)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Age)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.TextBoxFor(m => Model.Age)
+                        @Html.ValidationMessageFor(m => Model.Age)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.User)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-control">
+                        @Html.DropDownListFor(m => m.User, Html.GetEnumSelectList<CodeVoyage.Models.Role>(), "Vous êtes")
+                        @Html.ValidationMessageFor(m => Model.User)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-secondary"> S'inscrire</button>
+
+                    </td>
+                </tr>
+                </table>
+        </fieldset>
 }
 }
