@@ -153,7 +153,17 @@ namespace CodeVoyage.Models
                           Localisation = "Paris",
                           TypeEvenement = ((TypeEvenement)2)
 
-                      }
+                      },
+                       new Evenement
+                           {
+                           Id = 13,
+                           Nom = "Durban International Film Festival",
+                           DateDeb = new DateTime(2023, 07, 20),
+                           DateFin = new DateTime(2023, 07, 30),
+                           Localisation = "Durban",
+                           TypeEvenement = ((TypeEvenement)1)
+
+                           }
 
 
                 );
@@ -376,7 +386,19 @@ namespace CodeVoyage.Models
                       Transport = ((MoyenDeTransport)0),
                       Prix = 470
 
-                  }
+                  },
+                   new Itineraire
+                       {
+                       Id = 20,
+                       DateDepart = new DateTime(2023,07, 20),
+                       DateRetour = new DateTime(2023, 07, 30),
+                       LieuDepart = "Paris",
+                       Destination = "Durban",
+                       NombreVoyageur = 08,
+                       Transport = ((MoyenDeTransport)0),
+                       Prix = 750
+
+                       }
 
              );
          
@@ -601,12 +623,23 @@ namespace CodeVoyage.Models
                     Id = 5,
                     Nom = "Sixt",
                     Localisation = "Abidjan",
-                    email = "sixt@gmail.com",
+                    email = "contact@sixt.com",
                     MotDePasse = Dal.EncodeMD5("AAAAA"),
                     NumSiret = "1882378509",
                     TypeService = TypeService.Transport,
                     Role = Role.Entreprise
-                }
+                },
+                new Partenaire
+                    {
+                    Id = 6,
+                    Nom = "Visit South Africa",
+                    Localisation = "Durban",
+                    email = "Visit-SA@gmail.com",
+                    MotDePasse = Dal.EncodeMD5("AAAAA"),
+                    NumSiret = "1882378509",
+                    TypeService = TypeService.Transport,
+                    Role = Role.Entreprise
+                    }
             );
 
              this.Membres.AddRange(
@@ -620,7 +653,7 @@ namespace CodeVoyage.Models
                 MotDePasse=Dal.EncodeMD5("AAAAA"),
 
                 
-                Localisation = "Torento",
+                Localisation = "Toronto",
                 Age = 43,
                 User = Role.Association
             },
@@ -832,7 +865,7 @@ namespace CodeVoyage.Models
                Id = 1,
                Nom = "David",
                Prenom = "AITCHEOU",
-               Email = "Dav@gmail.com",
+               Email = "Dav@codevoyage.com",
                MotDePasse = Dal.EncodeMD5("OnePiece")
 
            });
